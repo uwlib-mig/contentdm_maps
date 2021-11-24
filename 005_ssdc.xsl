@@ -22,7 +22,7 @@
     <xsl:variable name="collection" select="'p16786coll3'"/>
     <!-- *would prefer to use remote file for processing but timed out with slow home internet -->
     <xsl:variable name="ssdc-combined-map" select="
-            document('../../schemasProject/dataDictionaries/xml/ssdc-combined-map.xml')"/>
+            document('../schemasProject/dataDictionaries/xml/ssdc-combined-map.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
     <xsl:variable name="na-standalone-prop"
         select="'^p88$|^p130$|^p116$|^p117$|^p118$|^p45$|^p131$|^p132$|^p138$|^p139$|^p47$|^p140$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p46$|^p55$|^p85$|^p128$|^p124$|^p57$|^p141$|^p133$|^p136$|^p137$|^p53$|^p98$|^p135$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p11$|^p79$|^p134$|^p80$'"/>
@@ -44,7 +44,7 @@
         <html>
             <head>
                 <title>SSDC MAP</title>
-                <link rel="stylesheet" href="mig_map.css"/>
+                <link href="docs_maps.css" rel="stylesheet" type="text/css"/>
                 <!-- future schema.org? -->
             </head>
             <body>
