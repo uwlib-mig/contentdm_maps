@@ -790,13 +790,13 @@
                                 WHEN MAP IS PUBLISHED ELSEWHERE! -->
                             <xsl:when test="$resource-type != 'na/standalone'">
                                 <a
-                                    href="{concat('https://briesenberg07.github.io/libraryNotes/ssdc_vertical_mig_test005.html#', mig2:uid, '-', $resource-type, '-', $object-type)}">
+                                    href="{concat('https://uwlib-mig.github.io/contentdm_maps/p16786coll3.html#', mig2:uid, '-', $resource-type, '-', $object-type)}">
                                     <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
                                 </a>
                             </xsl:when>
                             <xsl:when test="$resource-type = 'na/standalone'">
                                 <a
-                                    href="{concat('https://briesenberg07.github.io/libraryNotes/ssdc_vertical_mig_test005.html#', mig2:uid, '-standalone')}">
+                                    href="{concat('https://uwlib-mig.github.io/contentdm_maps/p16786coll3.html#', mig2:uid, '-standalone')}">
                                     <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
                                 </a>
                             </xsl:when>
@@ -1023,7 +1023,7 @@
             <p class="italic">
                 <xsl:text>Information for CONTENTdm administrators configuring </xsl:text>
                 <a
-                    href="https://briesenberg07.github.io/libraryNotes/images/cdm_edit_field_properties.jpg">
+                    href="https://uwlib-mig.github.io/contentdm_maps/images/cdm_edit_field_properties.jpg">
                     <xsl:text>field properties</xsl:text>
                 </a>
                 <xsl:text> for the collection</xsl:text>
@@ -1131,8 +1131,6 @@
     <!-- NOTES
         * This stylesheet does not account for many of the ways that instructions/examples/etc. may be organized 
         in the existing property-file structure. For example with the use of co = 'all' or co = 'agnostic' etc.
-        * 'RIGHT-CLICK TO COPY A LINK TO THESE INSTRUCTIONS' href construction will need to change when MAP is 
-        published at a new URL
         * I'd like MIG MAPs to indicate a platform somewhere (CONTENTdm should not be assumed)
         * 
     -->
