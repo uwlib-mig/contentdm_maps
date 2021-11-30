@@ -21,6 +21,7 @@
     <!-- VARIABLES -->
     <xsl:variable name="collection" select="'p16786coll3'"/>
     <!-- *would prefer to use remote file for processing but timed out with slow home internet -->
+    <!-- using single source doc here, will need to change when creating one transform to output multiple MAPs -->
     <xsl:variable name="ssdc-combined-map" select="
             document('../schemasProject/dataDictionaries/xml/ssdc-combined-map.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
