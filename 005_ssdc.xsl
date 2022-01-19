@@ -9,7 +9,7 @@
 
     <!-- INCLUDE CC0 template from webviews -->
     <xsl:include
-        href="https://raw.githubusercontent.com/uwlib-cams/webviews/master/xslt/common-elements.xsl"/>
+        href="https://uwlib-cams.github.io/webviews/xslt/common-elements.xsl"/>
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
@@ -45,7 +45,7 @@
         <html>
             <head>
                 <title>SSDC MAP</title>
-                <link href="docs_maps.css" rel="stylesheet" type="text/css"/>
+                <link href="https://uwlib-cams.github.io/webviews/css/contentdm_maps.css" rel="stylesheet" type="text/css"/>
                 <!-- future schema.org? -->
             </head>
             <body>
