@@ -44,6 +44,9 @@
     <xsl:template match="/">
         <html>
             <head>
+                <!-- favicon will be same for all MIG MAPs -->
+                <link rel="icon" type="image/png" href="images/Metadata.png"/>
+                <!-- bring brief title from contentdm_maps.xml or similar -->
                 <title>SSDC MAP</title>
                 <!-- use webviews > contentdm_maps.css -->
                 <link href="https://uwlib-cams.github.io/webviews/css/contentdm_maps.css" rel="stylesheet" type="text/css"/>
