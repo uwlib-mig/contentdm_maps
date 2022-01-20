@@ -238,7 +238,7 @@
             <h2 id="all-list">
                 <xsl:text>COMBINED PROPERTY LIST</xsl:text>
             </h2>
-            <p class="italic">Use this order when setting all fields in CONTENTdm administration</p>
+            <p class="italic">Use this order when setting fields in CONTENTdm administration</p>
             <br/>
         </div>
         <ol>
