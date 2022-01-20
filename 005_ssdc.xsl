@@ -97,7 +97,7 @@
                 <!-- license -->
                 <xsl:call-template name="CC0">
                     <xsl:with-param name="resource_title">
-                        <xsl:text>UWL MIG Metadata Application Profile: </xsl:text>
+                        <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
                         <xsl:value-of select="$ssdc-combined-map/mig:migDataDictionary/mig:ddName"/>
                         <xsl:text> - </xsl:text>
                         <xsl:value-of select="$collection"/>
@@ -110,7 +110,7 @@
     <!-- NAMED TEMPLATES -->
     <xsl:template name="top">
         <h1 class="title_color" id="top">
-            <xsl:text>UWL MIG Metadata Application Profile:</xsl:text>
+            <xsl:text>UWL MIG CONTENTdm Metadata Application Profile:</xsl:text>
             <br/>
             <xsl:value-of select="$ssdc-combined-map/mig:migDataDictionary/mig:ddName"/>
             <br/>
@@ -191,7 +191,7 @@
             </li>
         </ul>
     </xsl:template>
-    <xsl:template name="mig_map_backlink">
+    <xsl:template name="cdm_map_backlink">
         <div class="italic right_align bold title_color">
             <a href="#top">
                 <xsl:text>MAP info</xsl:text>
@@ -261,7 +261,7 @@
                 <br/>
             </xsl:for-each>
         </ol>
-        <xsl:call-template name="mig_map_backlink"/>
+        <xsl:call-template name="cdm_map_backlink"/>
     </xsl:template>
     <xsl:template name="all-list-details">
         <xsl:param name="property"/>
@@ -509,7 +509,7 @@
                         </tr>
                     </table>
                     <br/>
-                    <xsl:call-template name="mig_map_backlink"/>
+                    <xsl:call-template name="cdm_map_backlink"/>
                     <br/>
                 </div>
                 <br/>
@@ -815,7 +815,7 @@
                     <xsl:with-param name="resource-type" select="$resource-type"/>
                     <xsl:with-param name="object-type" select="$object-type"/>
                 </xsl:call-template>
-                <xsl:call-template name="mig_map_backlink"/>
+                <xsl:call-template name="cdm_map_backlink"/>
                 <br/>
             </div>
         </xsl:for-each>
@@ -1126,7 +1126,7 @@
             <!-- perhaps ideally call the [...]-tables-links template here to provide links 
                 to all guidance for the property
                 but I don't think this will work with the template as it is now -->
-            <xsl:call-template name="mig_map_backlink"/>
+            <xsl:call-template name="cdm_map_backlink"/>
         </xsl:for-each>
     </xsl:template>
 
