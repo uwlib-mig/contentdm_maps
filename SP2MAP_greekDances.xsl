@@ -18,7 +18,7 @@
     <!-- variables -->
     <!-- NEED CDM ALIAS / URL WILL CHANGE FOLLOWING ASSIGNMENT OF CDM ALIAS -->
     <!-- to do add collection alias once Greek Dances collection is created in CONTENTdm -->
-    <xsl:variable name="collection" select="'hygfdc'"/>
+    <xsl:variable name="collection" select="'gd'"/>
     <xsl:variable name="greekDances-dd"
         select="document('../schemasProject/dataDictionaries/xml/greekDances-dd.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
@@ -34,7 +34,7 @@
                 <!-- favicon will be same for all MIG MAPs -->
                 <link rel="icon" type="image/png" href="images/Metadata.png"/>
                 <!-- bring brief title from contentdm_maps.xml or similar -->
-                <title>HYGFDC MAP</title>
+                <title>HGFDC MAP</title>
                 <!-- use webviews > contentdm_maps.css -->
                 <link href="https://uwlib-cams.github.io/webviews/css/contentdm_maps.css"
                     rel="stylesheet" type="text/css"/>
@@ -340,76 +340,167 @@
                 <!-- <xsl:when test="$object-type = 'standalone'">no</xsl:when> -->
             </xsl:choose>
         </xsl:variable>
-        <xsl:for-each 
+        <xsl:for-each
             select="$greekDances-dd/mig2:property[matches(mig2:uid, $list-per-resource-and-object-type)]">
-        <br/>
-        <table class="prop_table">
-            <thead>
+            <br/>
+            <table class="prop_table">
+                <thead>
+                    <tr>
+                        <th colspan="2"
+                            id="{concat(mig2:uid, '-', $resource-type, '-', $object-type)}"
+                            class="{concat('prop_table_head', ' ', $resource-type, '_color')}">
+                            <div class="large_one">
+                                <xsl:text>AUDIOVISUAL RESOURCES > </xsl:text>
+                                <xsl:choose>
+                                    <xsl:when test="$object-type = 'co'">
+                                        <xsl:text>COMPOUND OBJECT > </xsl:text>
+                                    </xsl:when>
+                                    <xsl:when test="$object-type = 'coitem'">
+                                        <xsl:text>COMPOUND-OBJECT ITEM > </xsl:text>
+                                    </xsl:when>
+                                    <xsl:otherwise/>
+                                </xsl:choose>
+                            </div>
+                            <br/>
+                            <div class="large_two">
+                                <xsl:choose>
+                                    <xsl:when test="mig2:cdm/mig2:label/text()">
+                                        <xsl:value-of select="mig2:cdm/mig2:label"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="mig2:labels/mig2:platformIndependent"
+                                        />
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <!-- to do [?] new: add UID? Or just wait until props (concepts, etc.) are published? -->
                 <tr>
-                    <th colspan="2"
-                        id="{concat(mig2:uid, '-', $resource-type, '-', $object-type)}"
-                        class="{concat('prop_table_head', ' ', $resource-type, '_color')}">
-                        <div class="large_one">
-                            <xsl:text>AUDIOVISUAL RESOURCES > </xsl:text>
-                            <xsl:choose>
-                                <xsl:when test="$object-type = 'co'">
-                                    <xsl:text>COMPOUND OBJECT > </xsl:text>
-                                </xsl:when>
-                                <xsl:when test="$object-type = 'coitem'">
-                                    <xsl:text>COMPOUND-OBJECT ITEM > </xsl:text>
-                                </xsl:when>
-                                <xsl:otherwise/>
-                            </xsl:choose>
-                        </div>
+                    <th scope="row" class="right_align">
+                        <xsl:text>PROPERTY DEFINITION</xsl:text>
+                    </th>
+                    <td>
+                        <ul class="no_bullets">
+                            <xsl:for-each select="mig2:descriptions/mig2:definition/mig2:para">
+                                <li>
+                                    <xsl:value-of select="."/>
+                                </li>
+                            </xsl:for-each>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="right_align">
+                        <xsl:text>INSTRUCTIONS FOR CREATING VALUES</xsl:text>
+                    </th>
+                    <td>
                         <br/>
-                        <div class="large_two">
+                        <ul class="no_bullets">
+                            <!-- NEW HERE indicate whether property is hidden in guidance section -->
+                            <xsl:if test="mig2:cdm/mig2:hidden/text() = 'yes'">
+                                <li>
+                                    <span class="italic">
+                                        <xsl:text>Values entered for this property are not visible in the public interface.</xsl:text>
+                                        <br/>
+                                        <br/>
+                                    </span>
+                                </li>
+                            </xsl:if>
                             <xsl:choose>
-                                <xsl:when test="mig2:cdm/mig2:label/text()">
-                                    <xsl:value-of select="mig2:cdm/mig2:label"/>
+                                <xsl:when test="
+                                        mig2:descriptions/mig2:customization
+                                        [@co = $obj-type-in-prop-file]
+                                        [@dd = $collection]">
+                                    <xsl:for-each select="
+                                            mig2:descriptions/mig2:customization
+                                            [@co = $obj-type-in-prop-file]
+                                            [@dd = $collection]/mig2:para">
+                                        <li>
+                                            <xsl:value-of select="."/>
+                                        </li>
+                                    </xsl:for-each>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of
-                                        select="mig2:labels/mig2:platformIndependent"/>
+                                    <xsl:for-each select="
+                                            mig2:descriptions/mig2:instructions
+                                            [@co = $obj-type-in-prop-file]/mig2:para">
+                                        <li>
+                                            <xsl:value-of select="."/>
+                                        </li>
+                                    </xsl:for-each>
                                 </xsl:otherwise>
                             </xsl:choose>
-                        </div>
-                    </th>
+                        </ul>
+                        <br/>
+                    </td>
                 </tr>
-            </thead>
-            <!-- to do [?] new: add UID? Or just wait until props (concepts, etc.) are published? -->
-            <tr>
-                <th scope="row" class="right_align">
-                    <xsl:text>PROPERTY DEFINITION</xsl:text>
-                </th>
-                <td>
-                    <ul class="no_bullets">
-                        <xsl:for-each select="mig2:descriptions/mig2:definition/mig2:para">
-                            <li>
-                                <xsl:value-of select="."/>
-                            </li>
-                        </xsl:for-each>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row" class="right_align">
-                    <xsl:text>INSTRUCTIONS FOR CREATING VALUES</xsl:text>
-                </th>
-                <td>
-                    <br/>
-                    <!-- ... -->
-                </td>
-            </tr>
-            
-            
-        </table>
-        
-        
-        
-        
-        
+                <tr>
+                    <th scope="row" class="right_align">
+                        <xsl:text>EXAMPLE(S) OF WELL-FORMED VALUES</xsl:text>
+                    </th>
+                    <td>
+                        <br/>
+                        <ul class="no_bullets">
+                            <xsl:choose>
+                                <xsl:when test="
+                                        mig2:examples/mig2:customization
+                                        [@co = $obj-type-in-prop-file]
+                                        [@dd = $collection]">
+                                    <xsl:for-each select="
+                                            mig2:examples/mig2:customization
+                                            [@co = $obj-type-in-prop-file]
+                                            [@dd = $collection]/mig2:para">
+                                        <li>
+                                            <xsl:value-of select="."/>
+                                        </li>
+                                    </xsl:for-each>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:for-each select="
+                                            mig2:examples/mig2:example
+                                            [@co = $obj-type-in-prop-file]/mig2:para">
+                                        <li>
+                                            <xsl:value-of select="."/>
+                                        </li>
+                                    </xsl:for-each>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </ul>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="center_align">
+                        <xsl:text>RIGHT CLICK TO COPY A </xsl:text>
+                        <a href="{concat(
+                            'https://uwlib-mig.github.io/contentdm_maps/gd.html#',
+                            mig2:uid, 
+                            '-', $resource-type,
+                            '-', $object-type)}">
+                            <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <div class="toc_color">
+                <xsl:call-template name="prop-guidance-section-tables-links">
+                    <xsl:with-param name="property" select="."/>
+                    <!-- <xsl:with-param name="resource-type" select="$resource-type"/> -->
+                    <xsl:with-param name="object-type" select="$object-type"/>
+                </xsl:call-template>
+                <xsl:call-template name="cdm_map_backlink"/>
+                <br/>
+            </div>
         </xsl:for-each>
     </xsl:template>
-
-
+    <xsl:template name="prop-guidance-section-tables-links">
+        <xsl:param name="property"/>
+        <xsl:param name="object-type"/>
+        <div class="right_align">
+            <br/>
+            
+        </div>
+    </xsl:template>
 </xsl:stylesheet>
