@@ -692,6 +692,7 @@
                     <td>
                         <br/>
                         <ul class="no_bullets">
+                            <!-- BMR QUESTION why for-each here?? -->
                             <xsl:for-each select=".">
                                 <xsl:choose>
                                     <xsl:when test="$resource-type != 'na/standalone'">
@@ -756,6 +757,7 @@
                     <td>
                         <br/>
                         <ul class="no_bullets">
+                            <!-- BMR QUESTION why for-each here?? -->
                             <xsl:for-each select=".">
                                 <xsl:choose>
                                     <!-- XPath here won't retrieve custom examples for using props with standalone
