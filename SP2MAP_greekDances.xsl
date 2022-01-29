@@ -202,7 +202,7 @@
         </li>
     </xsl:template>
     <xsl:template name="cdm_map_backlink">
-        <div class="italic right_align bold title_color">
+        <div class="italic right_align bold">
             <a href="#top">
                 <xsl:text>MAP info</xsl:text>
             </a>
@@ -485,6 +485,7 @@
                     </td>
                 </tr>
             </table>
+            <br/>
             <div class="toc_color">
                 <xsl:call-template name="prop-guidance-section-tables-links">
                     <xsl:with-param name="property" select="."/>
@@ -501,7 +502,55 @@
         <xsl:param name="object-type"/>
         <div class="right_align">
             <br/>
-            
+            <xsl:choose>
+                <xsl:when test="$object-type = 'co'">
+                    <xsl:if test="matches($property/mig2:uid, $default-coitem-prop)">
+                        <xsl:text>See also guidance for using </xsl:text>
+                        <span class="bold large_one">
+                            <xsl:choose>
+                                <xsl:when test="$property/mig2:cdm/mig2:label/text()">
+                                    <xsl:value-of select="$property/mig2:cdm/mig2:label"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="$property/mig2:labels/mig2:platformIndependent"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </span>
+                        <xsl:text> with</xsl:text>
+                        <xsl:text> [</xsl:text>
+                        <a href="{concat('#', $property/mig2:uid, '-default-coitem')}">
+                            <xsl:text>AUDIOVISUAL RESOURCES > COMPOUND-OBJECT ITEMS</xsl:text>
+                        </a>
+                        <xsl:text>] </xsl:text>
+                    </xsl:if>
+                </xsl:when>
+                <xsl:when test="$object-type = 'coitem'">
+                    <xsl:if test="matches($property/mig2:uid, $default-co-prop)">
+                        <xsl:text>See also guidance for using </xsl:text>
+                        <span class="bold large_one">
+                            <xsl:choose>
+                                <xsl:when test="$property/mig2:cdm/mig2:label/text()">
+                                    <xsl:value-of select="$property/mig2:cdm/mig2:label"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="$property/mig2:labels/mig2:platformIndependent"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </span>
+                        <xsl:text> with</xsl:text>
+                        <xsl:text> [</xsl:text>
+                        <a href="{concat('#', $property/mig2:uid, '-default-co')}">
+                            <xsl:text>AUDIOVISUAL RESOURCES > COMPOUND OBJECTS</xsl:text>
+                        </a>
+                        <xsl:text>] </xsl:text>
+                    </xsl:if>
+                </xsl:when>
+            </xsl:choose>
         </div>
     </xsl:template>
+    
+    
+    
+    
+    
 </xsl:stylesheet>
