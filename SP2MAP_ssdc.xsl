@@ -188,7 +188,7 @@
             </li>
             <li class="settings_color toc_li">
                 <a href="#settings">
-                    <xsl:text>CONTENTdm PROPERTY SETTINGS</xsl:text>
+                    <xsl:text>CONTENTdm FIELD SETTINGS</xsl:text>
                 </a>
                 <xsl:text>: Requested CONTENTdm field settings for the collection</xsl:text>
             </li>
