@@ -54,6 +54,10 @@
                     <xsl:with-param name="co-prop" select="$default-co-prop"/>
                     <xsl:with-param name="coitem-prop" select="$default-coitem-prop"/>
                 </xsl:call-template>
+                <xsl:call-template name="prop-settings">
+                    <xsl:with-param name="greekDances-dd"
+                        select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
+                </xsl:call-template>
                 <xsl:call-template name="CC0">
                     <xsl:with-param name="resource_title">
                         <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
@@ -131,7 +135,7 @@
             </li>
             <li class="settings_color toc_li">
                 <a href="#settings">
-                    <xsl:text>CONTENTdm PROPERTY SETTINGS</xsl:text>
+                    <xsl:text>CONTENTdm FIELD SETTINGS</xsl:text>
                 </a>
                 <xsl:text>: Requested CONTENTdm field settings for the collection</xsl:text>
             </li>
@@ -548,9 +552,119 @@
             </xsl:choose>
         </div>
     </xsl:template>
-    
-    
-    
-    
-    
+    <xsl:template name="prop-settings">
+        <xsl:param name="greekDances-dd"/>
+        <br/>
+        <div class="settings_color">
+            <br/>
+            <h2 id="settings">
+                <xsl:text>CONTENTdm FIELD SETTINGS</xsl:text>
+            </h2>
+            <p class="italic">
+                <xsl:text>Information for CONTENTdm administrators configuring </xsl:text>
+                <a
+                    href="https://uwlib-mig.github.io/contentdm_maps/images/cdm_edit_field_properties.jpg">
+                    <xsl:text>field properties</xsl:text>
+                </a>
+                <xsl:text> for the collection</xsl:text>
+            </p>
+            <br/>
+        </div>
+        <xsl:for-each select="$greekDances-dd/mig2:property">
+            <br/>
+            <div class="settings_color">
+                <br/>
+                <h3 id="{concat(mig2:uid, '-settings')}">
+                    <span class="large_one">
+                        <xsl:text>CONTENTdm SETTINGS > </xsl:text>
+                    </span>
+                    <span class="large_two">
+                        <xsl:choose>
+                            <xsl:when test="mig2:cdm/mig2:label/text()">
+                                <xsl:value-of select="mig2:cdm/mig2:label"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="mig2:labels/mig2:platformIndependent"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </span>
+                </h3>
+                <br/>
+            </div>
+            <ul>
+                <!-- to do: if no cdm > label value exists, provide platformIndependent
+                    and indicate that property not for display in the public UI -->
+                <li>
+                    <span class="bold">
+                        <xsl:text>FIELD NAME: </xsl:text>
+                    </span>
+                    <span class="italic">
+                        <xsl:value-of select="mig2:cdm/mig2:label"/>
+                    </span>
+                </li>
+                <li>
+                    <span class="bold">
+                        <xsl:text>DC MAP SETTING: </xsl:text>
+                    </span>
+                    <span class="italic">
+                        <xsl:value-of select="mig2:labels/mig2:dc"/>
+                    </span>
+                </li>
+                <li>
+                    <span class="bold">
+                        <xsl:text>SHOW LARGE FIELD? </xsl:text>
+                    </span>
+                    <span class="italic">
+                        <xsl:value-of select="mig2:cdm/mig2:cdmLarge"/>
+                    </span>
+                </li>
+                <li>
+                    <span class="bold">
+                        <xsl:text>SEARCHABLE? </xsl:text>
+                    </span>
+                    <span class="italic">
+                        <xsl:value-of select="mig2:cdm/mig2:searchable"/>
+                    </span>
+                </li>
+                <li>
+                    <span class="bold">
+                        <xsl:text>HIDDEN? </xsl:text>
+                    </span>
+                    <span class="italic">
+                        <xsl:value-of select="mig2:cdm/mig2:hidden"/>
+                    </span>
+                </li>
+                <!-- not sure how to handle required, how required works in CONTENTdm admin interface -->
+                <li>
+                    <span class="bold">
+                        <xsl:text>'CONTROLLED-VOCABULARY' FEATURE? </xsl:text>
+                    </span>
+                    <span class="italic">
+                        <xsl:value-of select="mig2:cdm/mig2:cdmControlledVocab"/>
+                    </span>
+                </li>
+                <xsl:if
+                    test="mig2:additionalInfo/mig2:admin[@co = 'all'][@dd4para = 'p16786coll3']/node()">
+                    <li>
+                        <span class="bold">
+                            <xsl:text>ADDITIONAL ADMINISTRATIVE NOTES</xsl:text>
+                        </span>
+                    </li>
+                    <ul>
+                        <xsl:for-each
+                            select="mig2:additionalInfo/mig2:admin[@co = 'all'][@dd4para = 'p16786coll3']/mig2:para">
+                            <li>
+                                <xsl:value-of select="."/>
+                            </li>
+                        </xsl:for-each>
+                    </ul>
+                </xsl:if>
+                <!-- anything else pertinent? -->
+            </ul>
+            <!-- perhaps ideally call the [...]-tables-links template here to provide links 
+                to all guidance for the property
+                but I don't think this will work with the template as it is now -->
+            <xsl:call-template name="cdm_map_backlink"/>
+        </xsl:for-each>
+    </xsl:template>
 </xsl:stylesheet>
