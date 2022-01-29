@@ -5,8 +5,8 @@
     xmlns:mig2="http://faculty.washington.edu/tgis/schemasProject/xsd4md"
     exclude-result-prefixes="xs mig mig2" version="3.0">
 
-    <!-- INCLUDE CC0 template from webviews -->
-    <xsl:include href="https://uwlib-cams.github.io/webviews/xslt/common-elements.xsl"/>
+    <!-- INCLUDE cc-by-zero stylesheet > CC0 template from webviews -->
+    <xsl:include href="https://uwlib-cams.github.io/webviews/xslt/cc-by-zero.xsl"/>
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
@@ -63,6 +63,7 @@
                         <xsl:text>(*CONTENTdm alias to be assigned)</xsl:text>
                         <!-- TO DO: replace with Cdm coll. alias as available -->
                     </xsl:with-param>
+                    <xsl:with-param name="org" select="'mig'"/>
                 </xsl:call-template>
             </body>
         </html>
