@@ -105,6 +105,7 @@
                         <xsl:text> - </xsl:text>
                         <xsl:value-of select="$collection"/>
                     </xsl:with-param>
+                    <xsl:with-param name="org" select="'mig'"/>
                 </xsl:call-template>
             </body>
         </html>
