@@ -9,7 +9,7 @@
 
     <!-- INCLUDE webviews > cc-by-zero stylesheet for CC0 template -->
     <xsl:include
-        href="https://uwlib-cams.github.io/webviews/xslt/cc-by-zero-footer.xsl"/>
+        href="https://uwlib-cams.github.io/webviews/xslt/CC0-footer.xsl"/>
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
@@ -20,7 +20,7 @@
 
     <!-- VARIABLES -->
     <xsl:variable name="collection" select="'p16786coll3'"/>
-    <!-- *would prefer to use remote file for processing but timed out with slow home internet -->
+    <!-- Beware local filepath used to access property list in ssdc-combined-map variable below -->
     <!-- using single source doc here, will need to change when creating one transform to output multiple MAPs -->
     <xsl:variable name="ssdc-combined-map" select="
             document('../schemasProject/dataDictionaries/xml/ssdc-combined-map.xml')"/>
@@ -98,7 +98,7 @@
                         select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
                 </xsl:call-template>
                 <!-- license -->
-                <xsl:call-template name="CC0">
+                <xsl:call-template name="CC0-footer">
                     <xsl:with-param name="resource_title">
                         <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
                         <xsl:value-of select="$ssdc-combined-map/mig:migDataDictionary/mig:ddName"/>
