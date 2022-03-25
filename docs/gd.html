@@ -10,7 +10,7 @@
       <div class="large_one">
          <ul>
             <li>Original creation date: 2020-05-11</li>
-            <li>Most recent revision: 2022-03-15</li>
+            <li>Most recent revision: 2022-03-24</li>
             <li>Collection Manager(s): 
                <ul>Mary St. Germain - <a href="mailto:marys@uw.edu">marys@uw.edu</a></ul>
             </li>
@@ -1385,13 +1385,19 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR CREATING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Do not use for items in compound objects.</li>
-                  <li>Enter extent of video file in the object description.</li>
+                  <li>For video files (.mp4 files):</li>
+                  <li>Enter duration (runtime) of the video file.</li>
+                  <li>Format runtime as HH:MM:SS.</li>
+                  <li><br/>For tables of contents (.pdf files):</li>
+                  <li>Do not enter a value.</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
-            <td><br><ul class="no_bullets"></ul><br></td>
+            <td><br><ul class="no_bullets">
+                  <li>00:12:58</li>
+                  <li>01:28:14</li>
+               </ul><br></td>
          </tr>
          <tr>
             <td colspan="2" class="center_align">RIGHT CLICK TO COPY A <a href="https://uwlib-mig.github.io/contentdm_maps/gd.html#p37-default-coitem">LINK TO THESE INSTRUCTIONS</a></td>
@@ -1417,19 +1423,18 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR CREATING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Enter the file format of the access item.</li>
-                  <li>Use media types listed at <a href="http://www.iana.org/assignments/media-types/index.html">http://www.iana.org/assignments/media-types/index.html</a>.</li>
-                  <li>For audio WAVE files, enter "audio/wav".</li>
+                  <li>Enter the file format of the compound-object item (video file or table of contents).</li>
+                  <li><br/>For .mp4 files enter the following:</li>
+                  <li>video/mp4</li>
+                  <li><br/>For .pdf files enter the following:</li>
+                  <li>application/pdf</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>audio/mpeg</li>
-                  <li>image/jpeg</li>
-                  <li>application/pdf</li>
-                  <li>text/plain</li>
                   <li>video/mp4</li>
+                  <li>application/pdf</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -1457,24 +1462,17 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR CREATING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li>Enter the original format.</li>
-                  <li>When the original is non-digital, use a label from one of the entries of the RDA Registry's
-                     RDA Carrier Type Vocabulary currently available at https://www.rdaregistry.info/termList/RDACarrierType/</li>
-                  <li>When the original is digital, use media types listed at http://www.iana.org/assignments/media-types/index.html</li>
-                  <li>For audio WAVE files, enter "audio/wav".</li>
-                  <li>When 'Original Format' is the same as the 'Digital Format,' enter the mime type in
-                     both fields.</li>
+                  <li><br/>For video content taken from VHS tapes, use the following value from the <a href="http://www.rdaregistry.info/termList/RDACarrierType/">RDA Carrier Type</a> vocabulary:</li>
+                  <li>videocassette</li>
+                  <li><br/>For tables of contents created using MS Word, use the following value from the <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA Media Types registry</a>:</li>
+                  <li>application/msword</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>image/tiff; video/mp4; online resource</li>
-                  <li>audio/wav</li>
-                  <li>audiotape reel</li>
-                  <li></li>
-                  <li>computer disc</li>
                   <li>videocassette</li>
-                  <li>video/mp4</li>
+                  <li>application/msword</li>
                </ul><br></td>
          </tr>
          <tr>
