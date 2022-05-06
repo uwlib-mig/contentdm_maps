@@ -23,7 +23,7 @@
         select="document('../schemasProject/dataDictionaries/xml/greekDances-dd.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
     <xsl:variable name="default-co-prop"
-        select="'^p88$|^p101$|^p102$|^p103$|^p23$|^p21$|^p26$|^p104$|^p105$|^p106$|^p55$|^p111$|^p144$|^p108$|^p145$|^p128$|^p57$|^p28$|^p30$|^p90$|^p59$|^p77$|^p75$|^p71$|^p79$|^p44$|^p109$'"/>
+        select="'^p88$|^p101$|^p102$|^p103$|^p23$|^p21$|^p26$|^p104$|^p105$|^p106$|^p55$|^p111$|^p144$|^p108$|^p145$|^p128$|^p57$|^p28$|^p30$|^p90$|^p59$|^p77$|^p75$|^p71$|^p79$|^p109$'"/>
     <xsl:variable name="default-coitem-prop"
         select="'^p88$|^p55$|^p28$|^p30$|^p90$|^p37$|^p29$|^p62$|^p31$|^p79$'"/>
 
