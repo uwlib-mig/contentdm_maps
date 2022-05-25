@@ -482,7 +482,9 @@
                     <td colspan="2" class="center_align">
                         <xsl:text>RIGHT CLICK TO COPY A </xsl:text>
                         <a href="{concat(
-                            'https://uwlib-mig.github.io/contentdm_maps/gd.html#',
+                            'https://uwlib-mig.github.io/contentdm_maps/', 
+                            $collection, 
+                            '.html#',
                             mig2:uid, 
                             '-', $resource-type,
                             '-', $object-type)}">
