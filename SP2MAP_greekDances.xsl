@@ -64,9 +64,7 @@
                             <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
                             <xsl:value-of select="$greekDances-dd/mig:migDataDictionary/mig:ddName"/>
                             <xsl:text> - </xsl:text>
-                            <!-- <xsl:value-of select="$collection"/> -->
-                            <xsl:text>(*CONTENTdm alias to be assigned)</xsl:text>
-                            <!-- TO DO: replace with Cdm coll. alias as available -->
+                            <xsl:value-of select="$collection"/>
                         </xsl:with-param>
                         <xsl:with-param name="org" select="'mig'"/>
                     </xsl:call-template>
