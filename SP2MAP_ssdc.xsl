@@ -8,8 +8,7 @@
     <!-- see NOTES at bottom of stylesheet -->
 
     <!-- INCLUDE webviews > cc-by-zero stylesheet for CC0 template -->
-    <xsl:include
-        href="https://uwlib-cams.github.io/webviews/xslt/CC0-footer.xsl"/>
+    <xsl:include href="https://uwlib-cams.github.io/webviews/xslt/CC0-footer.xsl"/>
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
@@ -29,8 +28,7 @@
         select="'^p88$|^p130$|^p116$|^p117$|^p118$|^p45$|^p131$|^p132$|^p138$|^p139$|^p47$|^p140$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p46$|^p55$|^p85$|^p128$|^p124$|^p57$|^p141$|^p133$|^p136$|^p137$|^p53$|^p98$|^p135$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p11$|^p79$|^p134$|^p80$|^p44$'"/>
     <xsl:variable name="text-co-prop"
         select="'^p88$$|^p116$|^p117$|^p118$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p55$|^p85$|^p128$|^p124$|^p57$|^p133$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p67$|^p31$|^p11$|^p79$|^p44$'"/>
-    <xsl:variable name="text-coitem-prop"
-        select="'^p88$|^p28$|^p71$|^p90$|^p29$|^p134$'"/>
+    <xsl:variable name="text-coitem-prop" select="'^p88$|^p28$|^p71$|^p90$|^p29$|^p134$'"/>
     <xsl:variable name="song-co-prop"
         select="'^p88|^p130$|^p132$|^p138$|^p139$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p55$|^p128$|^p57$|^p141$|^p133$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p11$|^p79$|^p44$'"/>
     <xsl:variable name="song-coitem-prop"
@@ -42,73 +40,77 @@
 
     <!-- ROOT TEMPLATE -->
     <xsl:template match="/">
-        <html>
-            <head>
-                <!-- favicon will be same for all MIG MAPs -->
-                <link rel="icon" type="image/png" href="images/Metadata.png"/>
-                <!-- bring brief title from contentdm_maps.xml or similar -->
-                <title>SSDC MAP</title>
-                <!-- use webviews > contentdm_maps.css -->
-                <link href="https://uwlib-cams.github.io/webviews/css/contentdm_maps.css" rel="stylesheet" type="text/css"/>
-                <!-- future schema.org? -->
-            </head>
-            <body>
-                <xsl:call-template name="top"/>
-                <xsl:call-template name="toc"/>
-                <!-- combined prop list -->
-                <xsl:call-template name="all-list-start">
-                    <xsl:with-param name="ssdc-combined-map"
-                        select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
-                </xsl:call-template>
-                <!-- text -->
-                <xsl:call-template name="prop-guidance-section-start">
-                    <xsl:with-param name="ssdc-combined-map"
-                        select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
-                    <xsl:with-param name="resource-type" select="'text'"/>
-                    <xsl:with-param name="co-prop" select="$text-co-prop"/>
-                    <xsl:with-param name="coitem-prop" select="$text-coitem-prop"/>
-                </xsl:call-template>
-                <!-- song -->
-                <xsl:call-template name="prop-guidance-section-start">
-                    <xsl:with-param name="ssdc-combined-map"
-                        select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
-                    <xsl:with-param name="resource-type" select="'song'"/>
-                    <xsl:with-param name="co-prop" select="$song-co-prop"/>
-                    <xsl:with-param name="coitem-prop" select="$song-coitem-prop"/>
-                </xsl:call-template>
-                <!-- oh -->
-                <xsl:call-template name="prop-guidance-section-start">
-                    <xsl:with-param name="ssdc-combined-map"
-                        select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
-                    <xsl:with-param name="resource-type" select="'oh'"/>
-                    <xsl:with-param name="co-prop" select="$oh-co-prop"/>
-                    <xsl:with-param name="coitem-prop" select="$oh-coitem-prop"/>
-                </xsl:call-template>
-                <!-- standalone -->
-                <xsl:call-template name="prop-guidance-section-start">
-                    <xsl:with-param name="ssdc-combined-map"
-                        select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
-                    <xsl:with-param name="resource-type" select="'na/standalone'"/>
-                    <xsl:with-param name="co-prop" select="'na/standalone'"/>
-                    <xsl:with-param name="coitem-prop" select="'na/standalone'"/>
-                </xsl:call-template>
-                <!-- settings -->
-                <xsl:call-template name="prop-settings">
-                    <xsl:with-param name="ssdc-combined-map"
-                        select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
-                </xsl:call-template>
-                <!-- license -->
-                <xsl:call-template name="CC0-footer">
-                    <xsl:with-param name="resource_title">
-                        <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
-                        <xsl:value-of select="$ssdc-combined-map/mig:migDataDictionary/mig:ddName"/>
-                        <xsl:text> - </xsl:text>
-                        <xsl:value-of select="$collection"/>
-                    </xsl:with-param>
-                    <xsl:with-param name="org" select="'mig'"/>
-                </xsl:call-template>
-            </body>
-        </html>
+        <xsl:result-document href="{concat('docs/', $collection, '.html')}">
+            <html>
+                <head>
+                    <!-- favicon will be same for all MIG MAPs -->
+                    <link rel="icon" type="image/png" href="images/Metadata.png"/>
+                    <!-- bring brief title from contentdm_maps.xml or similar -->
+                    <title>SSDC MAP</title>
+                    <!-- use webviews > contentdm_maps.css -->
+                    <link href="https://uwlib-cams.github.io/webviews/css/contentdm_maps.css"
+                        rel="stylesheet" type="text/css"/>
+                    <!-- future schema.org? -->
+                </head>
+                <body>
+                    <xsl:call-template name="top"/>
+                    <xsl:call-template name="toc"/>
+                    <!-- combined prop list -->
+                    <xsl:call-template name="all-list-start">
+                        <xsl:with-param name="ssdc-combined-map"
+                            select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
+                    </xsl:call-template>
+                    <!-- text -->
+                    <xsl:call-template name="prop-guidance-section-start">
+                        <xsl:with-param name="ssdc-combined-map"
+                            select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
+                        <xsl:with-param name="resource-type" select="'text'"/>
+                        <xsl:with-param name="co-prop" select="$text-co-prop"/>
+                        <xsl:with-param name="coitem-prop" select="$text-coitem-prop"/>
+                    </xsl:call-template>
+                    <!-- song -->
+                    <xsl:call-template name="prop-guidance-section-start">
+                        <xsl:with-param name="ssdc-combined-map"
+                            select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
+                        <xsl:with-param name="resource-type" select="'song'"/>
+                        <xsl:with-param name="co-prop" select="$song-co-prop"/>
+                        <xsl:with-param name="coitem-prop" select="$song-coitem-prop"/>
+                    </xsl:call-template>
+                    <!-- oh -->
+                    <xsl:call-template name="prop-guidance-section-start">
+                        <xsl:with-param name="ssdc-combined-map"
+                            select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
+                        <xsl:with-param name="resource-type" select="'oh'"/>
+                        <xsl:with-param name="co-prop" select="$oh-co-prop"/>
+                        <xsl:with-param name="coitem-prop" select="$oh-coitem-prop"/>
+                    </xsl:call-template>
+                    <!-- standalone -->
+                    <xsl:call-template name="prop-guidance-section-start">
+                        <xsl:with-param name="ssdc-combined-map"
+                            select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
+                        <xsl:with-param name="resource-type" select="'na/standalone'"/>
+                        <xsl:with-param name="co-prop" select="'na/standalone'"/>
+                        <xsl:with-param name="coitem-prop" select="'na/standalone'"/>
+                    </xsl:call-template>
+                    <!-- settings -->
+                    <xsl:call-template name="prop-settings">
+                        <xsl:with-param name="ssdc-combined-map"
+                            select="$ssdc-combined-map/mig:migDataDictionary/mig:properties"/>
+                    </xsl:call-template>
+                    <!-- license -->
+                    <xsl:call-template name="CC0-footer">
+                        <xsl:with-param name="resource_title">
+                            <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
+                            <xsl:value-of
+                                select="$ssdc-combined-map/mig:migDataDictionary/mig:ddName"/>
+                            <xsl:text> - </xsl:text>
+                            <xsl:value-of select="$collection"/>
+                        </xsl:with-param>
+                        <xsl:with-param name="org" select="'mig'"/>
+                    </xsl:call-template>
+                </body>
+            </html>
+        </xsl:result-document>
     </xsl:template>
 
     <!-- NAMED TEMPLATES -->
@@ -118,7 +120,8 @@
             <br/>
             <xsl:value-of select="$ssdc-combined-map/mig:migDataDictionary/mig:ddName"/>
             <br/>
-            <xsl:text>CONTENTdm collection alias: </xsl:text><xsl:value-of select="$collection"/>
+            <xsl:text>CONTENTdm collection alias: </xsl:text>
+            <xsl:value-of select="$collection"/>
         </h1>
         <!-- link to the collection front page might be nice -->
         <div class="large_one">
