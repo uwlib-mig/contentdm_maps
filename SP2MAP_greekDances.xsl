@@ -18,59 +18,61 @@
     <!-- variables -->
     <!-- NEED CDM ALIAS / URL WILL CHANGE FOLLOWING ASSIGNMENT OF CDM ALIAS -->
     <!-- to do add collection alias once Greek Dances collection is created in CONTENTdm -->
-    <xsl:variable name="collection" select="'gd'"/>
+    <xsl:variable name="collection" select="'greekdancing'"/>
     <xsl:variable name="greekDances-dd"
         select="document('../schemasProject/dataDictionaries/xml/greekDances-dd.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
     <xsl:variable name="default-co-prop"
-        select="'^p88$|^p101$|^p102$|^p103$|^p23$|^p21$|^p26$|^p104$|^p105$|^p106$|^p55$|^p111$|^p144$|^p108$|^p145$|^p128$|^p57$|^p28$|^p30$|^p90$|^p59$|^p77$|^p75$|^p71$|^p79$|^p109$'"/>
+        select="'^p88$|^p101$|^p102$|^p103$|^p23$|^p21$|^p26$|^p104$|^p105$|^p106$|^p55$|^p111$|^p144$|^p108$|^p145$|^p128$|^p57$|^p28$|^p30$|^p90$|^p59$|^p77$|^p75$|^p71$|^p79$|^p109$|^p44$'"/>
     <xsl:variable name="default-coitem-prop"
-        select="'^p88$|^p55$|^p28$|^p30$|^p90$|^p37$|^p29$|^p62$|^p31$|^p79$'"/>
+        select="'^p88$|^p55$|^p28$|^p30$|^p90$|^p37$|^p29$|^p62$|^p31$|^p79$|^p134$'"/>
 
     <!-- ROOT TEMPLATE -->
     <xsl:template match="/">
-        <html>
-            <head>
-                <!-- favicon will be same for all MIG MAPs -->
-                <link rel="icon" type="image/png" href="images/Metadata.png"/>
-                <!-- bring brief title from contentdm_maps.xml or similar -->
-                <title>HGFDC MAP</title>
-                <!-- use webviews > contentdm_maps.css -->
-                <link href="https://uwlib-cams.github.io/webviews/css/contentdm_maps.css"
-                    rel="stylesheet" type="text/css"/>
-                <!-- future schema.org? -->
-            </head>
-            <body>
-                <xsl:call-template name="top"/>
-                <xsl:call-template name="toc"/>
-                <xsl:call-template name="all-list-start">
-                    <xsl:with-param name="greekDances-dd"
-                        select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
-                </xsl:call-template>
-                <xsl:call-template name="prop-guidance-section-start">
-                    <xsl:with-param name="greekDances-dd"
-                        select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
-                    <xsl:with-param name="resource-type" select="'default'"/>
-                    <xsl:with-param name="co-prop" select="$default-co-prop"/>
-                    <xsl:with-param name="coitem-prop" select="$default-coitem-prop"/>
-                </xsl:call-template>
-                <xsl:call-template name="prop-settings">
-                    <xsl:with-param name="greekDances-dd"
-                        select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
-                </xsl:call-template>
-                <xsl:call-template name="CC0-footer">
-                    <xsl:with-param name="resource_title">
-                        <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
-                        <xsl:value-of select="$greekDances-dd/mig:migDataDictionary/mig:ddName"/>
-                        <xsl:text> - </xsl:text>
-                        <!-- <xsl:value-of select="$collection"/> -->
-                        <xsl:text>(*CONTENTdm alias to be assigned)</xsl:text>
-                        <!-- TO DO: replace with Cdm coll. alias as available -->
-                    </xsl:with-param>
-                    <xsl:with-param name="org" select="'mig'"/>
-                </xsl:call-template>
-            </body>
-        </html>
+        <xsl:result-document href="{concat('docs/', $collection, '.html')}">
+            <html>
+                <head>
+                    <!-- favicon will be same for all MIG MAPs -->
+                    <link rel="icon" type="image/png" href="images/Metadata.png"/>
+                    <!-- bring brief title from contentdm_maps.xml or similar -->
+                    <title>HGFDC MAP</title>
+                    <!-- use webviews > contentdm_maps.css -->
+                    <link href="https://uwlib-cams.github.io/webviews/css/contentdm_maps.css"
+                        rel="stylesheet" type="text/css"/>
+                    <!-- future schema.org? -->
+                </head>
+                <body>
+                    <xsl:call-template name="top"/>
+                    <xsl:call-template name="toc"/>
+                    <xsl:call-template name="all-list-start">
+                        <xsl:with-param name="greekDances-dd"
+                            select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="prop-guidance-section-start">
+                        <xsl:with-param name="greekDances-dd"
+                            select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
+                        <xsl:with-param name="resource-type" select="'default'"/>
+                        <xsl:with-param name="co-prop" select="$default-co-prop"/>
+                        <xsl:with-param name="coitem-prop" select="$default-coitem-prop"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="prop-settings">
+                        <xsl:with-param name="greekDances-dd"
+                            select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="CC0-footer">
+                        <xsl:with-param name="resource_title">
+                            <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
+                            <xsl:value-of select="$greekDances-dd/mig:migDataDictionary/mig:ddName"/>
+                            <xsl:text> - </xsl:text>
+                            <!-- <xsl:value-of select="$collection"/> -->
+                            <xsl:text>(*CONTENTdm alias to be assigned)</xsl:text>
+                            <!-- TO DO: replace with Cdm coll. alias as available -->
+                        </xsl:with-param>
+                        <xsl:with-param name="org" select="'mig'"/>
+                    </xsl:call-template>
+                </body>
+            </html>
+        </xsl:result-document>
     </xsl:template>
 
     <!-- NAMED TEMPLATES -->
@@ -81,8 +83,8 @@
             <xsl:value-of select="$greekDances-dd/mig:migDataDictionary/mig:ddName"/>
             <br/>
             <!-- TO DO / NEED CDM ALIAS / -->
-            <xsl:text>(*CONTENTdm collection alias to be assigned)</xsl:text>
-            <!-- to do add collection alias once Greek Dances collection is created in CONTENTdm -->
+            <xsl:text>CONTENTdm collection alias: </xsl:text>
+            <xsl:value-of select="$collection"/>
         </h1>
         <div class="large_one">
             <ul>
@@ -516,7 +518,8 @@
                                     <xsl:value-of select="$property/mig2:cdm/mig2:label"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="$property/mig2:labels/mig2:platformIndependent"/>
+                                    <xsl:value-of
+                                        select="$property/mig2:labels/mig2:platformIndependent"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </span>
@@ -537,7 +540,8 @@
                                     <xsl:value-of select="$property/mig2:cdm/mig2:label"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="$property/mig2:labels/mig2:platformIndependent"/>
+                                    <xsl:value-of
+                                        select="$property/mig2:labels/mig2:platformIndependent"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </span>
