@@ -26,17 +26,17 @@
             document('../schemasProject/dataDictionaries/xml/ssdc-combined-map.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
     <xsl:variable name="na-standalone-prop"
-        select="'^p88$|^p130$|^p116$|^p117$|^p118$|^p45$|^p131$|^p132$|^p138$|^p139$|^p47$|^p140$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p46$|^p55$|^p85$|^p128$|^p124$|^p57$|^p141$|^p133$|^p136$|^p137$|^p53$|^p98$|^p135$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p11$|^p79$|^p134$|^p80$'"/>
+        select="'^p88$|^p130$|^p116$|^p117$|^p118$|^p45$|^p131$|^p132$|^p138$|^p139$|^p47$|^p140$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p46$|^p55$|^p85$|^p128$|^p124$|^p57$|^p141$|^p133$|^p136$|^p137$|^p53$|^p98$|^p135$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p11$|^p79$|^p134$|^p80$|^p44$'"/>
     <xsl:variable name="text-co-prop"
-        select="'^p88$$|^p116$|^p117$|^p118$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p55$|^p85$|^p128$|^p124$|^p57$|^p133$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p67$|^p31$|^p11$|^p79$'"/>
+        select="'^p88$$|^p116$|^p117$|^p118$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p55$|^p85$|^p128$|^p124$|^p57$|^p133$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p67$|^p31$|^p11$|^p79$|^p44$'"/>
     <xsl:variable name="text-coitem-prop"
         select="'^p88$|^p28$|^p71$|^p90$|^p29$|^p134$'"/>
     <xsl:variable name="song-co-prop"
-        select="'^p88|^p130$|^p132$|^p138$|^p139$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p55$|^p128$|^p57$|^p141$|^p133$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p11$|^p79$'"/>
+        select="'^p88|^p130$|^p132$|^p138$|^p139$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p55$|^p128$|^p57$|^p141$|^p133$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p11$|^p79$|^p44$'"/>
     <xsl:variable name="song-coitem-prop"
         select="'^p88$|^p28$|^p71$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p134$'"/>
     <xsl:variable name="oh-co-prop"
-        select="'^p88$|^p45$|^p131$|^p47$|^p140$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p46$|^p55$|^p85$|^p128$|^p57$|^p136$|^p137$|^p53$|^p98$|^p135$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p11$|^p79$'"/>
+        select="'^p88$|^p45$|^p131$|^p47$|^p140$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p46$|^p55$|^p85$|^p128$|^p57$|^p136$|^p137$|^p53$|^p98$|^p135$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p11$|^p79$|^p44$'"/>
     <xsl:variable name="oh-coitem-prop"
         select="'^p88$|^p28$|^p71$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p134$'"/>
 
@@ -118,7 +118,7 @@
             <br/>
             <xsl:value-of select="$ssdc-combined-map/mig:migDataDictionary/mig:ddName"/>
             <br/>
-            <xsl:value-of select="$collection"/>
+            <xsl:text>CONTENTdm collection alias: </xsl:text><xsl:value-of select="$collection"/>
         </h1>
         <!-- link to the collection front page might be nice -->
         <div class="large_one">
