@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contentdm_map xmlns="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:cdmmap="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xmlns:cdmstore="https://uwlib-mig.github.io/contentdm_storage/xsd/"
+    xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ https://uwlib-mig.github.io/contentdm_maps/xsd/contentdm_map.xsd">
+
+    <cdm_alias>temp_alias_001</cdm_alias>
+    <metadata_liaison>
+        <cdmstore:li><cdmstore:a href="mailto:ries07@uw.edu">Benjamin
+            Riesenberg</cdmstore:a></cdmstore:li>
+    </metadata_liaison>
+    <collection_manager>
+        <cdmstore:li><cdmstore:a href="mailto:erikaab@uw.edu">Erika
+            Bailey</cdmstore:a></cdmstore:li>
+    </collection_manager>
+    <elements>
+        <xi:include href="../../contentdm_storage/xml/title.xml"/>
+        
+        <!--
+        <xi:include href="../../contentdm_storage/xml/"/>
+        -->
+    </elements>
+
+</contentdm_map>
