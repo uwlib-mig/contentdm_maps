@@ -6,7 +6,7 @@
     xmlns:cdmstore="https://uwlib-mig.github.io/contentdm_storage/xsd/"
     xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ https://uwlib-mig.github.io/contentdm_maps/xsd/contentdm_map.xsd">
 
-    <cdm_alias>temp_alias_001</cdm_alias>
+    <cdm_alias>temp_001</cdm_alias>
     <metadata_liaison>
         <cdmstore:li><cdmstore:a href="mailto:ries07@uw.edu">Benjamin
             Riesenberg</cdmstore:a></cdmstore:li>
@@ -16,7 +16,9 @@
             Bailey</cdmstore:a></cdmstore:li>
     </collection_manager>
     <elements>
+        <xi:include href="../../contentdm_storage/xml/test_element_001.xml"/>
         <xi:include href="../../contentdm_storage/xml/title.xml"/>
+        <xi:include href="../../contentdm_storage/xml/extent.xml"/>
         
         <!--
         <xi:include href="../../contentdm_storage/xml/"/>
