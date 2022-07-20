@@ -7,6 +7,8 @@
     xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ https://uwlib-mig.github.io/contentdm_maps/xsd/contentdm_map.xsd">
 
     <cdm_alias>temp_001</cdm_alias>
+    <!-- add to schema or come up with another way to get a MAP title -->
+    <coll_title>Tacoma Japanese Language School Project</coll_title>
     <metadata_liaison>
         <cdmstore:li><cdmstore:a href="mailto:ries07@uw.edu">Benjamin
             Riesenberg</cdmstore:a></cdmstore:li>
