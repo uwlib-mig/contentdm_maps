@@ -20,7 +20,7 @@
     <!-- to do add collection alias once Greek Dances collection is created in CONTENTdm -->
     <xsl:variable name="collection" select="'greekdancing'"/>
     <xsl:variable name="greekDances-dd"
-        select="document('../schemasProject/dataDictionaries/xml/greekDances-dd.xml')"/>
+        select="document('../../schemasProject/dataDictionaries/xml/greekDances-dd.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
     <xsl:variable name="default-co-prop"
         select="'^p88$|^p101$|^p102$|^p103$|^p23$|^p21$|^p26$|^p104$|^p105$|^p106$|^p55$|^p111$|^p144$|^p108$|^p145$|^p128$|^p57$|^p28$|^p30$|^p90$|^p59$|^p77$|^p75$|^p71$|^p79$|^p109$|^p44$'"/>
@@ -29,7 +29,7 @@
 
     <!-- ROOT TEMPLATE -->
     <xsl:template match="/">
-        <xsl:result-document href="{concat('docs/', $collection, '.html')}">
+        <xsl:result-document href="{concat('../html/', $collection, '.html')}">
             <html>
                 <head>
                     <!-- favicon will be same for all MIG MAPs -->
@@ -37,7 +37,7 @@
                     <!-- bring brief title from contentdm_maps.xml or similar -->
                     <title>HGFDC MAP</title>
                     <!-- use webviews > contentdm_maps.css -->
-                    <link href="https://uwlib-cams.github.io/webviews/css/contentdm_maps.css"
+                    <link href="https://uwlib-cams.github.io/webviews/css/SP2MAP.css"
                         rel="stylesheet" type="text/css"/>
                     <!-- future schema.org? -->
                 </head>
