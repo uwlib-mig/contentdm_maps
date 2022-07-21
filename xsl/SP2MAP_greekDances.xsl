@@ -37,7 +37,7 @@
                     <!-- bring brief title from contentdm_maps.xml or similar -->
                     <title>HGFDC MAP</title>
                     <!-- use webviews > contentdm_maps.css -->
-                    <link href="https://uwlib-cams.github.io/webviews/css/SP2MAP.css"
+                    <link href="https://uwlib-cams.github.io/webviews/css/schemasProject-to-map.css"
                         rel="stylesheet" type="text/css"/>
                     <!-- future schema.org? -->
                 </head>
