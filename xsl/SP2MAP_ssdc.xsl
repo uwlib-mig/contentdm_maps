@@ -801,13 +801,13 @@
                                 WHEN MAP IS PUBLISHED ELSEWHERE! -->
                             <xsl:when test="$resource-type != 'na/standalone'">
                                 <a
-                                    href="{concat('https://uwlib-mig.github.io/contentdm_maps/p16786coll3.html#', mig2:uid, '-', $resource-type, '-', $object-type)}">
+                                    href="{concat('https://uwlib-mig.github.io/contentdm_maps/html/p16786coll3.html#', mig2:uid, '-', $resource-type, '-', $object-type)}">
                                     <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
                                 </a>
                             </xsl:when>
                             <xsl:when test="$resource-type = 'na/standalone'">
                                 <a
-                                    href="{concat('https://uwlib-mig.github.io/contentdm_maps/p16786coll3.html#', mig2:uid, '-standalone')}">
+                                    href="{concat('https://uwlib-mig.github.io/contentdm_maps/html/p16786coll3.html#', mig2:uid, '-standalone')}">
                                     <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
                                 </a>
                             </xsl:when>
