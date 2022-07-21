@@ -8,7 +8,7 @@
     <!-- see NOTES at bottom of stylesheet -->
 
     <!-- INCLUDE webviews > cc-by-zero stylesheet for CC0 template -->
-    <xsl:include href="https://uwlib-cams.github.io/webviews/xslt/CC0-footer.xsl"/>
+    <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/CC0-footer.xsl"/>
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
@@ -22,7 +22,7 @@
     <!-- Beware local filepath used to access property list in ssdc-combined-map variable below -->
     <!-- using single source doc here, will need to change when creating one transform to output multiple MAPs -->
     <xsl:variable name="ssdc-combined-map" select="
-            document('../schemasProject/dataDictionaries/xml/ssdc-combined-map.xml')"/>
+            document('../../schemasProject/dataDictionaries/xml/ssdc-combined-map.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
     <xsl:variable name="na-standalone-prop"
         select="'^p88$|^p130$|^p116$|^p117$|^p118$|^p45$|^p131$|^p132$|^p138$|^p139$|^p47$|^p140$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p125$|^p126$|^p127$|^p23$|^p21$|^p26$|^p46$|^p55$|^p85$|^p128$|^p124$|^p57$|^p141$|^p133$|^p136$|^p137$|^p53$|^p98$|^p135$|^p142$|^p50$|^p28$|^p123$|^p75$|^p77$|^p59$|^p71$|^p72$|^p73$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p11$|^p79$|^p134$|^p80$|^p44$'"/>
@@ -40,7 +40,7 @@
 
     <!-- ROOT TEMPLATE -->
     <xsl:template match="/">
-        <xsl:result-document href="{concat('docs/', $collection, '.html')}">
+        <xsl:result-document href="{concat('../html/', $collection, '.html')}">
             <html>
                 <head>
                     <!-- favicon will be same for all MIG MAPs -->
