@@ -35,7 +35,7 @@
                     <!-- favicon will be same for all MIG MAPs -->
                     <link rel="icon" type="image/png" href="https://uwlib-cams.github.io/webviews/images/metadata.png"/>
                     <!-- bring brief title from contentdm_maps.xml or similar -->
-                    <title>HGFDC MAP</title>
+                    <title>TJLS MAP</title>
                     <!-- use webviews > contentdm_maps.css -->
                     <link href="https://uwlib-cams.github.io/webviews/css/schemasProject-to-map.css"
                         rel="stylesheet" type="text/css"/>
