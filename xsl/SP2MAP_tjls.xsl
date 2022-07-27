@@ -7,6 +7,7 @@
 
     <!-- INCLUDE cc-by-zero stylesheet > CC0 template from webviews -->
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/CC0-footer.xsl"/>
+    <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/index-backlink.xsl"/>
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
@@ -227,6 +228,9 @@
                 <xsl:text>CONTENTdm PROPERTY SETTINGS</xsl:text>
             </a>
             <br/>
+            <xsl:call-template name="index-backlink">
+                <xsl:with-param name="site" select="'contentdm_maps'"/>
+            </xsl:call-template>
         </div>
     </xsl:template>
     <xsl:template name="prop-guidance-section-start">
