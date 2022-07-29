@@ -24,9 +24,9 @@
         select="document('../../schemasProject/dataDictionaries/xml/tjls-map.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
     <xsl:variable name="default-co-prop"
-        select="'^p88$|^p45$|^p47$|^p23$|^p21$|^p26$|^p27$|^p85$|^p128$|^p136$|^p137$|^p147$|^p53$|^p50$|^p28$|^p30$|^p59$|^p77$|^p75$|^p71$|^p44$|^p90$'"/>
+        select="'^p88$|^p45$|^p47$|^p23$|^p21$|^p26$|^p27$|^p85$|^p128$|^p136$|^p137$|^p147$|^p53$|^p50$|^p28$|^p30$|^p59$|^p77$|^p75$|^p71$|^p44$|^p90$|^p57$|^p11$'"/>
     <xsl:variable name="default-coitem-prop"
-        select="'^p88$|^p28$|^p30$|^p71$|^p90$'"/>
+        select="'^p88$|^p28$|^p30$|^p71$|^p90$|^p37$|^p29$|^p62$|^p31$|^p134$'"/>
 
     <!-- ROOT TEMPLATE -->
     <xsl:template match="/">
