@@ -5,7 +5,7 @@
     xmlns:mig2="http://faculty.washington.edu/tgis/schemasProject/xsd4md"
     exclude-result-prefixes="xs mig mig2" version="3.0">
 
-    <!-- INCLUDE cc-by-zero stylesheet > CC0 template from webviews -->
+    <!-- INCLUDE cc-by-zero stylesheet > CC0 template; index-backlink stylesheet > index-backlink template from webviews -->
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/CC0-footer.xsl"/>
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/index-backlink.xsl"/>
 
