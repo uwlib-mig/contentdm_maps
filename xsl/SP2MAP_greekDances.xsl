@@ -652,7 +652,7 @@
                     </span>
                 </li>
                 <xsl:if
-                    test="mig2:additionalInfo/mig2:admin[@co = 'all'][@dd4para = 'p16786coll3']/node()">
+                    test="mig2:additionalInfo/mig2:admin[@co = 'all'][@dd4para = $collection]/node()">
                     <li>
                         <span class="bold">
                             <xsl:text>ADDITIONAL ADMINISTRATIVE NOTES</xsl:text>
@@ -660,7 +660,7 @@
                     </li>
                     <ul>
                         <xsl:for-each
-                            select="mig2:additionalInfo/mig2:admin[@co = 'all'][@dd4para = 'p16786coll3']/mig2:para">
+                            select="mig2:additionalInfo/mig2:admin[@co = 'all'][@dd4para = $collection]/mig2:para">
                             <li>
                                 <xsl:value-of select="."/>
                             </li>
