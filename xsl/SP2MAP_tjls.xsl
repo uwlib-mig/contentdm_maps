@@ -408,7 +408,7 @@
                         <br/>
                         <ul class="no_bullets">
                             <!-- NEW HERE indicate whether property is hidden in guidance section -->
-                            <xsl:if test="mig2:cdm/mig2:hidden/text() = 'yes'">
+                            <xsl:if test="mig2:cdm/mig2:hidden = 'yes'">
                                 <li>
                                     <span class="italic">
                                         <xsl:text>Values entered for this property are not visible in the public interface.</xsl:text>
