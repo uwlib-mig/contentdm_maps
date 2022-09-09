@@ -1,2 +1,2 @@
 # contentdm_maps
-Metadata Application Profiles to explain and constrain metadata in UW's CONTENTdm digital collections platform
+Metadata application profiles (MAPs) to explain and constrain metadata in UW's CONTENTdm digital collections platform
