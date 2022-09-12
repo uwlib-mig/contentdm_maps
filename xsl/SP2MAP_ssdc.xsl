@@ -139,7 +139,7 @@
                 <li>
                     <xsl:text>Collection Manager: </xsl:text>
                     <ul>
-                        <xsl:text>Makena Mezistrano - &lt;a href="mailto:makflo@uw.edu"&gt;makflo@uw.edu&lt;/a&gt;</xsl:text>
+                        <xsl:text>Canan Bolel - &lt;a href="mailto:cananbo@uw.edu"&gt;cananbo@uw.edu&lt;/a&gt;</xsl:text>
                     </ul>
                 </li>
                 <li>
