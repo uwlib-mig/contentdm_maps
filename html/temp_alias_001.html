@@ -10,7 +10,7 @@
       <div class="large_one">
          <ul>
             <li>Original creation date: 2022-07-21</li>
-            <li>Most recent revision: 2022-09-20</li>
+            <li>Most recent revision: 2022-09-26</li>
             <li>Collection Manager(s): 
                <ul>Erika Bailey - <a href="mailto:erikaab@uw.edu">erikaab@uw.edu</a></ul>
             </li>
@@ -276,19 +276,13 @@
             <td><br><ul class="no_bullets">
                   <li>Enter the name of person(s) interviewed.</li>
                   <li><br/></li>
-                  <li>When appropriate, search the Library of Congress Name Authority File <a href="https://id.loc.gov/authorities/names.html">via id.loc.gov</a> for the interviewee.</li>
-                  <li>If a potential match is found, confirm that it is the person associated with the resource.
-                     It may be helpful to review information included in the web display such as source(s)
-                     of information and occupation (for persons), and/or to follow the links provided for
-                     exact and/or closely matching concepts from other schemes.</li>
-                  <li>Copy the form of name as it appears at the top of the page, including dates.</li>
-                  <li>You may provide the value 'xyz' for the Cataloging property to indicate to cataloging
-                     staff that review of controlled forms of names is requested.</li>
-                  <li><br/></li>
-                  <li>If no record exists, format personal names as follows:</li>
+                  <li>Format personal names as follows:</li>
                   <li>[Last Name], [English First Name] [Japanese First Name] [(Maiden name)*]</li>
                   <li>*Include a maiden name if provided. Put the maiden name in parentheses.</li>
                   <li>Separate multiple values with semicolons.</li>
+                  <li><br/></li>
+                  <li>UW Libraries cataloging staff: Retain name information entered by project metadata
+                     creators; do not replace with LCNAF forms of name.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -672,20 +666,15 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR CREATING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Enter the name(s) of individual(s) mentioned.&nbsp;</li>
+                  <li>Enter the name(s) of individual(s) mentioned.</li>
                   <li><br/></li>
-                  <li>When appropriate, search the <a href="https://id.loc.gov/authorities/names.html">Library of Congress Name Authority File via id.loc.gov</a> for the individual.</li>
-                  <li>If a potential match is found, confirm that it is the person associated with the resource.
-                     It may be helpful to review information included in the web display such as source(s)
-                     of information and occupation (for persons), and/or to follow the links provided for
-                     exact and/or closely matching concepts from other schemes.</li>
-                  <li>Copy the form of name as it appears at the top of the page, including dates.</li>
-                  <li>You may provide the value 'xyz' for the Cataloging property to indicate to cataloging
-                     staff that review of controlled forms of names is requested.</li>
-                  <li><br/></li>
-                  <li>If no record exists, format personal names as follows:</li>
-                  <li>[Last Name], [First Name]</li>
+                  <li>Format personal names as follows:</li>
+                  <li>[Last Name], [English First Name] [Japanese First Name] [(Maiden name)*]</li>
+                  <li>*Include a maiden name if provided. Put the maiden name in parentheses.</li>
                   <li>Separate multiple values with semicolons.</li>
+                  <li><br/></li>
+                  <li>UW Libraries cataloging staff: Retain name information entered by project metadata
+                     creators; do not replace with LCNAF forms of name.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -1312,18 +1301,28 @@
                   <li><br/></li>
                   <li>For transcript files, construct as follows:</li>
                   <li>[compound-object title], transcript</li>
+                  <li><br/></li>
+                  <li>In cases where more than one item of the same category (audio file, video file, etc.)
+                     is included in the compound object, add additional numbering as appropriate.</li>
+                  <li>If such tems have a sequential relationship to one another, additional numbering should
+                     reflect the sequence. If the sequential relationship is known from an original carrier,
+                     this may be indicated along with additional numbering (see example values).</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
                   <li>Sally Sumeko Shirasago interview, video</li>
+                  <li>Sally Sumeko Shirasago interview, audio</li>
                   <li>Sally Sumeko Shirasago interview, transcript</li>
-                  <li>Betty Hiroko (Fukuhara) Yoshioka interview, video</li>
-                  <li>Betty Hiroko (Fukuhara) Yoshioka interview, audio</li>
-                  <li>Betty Hiroko (Fukuhara) Yoshioka interview, transcript</li>
-                  <li>Oakland Buddhist Church group interview, video</li>
+                  <li><br/></li>
+                  <li>Oakland Buddhist Church group interview, video 1</li>
+                  <li>Oakland Buddhist Church group interview, video 2</li>
                   <li>Oakland Buddhist Church group interview, transcript</li>
+                  <li><br/></li>
+                  <li>Betty Hiroko (Fukuhara) Yoshioka interview, audio, audiocassette side 1</li>
+                  <li>Betty Hiroko (Fukuhara) Yoshioka interview, audio, audiocassette side 2</li>
+                  <li>Betty Hiroko (Fukuhara) Yoshioka interview, transcript</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -1397,7 +1396,8 @@
             <td><br><ul class="no_bullets">
                   <li>OHC0676-Video</li>
                   <li>OHC0676-Transcript</li>
-                  <li>OHC0010-Audio</li>
+                  <li>OHC0010-Audio-01</li>
+                  <li>OHC0010-Audio-02</li>
                   <li>OHC0010-Transcript</li>
                </ul><br></td>
          </tr>
@@ -1511,12 +1511,17 @@
                   <li>For audio and video files, enter the runtime of the digital access file.</li>
                   <li>Format runtime as follows:</li>
                   <li>HH:MM:SS</li>
+                  <li><br/></li>
+                  <li>For PDF files (transcripts), enter the number of pages.</li>
+                  <li>Format pages as follows, using Arabic numerals:</li>
+                  <li>12 pages</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
                   <li>00:12:58</li>
+                  <li>22 pages</li>
                </ul><br></td>
          </tr>
          <tr>
