@@ -11,7 +11,7 @@
       <div class="large_one">
          <ul>
             <li>Original creation date: 2023-12-05</li>
-            <li>Most recent revision: 2023-12-05</li>
+            <li>Most recent revision: 2023-12-07</li>
             <li>Metadata liaison(s): 
                <ul>
                   <li>Benjamin Riesenberg - <a href="mailto:ries07@uw.edu">ries07@uw.edu</a></li>
@@ -190,6 +190,7 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li><span class="italic">Values entered for this property are not visible in the public interface.<br><br></span></li>
+                  <li>Date of creation of the original resource.</li>
                   <li>Reflects the date in the "Date" field.</li>
                   <li>Express all dates, including date ranges, using Library of Congress' Extended Date
                      Time Format.</li>
@@ -210,12 +211,14 @@
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>If the Date field = "1940" then Date EDTF = "1940"</li>
-                  <li>If the Date field = "1910?" then Date EDTF = "1910?"</li>
-                  <li>If Date field = "May 9, 2001" then Date EDTF = "2001-05-09"</li>
-                  <li>If Date field = "January 2008" then Date EDTF = "2008-01"</li>
-                  <li>If Date field = "between 1930 and 1939" then Date EDTF = "1930/1939"</li>
-                  <li>If Date field = "between 1855 and 1999?" then Date EDTF = "1855?/1999?"</li>
+                  <li>[If Date field is “2005”] 2005</li>
+                  <li>[If Date field is “2005?”] 2005?</li>
+                  <li>[If Date field is “March 2005”] 2005-03</li>
+                  <li>[If Date field is “March 11, 2005”] 2005-03-11</li>
+                  <li>[If Date field is “between 2005 and 2006”] 2005/2006</li>
+                  <li>[If Date field is “between January 2005 and February 2005”] 2005-01/2005-02</li>
+                  <li>[If Date field is “between January 15, 2005 and February 01, 2005”] 2005-01-15/2005-02-01</li>
+                  <li>[If Date field is “between 2005 and 2006?”] 2005?/2006?</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -250,30 +253,30 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>If the resource is a still image or moving images, the date the image(s) was captured.</li>
-                  <li>In cases where a painting, engraving, or architectural drawing was photographed, the
-                     date the artwork was created.</li>
-                  <li>Enter the date using one of the following formats:</li>
+                  <li>Date of creation of the original resource.</li>
+                  <li>If the resource is a photograph, the date the original photograph was taken.</li>
+                  <li><br/>Enter the date using one of the following formats:</li>
                   <li>YYYY</li>
                   <li>YYYY?</li>
                   <li>[month spelled out] [day], YYYY</li>
                   <li>[month spelled out], YYYY</li>
                   <li>between YYYY and YYYY</li>
                   <li>between YYYY and YYYY?</li>
-                  <li>In CONTENTdm, this field is used for display purposes only and should be user-friendly.</li>
-                  <li>Date value should agree with date values entered in Date-Edtf and Dates fields.</li>
+                  <li><br/>In CONTENTdm, this field is used for display purposes only and should be user-friendly.</li>
+                  <li>Date value should agree with date values entered in Date (EDTF) and Dates fields.</li>
                   <li>If the date when the image/resource in hand was produced is known, and is different
                      from that of the original image, so note in the Notes field.</li>
                   <li>If the date is unknown, enter an approximate date using one of the two above formats
                      that express uncertainty, namely YYYY? or between YYYY and YYYY?.</li>
                   <li>If none of the date formats above are adequate, use a custom date format.</li>
+                  <li>UW Libraries staff: For additional information see <a href="https://staff.lib.uw.edu/groups/mig/initiatives-work/date-dates-date-edtf-explained">Date/Dates/Date-EDTF Explained<a/>.</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
                   <li>1940</li>
-                  <li>1940?    [this expresses a probable year, an uncertain year, etc.]</li>
+                  <li>1940?</li>
                   <li>May 9, 2001</li>
                   <li>March, 2001</li>
                   <li>between 1946 and 1952</li>
@@ -314,31 +317,41 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li><span class="italic">Values entered for this property are not visible in the public interface.<br><br></span></li>
-                  <li>Reflects the date in the "Date" field.</li>
-                  <li>Enter the year or years only.</li>
-                  <li>When the value of Date is YYYY, enter YYYY.</li>
-                  <li>When the value of Date is YYYY?, enter an eleven year date range, five years on either
-                     side of the uncertain date.</li>
-                  <li>When the value of Date is [month] DD, YYYY, enter the year only in the following format:
-                     YYYY.</li>
-                  <li>When the value of Date is [month], YYYY, enter the year only in the following format:
-                     YYYY.</li>
-                  <li>When the value of Date is between YYYY and YYYY, enter all years in the date range
-                     in the following format: YYYY YYYY YYYY etc.</li>
-                  <li>When the value of Date is between YYYY and YYYY?, enter all years in the date range
-                     plus five years before the earliest date and five years after the latest date, in
-                     the following format: YYYY YYYY YYYY etc.</li>
-                  <li>This field is indexed and enables date searching in CONTENTdm.</li>
-                  <li>The Dates value should agree with date values entered in Date-Edtf and Date fields.</li>
+                  <li>Date of creation of the original resource.</li>
+                  <li>The Dates value should agree with values for the Date-EDTF and Date fields. This field
+                     is indexed and enables date searching in CONTENTdm.</li>
+                  <li>Enter a year or years only. Do not use commas or other punctuation to separate years.</li>
+                  <li><br/>If the value of Date is "YYYY", enter: YYYY</li>
+                  <li>If the value of Date is "[month], YYYY", enter the year only in the following format:
+                     YYYY</li>
+                  <li>If the value of Date value is “[month] DD, YYYY”, enter the year only in the following
+                     format: YYYY</li>
+                  <li>If the value of Date is “between YYYY and YYYY”, enter all years in the date range
+                     in the following format: YYYY YYYY YYYY YYYY</li>
+                  <li>For a Date value which is an uncertain year (for example, “YYYY?”):</li>
+                  <li><br/>If research or available information about the resource can be used to produce a probable year or range of years, enter this.</li>
+                  <li>If no additional information is available, enter an eleven-year range by adding five
+                     years on either side of the uncertain year.</li>
+                  <li><br/>For a Date value which is an uncertain range of years (for example, “between YYYY and YYYY?”):</li>
+                  <li>If research or available information about the resource can be used to produce a probable
+                     range of years, enter this.</li>
+                  <li>If no additional information is available, enter all years in the uncertain date range,
+                     plus the five years before the range and the five years after the range.</li>
+                  <li>UW Libraries staff: For additional information see <a href="https://staff.lib.uw.edu/groups/mig/initiatives-work/date-dates-date-edtf-explained">Date/Dates/Date-EDTF Explained<a/>.</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>1939</li>
-                  <li>1939?</li>
-                  <li>1939 1940 1941 1942 1943 1944 1945</li>
-                  <li>1934 1935 1936 1937 1938 1939 1940 1941 1942 1943 1944 1945 1946 1947 1948 1949 1950</li>
+                  <li>[Date: 1932] 1932</li>
+                  <li>[Date: February, 1932] 1932</li>
+                  <li>[Date: February 26, 1932] 1932</li>
+                  <li>[Date: 1932-02-26] 1932</li>
+                  <li>[Date: between 1931 and 1933] 1931 1932 1933</li>
+                  <li>[Date: between January 1931 and July 1933] 1931 1932 1933</li>
+                  <li>[Date: 1944?] 1939 1940 1941 1942 1943 1944 1945 1946 1947 1948 1949</li>
+                  <li>[Date: between 1939 and 1945?] 1934 1935 1936 1937 1938 1939 1940 1941 1942 1943 1944
+                     1945 1946 1947 1948 1949 1950</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -381,10 +394,11 @@
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Photographs taken by Asahel Curtis during his trip to the Klondike in 1897-1899.</li>
-                  <li>Caption on image: Curtis 319.</li>
-                  <li>Handwritten on verso: Mrs. McLain with dog team.</li>
-                  <li>PH Coll 519.319</li>
+                  <li>From album entitled: A Souvenir of the Harriman Alaska Expedition, May - August, 1899.
+                     Volume II, Cook Inlet to Bering Strait and the Return Voyage, leaf 172, right.</li>
+                  <li>Letterpress printed on album page: On the Beach--Port Clarence.</li>
+                  <li>Photograph taken by Dr. Clinton Hart Merriam, Chief of the Biological Survey, U.S.
+                     Department of Agriculture, member of the 1899 Harriman Alaska Expedition.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -419,14 +433,14 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Terms in this field are taken from the LC Thesaurus for Graphic Materials.</li>
-                  <li>Separate multiple headings with a semi-colon.</li>
+                  <li>The Library of Congress <a href="https://www.loc.gov/rr/print/tgm1/">Thesaurus for Graphic Materials I: Subject Terms</a> (TGM I) will be used only when no appropriate term for a particular object or concept is available in LCSH.</li>
+                  <li>Separate multiple values using a semicolon and space ("; ").</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Runners (Sports)--Washington (State); Running races--Washington (State)</li>
+                  <li>Blockhouses--Washington (State); Tuxedoes; Fishermen--Washington (State)--Aberdeen</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -461,10 +475,10 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Values for this property are taken from the LC Subject Headings list (LCSH) at http://authorities.loc.gov
-                     or http://id.loc.gov.</li>
-                  <li>For images, use LCSH only when TGM has no appropriate term to describe the resource.</li>
-                  <li>Separate multiple headings with a semi-colon.</li>
+                  <li>Terms in this field are taken from the LC Subject Headings list (LCSH). LCSH and the
+                     National Authority File (LCNAF) will also be used for persons, objects, and places
+                     with proper names.</li>
+                  <li>Separate multiple values using a semicolon and space ("; ").</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -473,6 +487,7 @@
                   <li>Markets—Washington (State)—Seattle</li>
                   <li>McGraw, John Harte, 1911—Statues—Washington (State)—Seattle; Log buildings—Alaska—Fort
                      Yukon</li>
+                  <li>Markets--Washington (State)--Seattle; Suzzallo, Henry, 1875-1933--Statues; Log buildings--Alaska--Skagway</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -512,19 +527,18 @@
                   <li>Forms of the names should be derived from the LC Authority File.</li>
                   <li>For neighborhoods or other types of locales below the city level, enter an LCSH heading
                      in the Subjects (LCSH) field above.</li>
-                  <li>Separate multiple entries with a semicolon .</li>
+                  <li>Separate multiple values using a semicolon and space ("; ").</li>
+                  <li>Use current forms of place names, even if a different form was used at date of creation
+                     of the resource.</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>United States--Washington (State)—Seattle</li>
+                  <li>United States--Alaska--Port Clarence</li>
+                  <li>Russia--Siberia--Plover Bay</li>
                   <li>United States--Alaska—Fort Yukon</li>
-                  <li>Canada—Yukon—Dawson </li>
-                  <li>Croatia--Zagreb [use current form, even though Yugoslavia was the name when the photo
-                     was taken]</li>
-                  <li>Russia (Federation)--Leningradskaia oblast--Saint Petersburg [use current form, even
-                     though it was called Leningrad in Soviet Union, when photo was taken]</li>
+                  <li>Canada—Yukon—Dawson</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -559,14 +573,15 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Enter the name given to the digital collection.</li>
+                  <li>Enter the name of the digital collection the resource belongs to.</li>
+                  <li><br/>Use the following value:</li>
+                  <li>Harriman Alaska Expedition Collection</li>
                </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Napoleonic Period Collection</li>
-                  <li>Civil War Letters Collection</li>
+                  <li>Harriman Alaska Expedition Collection</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -733,8 +748,10 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Enter the negative number. If two negatives numbers are associated with an image,
-                     these are to be separated by a semicolon.</li>
+                  <li>Enter the negative number.</li>
+                  <li> It may be identical to another number in the record.</li>
+                  <li>If two negative numbers are associated with an image, separate multiple values using
+                     a semicolon and space ("; ").</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -784,9 +801,7 @@
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>University of Washington Libraries, Special Collections Division</li>
-                  <li>Eastern Washington State Historical Society/Cheney Cowles</li>
-                  <li>Museum Museum of History and Industry, Seattle</li>
+                  <li>University of Washington Libraries, Special Collections</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -828,7 +843,7 @@
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>William E. Meed collection no. 246</li>
+                  <li>Harriman Alaska Expedition Collection. PH Coll 333</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -869,7 +884,7 @@
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>[none]</li>
+                  <li><a href="http://archiveswest.orbiscascade.org/ark:/80444/xv20530"<a>http://archiveswest.orbiscascade.org/ark:/80444/xv20530<a/></li>
                </ul><br></td>
          </tr>
          <tr>

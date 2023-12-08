@@ -177,7 +177,7 @@
     <xsl:template name="prop-guidance-section-start">
         <xsl:param name="harriman-map"/>
         <xsl:param name="resource-type"/>
-        <xsl:param name="object-type"></xsl:param>
+        <xsl:param name="object-type"/>
         <div class="{concat($resource-type, '_color large_two')}">
             <br/>
             <h2 id="{concat($resource-type, '-', $object-type, '-guidance')}">
@@ -291,14 +291,15 @@
                         <ul class="no_bullets">
                             <xsl:choose>
                                 <!-- NOTE that there are other possible permutations for matching
-                                customization element may match on object type but have no collection value -->
+                                customization element may match on object type but have no collection value
+                                also matching here does not take into account resource type -->
                                 <xsl:when test="
                                         migprop:examples/migprop:customization
-                                        [@co = $object-type]
+                                        [matches(@co, $object-type)]
                                         [@dd = $collection]">
                                     <xsl:for-each select="
                                             migprop:examples/migprop:customization
-                                            [@co = $object-type]
+                                            [matches(@co, $object-type)]
                                             [@dd = $collection]/migprop:para">
                                         <li>
                                             <xsl:value-of select="."/>
@@ -355,7 +356,6 @@
             </div>
         </xsl:for-each>
     </xsl:template>
-  
     <xsl:template name="prop-config">
         <xsl:param name="harriman-map"/>
         <xsl:param name="object-type"/>
