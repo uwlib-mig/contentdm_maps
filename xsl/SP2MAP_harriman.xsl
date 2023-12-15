@@ -287,7 +287,7 @@
                         <xsl:text>EXAMPLE(S) OF WELL-FORMED VALUES</xsl:text>
                     </th>
                     <td>
-                        <br/>
+                        <br/>  
                         <ul class="no_bullets">
                             <xsl:choose>
                                 <!-- NOTE that there are other possible permutations for matching
