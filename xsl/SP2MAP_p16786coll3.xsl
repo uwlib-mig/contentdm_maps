@@ -4,7 +4,9 @@
     xmlns:mig="http://www.lib.washington.edu/msd/mig/schemas/dataDictionaries"
     xmlns:mig2="http://faculty.washington.edu/tgis/schemasProject/xsd4md"
     exclude-result-prefixes="xs mig mig2" version="3.0">
-
+    
+    <!-- Sephardic Studies Digital Collection at the University of Washington -->
+    
     <!-- see NOTES at bottom of stylesheet -->
 
     <!-- INCLUDE cc-by-zero stylesheet > CC0 template; index-backlink stylesheet > index-backlink template from webviews -->
