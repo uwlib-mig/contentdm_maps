@@ -35,8 +35,7 @@
                 <head>
                     <link rel="icon" type="image/png"
                         href="https://uwlib-cams.github.io/webviews/images/metadata.png"/>
-                    <!-- to do: change back to webviews CSS -->
-                    <link href="../../webviews/css/schemasProject-to-map.css" rel="stylesheet"
+                    <link href="https://uwlib-cams.github.io/webviews/css/schemasProject-to-map.css" rel="stylesheet"
                         type="text/css"/>
                     <title>{'MAP > ', $alias}</title>
                 </head>
