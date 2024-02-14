@@ -11,10 +11,10 @@
             (: CAUTION local file path to MAP file  :)
             document('../../schemasProject/dataDictionaries/xml/becker.xml')"/>
     <xsl:variable name="alias" select="$map/migdd:migDataDictionary/migdd:cdmCode"/>
-    <xsl:variable name="image_props"
-        >^p88$|^p65$|^p21$|^p23$|^p26$|^p85$|^p53$|^p28$|^p59$|^p71$|^p72$|^p73$|^p57$|^p67$|^p31$|^p77$|^p75$|^p90$|^p44$|^p11$</xsl:variable>
-    <xsl:variable name="document_props"
-        >^p88$|^p65$|^p21$|^p23$|^p26$|^p85$|^p28$|^p59$|^p71$|^p72$|^p73$|^p57$|^p67$|^p31$|^p77$|^p75$|^p90$|^p44$|^p11$</xsl:variable>
+    <xsl:variable name="photographs_props"
+        >^p88$|^p65$|^p21$|^p23$|^p26$|^p27$|^p85$|^p53$|^p28$|^p59$|^p71$|^p72$|^p73$|^p57$|^p67$|^p31$|^p77$|^p75$|^p90$|^p44$|^p11$</xsl:variable>
+    <xsl:variable name="documents_props"
+        >^p88$|^p21$|^p23$|^p26$|^p27$|^p85$|^p28$|^p59$|^p71$|^p72$|^p73$|^p57$|^p67$|^p31$|^p77$|^p75$|^p90$|^p44$|^p11$</xsl:variable>
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
@@ -46,18 +46,18 @@
                         <xsl:with-param name="map_props"
                             select="$map/migdd:migDataDictionary/migdd:properties"/>
                     </xsl:call-template>
-                    <xsl:call-template name="image-prop-guidance-section-start">
+                    <xsl:call-template name="photographs-prop-guidance-section-start">
                         <xsl:with-param name="map_props"
                             select="$map/migdd:migDataDictionary/migdd:properties"/>
                         <!-- @resource-type changed -->
-                        <xsl:with-param name="resource-type" select="'image'"/>
+                        <xsl:with-param name="resource-type" select="'photographs'"/>
                         <xsl:with-param name="object-type" select="'no'"/>
                     </xsl:call-template>
-                    <xsl:call-template name="document-prop-guidance-section-start">
+                    <xsl:call-template name="documents-prop-guidance-section-start">
                         <xsl:with-param name="map_props"
                             select="$map/migdd:migDataDictionary/migdd:properties"/>
                         <!-- @resource-type changed -->
-                        <xsl:with-param name="resource-type" select="'document'"/>
+                        <xsl:with-param name="resource-type" select="'documents'"/>
                         <xsl:with-param name="object-type" select="'no'"/>
                     </xsl:call-template>
                     <xsl:call-template name="prop-config">
@@ -128,13 +128,13 @@
                 <xsl:text>: Combined property list</xsl:text>
             </li>
             <li class="toc_li">
-                <a href="#image-no-guidance">
+                <a href="#photographs-no-guidance">
                     <xsl:text>METADATA-CREATION GUIDANCE</xsl:text>
                 </a>
-                <xsl:text>: Images (standalone objects)</xsl:text>
+                <xsl:text>: Photographs (standalone objects)</xsl:text>
             </li>
             <li class="toc_li">
-                <a href="#document-no-guidance">
+                <a href="#documents-no-guidance">
                     <xsl:text>METADATA-CREATION GUIDANCE</xsl:text>
                 </a>
                 <xsl:text>: Documents (standalone objects)</xsl:text>
@@ -157,7 +157,7 @@
                 <tr class="large_one">
                     <th scope="col">Field label</th>
                     <th scope="col">Field order</th>
-                    <th scope="col">Recording values for images</th>
+                    <th scope="col">Recording values for photographs</th>
                     <th scope="col">Recording values for documents</th>
                     <th scope="col">Configuration</th>
                 </tr>
@@ -179,19 +179,19 @@
                         <td class="all_list_table_td">{position()}</td>
                         <td class="all_list_table_td">
                             <xsl:choose>
-                                <xsl:when test="matches(migprop:uid, $image_props)">
+                                <xsl:when test="matches(migprop:uid, $photographs_props)">
                                     <xsl:text>record values </xsl:text>
-                                    <a href="{concat('#', migprop:uid, '-image-no-guidance')}">for
-                                        images</a>
+                                    <a href="{concat('#', migprop:uid, '-photographs-no-guidance')}">for
+                                        photographs</a>
                                 </xsl:when>
                                 <xsl:otherwise>n/a</xsl:otherwise>
                             </xsl:choose>
                         </td>
                         <td class="all_list_table_td">
                             <xsl:choose>
-                                <xsl:when test="matches(migprop:uid, $document_props)">
+                                <xsl:when test="matches(migprop:uid, $documents_props)">
                                     <xsl:text>record values </xsl:text>
-                                    <a href="{concat('#', migprop:uid, '-document-no-guidance')}"
+                                    <a href="{concat('#', migprop:uid, '-documents-no-guidance')}"
                                         >for documents</a>
                                 </xsl:when>
                                 <xsl:otherwise>n/a</xsl:otherwise>
@@ -209,7 +209,7 @@
         <br/>
         <xsl:call-template name="cdm_map_backlink"/>
     </xsl:template>
-    <xsl:template name="image-prop-guidance-section-start">
+    <xsl:template name="photographs-prop-guidance-section-start">
         <xsl:param name="map_props"/>
         <xsl:param name="resource-type"/>
         <xsl:param name="object-type"/>
@@ -217,22 +217,22 @@
         <div class="{concat($resource-type, '_color large_two')}">
             <br/>
             <h2 id="{concat($resource-type, '-', $object-type, '-guidance')}">
-                <xsl:text>METADATA CREATION FOR IMAGES (STANDALONE OBJECTS)</xsl:text>
+                <xsl:text>METADATA CREATION FOR PHOTOGRAPHS (STANDALONE OBJECTS)</xsl:text>
             </h2>
             <br/>
         </div>
-        <xsl:call-template name="image-prop-guidance-section-tables">
+        <xsl:call-template name="photographs-prop-guidance-section-tables">
             <xsl:with-param name="map_props" select="$map_props"/>
             <xsl:with-param name="resource-type" select="$resource-type"/>
             <xsl:with-param name="object-type" select="'^no$|^all$'"/>
         </xsl:call-template>
     </xsl:template>
-    <xsl:template name="image-prop-guidance-section-tables">
+    <xsl:template name="photographs-prop-guidance-section-tables">
         <xsl:param name="map_props"/>
         <xsl:param name="resource-type"/>
         <xsl:param name="object-type"/>
         <xsl:for-each select="$map_props/migprop:property">
-            <xsl:if test="matches(migprop:uid, $image_props)">
+            <xsl:if test="matches(migprop:uid, $photographs_props)">
                 <br/>
                 <table class="prop_table">
                     <thead>
@@ -241,7 +241,7 @@
                                 id="{concat(migprop:uid, '-', $resource-type, '-no-guidance')}"
                                 class="{concat('prop_table_head', ' ', $resource-type, '_color')}">
                                 <div class="large_one">
-                                    <xsl:text>IMAGES &gt; STANDALONE OBJECTS</xsl:text>
+                                    <xsl:text>PHOTOGRAPHS &gt; STANDALONE OBJECTS</xsl:text>
                                 </div>
                                 <br/>
                                 <div class="large_two">
@@ -335,11 +335,11 @@
                                     <xsl:when test="
                                             migprop:examples/migprop:customization
                                             [matches(@co, $object-type)]
-                                            [@dd = $alias]">
+                                            [matches(@dd, $alias)]">
                                         <xsl:for-each select="
                                                 migprop:examples/migprop:customization
                                                 [matches(@co, $object-type)]
-                                                [@dd = $alias]/migprop:para">
+                                                [matches(@dd, $alias)]/migprop:para">
                                             <li>
                                                 <xsl:value-of select="."/>
                                             </li>
@@ -393,7 +393,7 @@
             </xsl:if>
         </xsl:for-each>
     </xsl:template>
-    <xsl:template name="document-prop-guidance-section-start">
+    <xsl:template name="documents-prop-guidance-section-start">
         <xsl:param name="map_props"/>
         <xsl:param name="resource-type"/>
         <xsl:param name="object-type"/>
@@ -405,18 +405,18 @@
             </h2>
             <br/>
         </div>
-        <xsl:call-template name="document-prop-guidance-section-tables">
+        <xsl:call-template name="documents-prop-guidance-section-tables">
             <xsl:with-param name="map_props" select="$map_props"/>
             <xsl:with-param name="resource-type" select="$resource-type"/>
             <xsl:with-param name="object-type" select="'^no$|^all$'"/>
         </xsl:call-template>
     </xsl:template>
-    <xsl:template name="document-prop-guidance-section-tables">
+    <xsl:template name="documents-prop-guidance-section-tables">
         <xsl:param name="map_props"/>
         <xsl:param name="resource-type"/>
         <xsl:param name="object-type"/>
         <xsl:for-each select="$map_props/migprop:property">
-            <xsl:if test="matches(migprop:uid, $document_props)">
+            <xsl:if test="matches(migprop:uid, $documents_props)">
                 <br/>
                 <table class="prop_table">
                     <thead>
