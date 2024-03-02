@@ -6,37 +6,53 @@
     xmlns:migprop="http://faculty.washington.edu/tgis/schemasProject/xsd4md"
     exclude-result-prefixes="xs math" expand-text="yes" version="3.0">
 
-    <!-- GLOBAL VARIABLES -->
-    <xsl:variable name="map" select="
-            (: CAUTION local file path to MAP file  :)
-            document('../../schemasProject/dataDictionaries/xml/becker.xml')"/>
-    <xsl:variable name="alias" select="$map/migdd:migDataDictionary/migdd:cdmCode"/>
-    <xsl:variable name="photographs_props"
-        >^p88$|^p65$|^p21$|^p23$|^p26$|^p27$|^p85$|^p53$|^p28$|^p59$|^p71$|^p72$|^p73$|^p57$|^p67$|^p31$|^p77$|^p75$|^p90$|^p44$|^p11$</xsl:variable>
-    <xsl:variable name="documents_props"
-        >^p88$|^p21$|^p23$|^p26$|^p27$|^p85$|^p28$|^p59$|^p71$|^p72$|^p73$|^p57$|^p67$|^p31$|^p77$|^p75$|^p90$|^p44$|^p11$</xsl:variable>
-
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
+    <!-- still needed?? -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
     <xsl:character-map name="angleBrackets">
         <xsl:output-character character="&lt;" string="&lt;"/>
         <xsl:output-character character="&gt;" string="&gt;"/>
     </xsl:character-map>
 
-    <!-- INCLUDE from webviews
-        cc-by-zero stylesheet > CC0 template; 
-        index-backlink stylesheet > index-backlink template -->
+    <!-- INCLUDE from webviews -->
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/CC0-footer.xsl"/>
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/index-backlink.xsl"/>
 
+    <!-- GLOBAL VARS -->
+    <xsl:variable name="map" select="
+            (: !! CAUTION local filepath to MAP file !!  :)
+            document('../../schemasProject/dataDictionaries/xml/becker.xml')"/>
+    <xsl:variable name="alias" select="$map/migdd:migDataDictionary/migdd:cdmCode"/>
+    <xsl:variable name="guidance_sections">
+        <section>
+            <lcgft>Photographs</lcgft>
+            <!-- TO DO: CHECK 'no' vs '^no$|^all$' -->
+            <cdm_object_type>no</cdm_object_type>
+            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <exclude>^p0$</exclude>
+        </section>
+        <section>
+            <lcgft>Records (Documents)</lcgft>
+            <cdm_object_type>no</cdm_object_type>
+            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <exclude>^p65$|^p53$</exclude>
+        </section>
+        <section>
+            <lcgft>Newsletters</lcgft>
+            <cdm_object_type>no</cdm_object_type>
+            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <exclude>^p65$|^p53$</exclude>
+        </section>
+    </xsl:variable>
+
+    <!-- TEMPLATE -->
     <xsl:template match="/">
         <xsl:result-document href="{concat('../html/', $alias, '.html')}">
             <html>
                 <head>
                     <link rel="icon" type="image/png"
                         href="https://uwlib-cams.github.io/webviews/images/metadata.png"/>
-                    <link href="https://uwlib-cams.github.io/webviews/css/schemasProject-to-map.css" rel="stylesheet"
-                        type="text/css"/>
+                    <link href="https://uwlib-cams.github.io/webviews/css/SP2MAP.css" rel="stylesheet" type="text/css"/>
                     <title>{'MAP > ', $alias}</title>
                 </head>
                 <body>
@@ -46,20 +62,17 @@
                         <xsl:with-param name="map_props"
                             select="$map/migdd:migDataDictionary/migdd:properties"/>
                     </xsl:call-template>
-                    <xsl:call-template name="photographs-prop-guidance-section-start">
-                        <xsl:with-param name="map_props"
-                            select="$map/migdd:migDataDictionary/migdd:properties"/>
-                        <!-- @resource-type changed -->
-                        <xsl:with-param name="resource-type" select="'photographs'"/>
-                        <xsl:with-param name="object-type" select="'no'"/>
-                    </xsl:call-template>
-                    <xsl:call-template name="documents-prop-guidance-section-start">
-                        <xsl:with-param name="map_props"
-                            select="$map/migdd:migDataDictionary/migdd:properties"/>
-                        <!-- @resource-type changed -->
-                        <xsl:with-param name="resource-type" select="'documents'"/>
-                        <xsl:with-param name="object-type" select="'no'"/>
-                    </xsl:call-template>
+                    <xsl:for-each select="$guidance_sections/section">
+                        <xsl:call-template name="guidance_section_start">
+                            <xsl:with-param name="map_props"
+                                select="$map/migdd:migDataDictionary/migdd:properties"/>
+                            <xsl:with-param name="lcgft" select="lcgft"/>
+                            <xsl:with-param name="cdm_object_type_notation" select="cdm_object_type"/>
+                            <xsl:with-param name="cdm_object_type_label"
+                                select="cdm_object_type_label"/>
+                            <xsl:with-param name="exclude" select="exclude"/>
+                        </xsl:call-template>
+                    </xsl:for-each>
                     <xsl:call-template name="prop-config">
                         <xsl:with-param name="map_props"
                             select="$map/migdd:migDataDictionary/migdd:properties"/>
@@ -76,12 +89,12 @@
                             <xsl:value-of select="$alias"/>
                         </xsl:with-param>
                         <xsl:with-param name="org" select="'mig'"/>
-                    </xsl:call-template>
-                </body>
+                    </xsl:call-template>                </body>
             </html>
         </xsl:result-document>
     </xsl:template>
 
+    <!-- NAMED TEMPLATES -->
     <xsl:template name="top">
         <h1 class="title_color" id="top">
             <xsl:text>UWL MIG CONTENTdm Metadata Application Profile</xsl:text>
@@ -123,47 +136,38 @@
         <ul class="large_one bold">
             <li class="toc_li">
                 <a href="#all-list">
-                    <xsl:text>ALL PROPERTIES</xsl:text>
+                    <xsl:text>Combined field list</xsl:text>
                 </a>
-                <xsl:text>: Combined property list</xsl:text>
             </li>
-            <li class="toc_li">
-                <a href="#photographs-no-guidance">
-                    <xsl:text>METADATA-CREATION GUIDANCE</xsl:text>
-                </a>
-                <xsl:text>: Photographs (standalone objects)</xsl:text>
-            </li>
-            <li class="toc_li">
-                <a href="#documents-no-guidance">
-                    <xsl:text>METADATA-CREATION GUIDANCE</xsl:text>
-                </a>
-                <xsl:text>: Documents (standalone objects)</xsl:text>
-            </li>
-            <li class="toc_li">
-                <a href="#settings">
-                    <xsl:text>CONTENTdm FIELD SETTINGS</xsl:text>
-                </a>
-                <xsl:text>: CONTENTdm field configurations for the collection</xsl:text>
-            </li>
+            <xsl:for-each select="$guidance_sections/section">
+                <li class="toc_li">
+                    <xsl:text>Metadata-creation guidance: </xsl:text>
+                    <a href="{concat('#', translate(lcgft, ' _()', ''), '-no-guidance')}">
+                        {translate(lcgft, '_', ' ')}
+                    </a>
+                </li>
+            </xsl:for-each>
         </ul>
     </xsl:template>
     <xsl:template name="all-list-start">
         <xsl:param name="map_props"/>
         <div class="title_color">
-            <h2 id="all-list">{'ORDERED FIELD LIST'}</h2>
+            <h2 id="all-list">{'COMBINED FIELD LIST'}</h2>
         </div>
         <table class="all_list_table center_align">
             <thead class="all_list_table_thead">
                 <tr class="large_one">
-                    <th scope="col">Field label</th>
-                    <th scope="col">Field order</th>
-                    <th scope="col">Recording values for photographs</th>
-                    <th scope="col">Recording values for documents</th>
-                    <th scope="col">Configuration</th>
+                    <th scope="col">{'Field label'}</th>
+                    <th scope="col">{'Field order'}</th>
+                    <xsl:for-each select="$guidance_sections/section">
+                        <th scope="col">{translate(lcgft, '_', ' ')}</th>
+                    </xsl:for-each>
+                    <th scope="col">{'Field configuration'}</th>
                 </tr>
             </thead>
             <tbody class="alt_rows">
                 <xsl:for-each select="$map_props/migprop:property">
+                    <xsl:variable name="uid" select="migprop:uid"/>
                     <tr>
                         <th scope="row" class="all_list_table_th">
                             <xsl:choose>
@@ -177,29 +181,19 @@
                             </xsl:choose>
                         </th>
                         <td class="all_list_table_td">{position()}</td>
-                        <td class="all_list_table_td">
-                            <xsl:choose>
-                                <xsl:when test="matches(migprop:uid, $photographs_props)">
-                                    <xsl:text>record values </xsl:text>
-                                    <a href="{concat('#', migprop:uid, '-photographs-no-guidance')}">for
-                                        photographs</a>
-                                </xsl:when>
-                                <xsl:otherwise>n/a</xsl:otherwise>
-                            </xsl:choose>
-                        </td>
-                        <td class="all_list_table_td">
-                            <xsl:choose>
-                                <xsl:when test="matches(migprop:uid, $documents_props)">
-                                    <xsl:text>record values </xsl:text>
-                                    <a href="{concat('#', migprop:uid, '-documents-no-guidance')}"
-                                        >for documents</a>
-                                </xsl:when>
-                                <xsl:otherwise>n/a</xsl:otherwise>
-                            </xsl:choose>
-                        </td>
+                        <xsl:for-each select="$guidance_sections/section">
+                            <td class="all_list_table_td">
+                                <xsl:choose>
+                                    <xsl:when test="not(matches($uid, exclude))">
+                                        <a href="{concat('#', $uid, '-', translate(lcgft, ' _()', ''), '-no-guidance')}">{'Record values'}</a>
+                                    </xsl:when>
+                                    <xsl:otherwise>{'n/a'}</xsl:otherwise>
+                                </xsl:choose>
+                            </td>
+                        </xsl:for-each>
                         <td class="all_list_table_td">
                             <a href="{concat('#', migprop:uid, '-config')}">
-                                <xsl:text>configuration details</xsl:text>
+                                <xsl:text>{'See details'}</xsl:text>
                             </a>
                         </td>
                     </tr>
@@ -209,45 +203,50 @@
         <br/>
         <xsl:call-template name="cdm_map_backlink"/>
     </xsl:template>
-    <xsl:template name="photographs-prop-guidance-section-start">
+    <xsl:template name="guidance_section_start">
         <xsl:param name="map_props"/>
-        <xsl:param name="resource-type"/>
-        <xsl:param name="object-type"/>
+        <xsl:param name="lcgft"/>
+        <xsl:param name="cdm_object_type_notation"/>
+        <xsl:param name="cdm_object_type_label"/>
+        <xsl:param name="exclude"/>
         <br/>
-        <div class="{concat($resource-type, '_color large_two')}">
+        <div class="{concat(translate($lcgft, ' _()', ''), '_color large_two')}">
             <br/>
-            <h2 id="{concat($resource-type, '-', $object-type, '-guidance')}">
-                <xsl:text>METADATA CREATION FOR PHOTOGRAPHS (STANDALONE OBJECTS)</xsl:text>
+            <h2
+                id="{concat(translate($lcgft, ' _()', ''), '-', $cdm_object_type_notation, '-guidance')}"
+                >
+                {'METADATA CREATION FOR ', upper-case($lcgft), ' : ', upper-case($cdm_object_type_label)}
             </h2>
             <br/>
         </div>
-        <xsl:call-template name="photographs-prop-guidance-section-tables">
+        <xsl:call-template name="guidance_section_tables">
             <xsl:with-param name="map_props" select="$map_props"/>
-            <xsl:with-param name="resource-type" select="$resource-type"/>
-            <xsl:with-param name="object-type" select="'^no$|^all$'"/>
+            <xsl:with-param name="lcgft" select="$lcgft"/>
+            <xsl:with-param name="cdm_object_type_notation" select="$cdm_object_type_notation"/>
+            <xsl:with-param name="cdm_object_type_label" select="$cdm_object_type_label"/>
+            <xsl:with-param name="exclude" select="$exclude"/>
         </xsl:call-template>
     </xsl:template>
-    <xsl:template name="photographs-prop-guidance-section-tables">
+    <xsl:template name="guidance_section_tables">
         <xsl:param name="map_props"/>
-        <xsl:param name="resource-type"/>
-        <xsl:param name="object-type"/>
+        <xsl:param name="lcgft"/>
+        <xsl:param name="cdm_object_type_notation"/>
+        <xsl:param name="cdm_object_type_label"/>
+        <xsl:param name="exclude"/>
         <xsl:for-each select="$map_props/migprop:property">
-            <xsl:if test="matches(migprop:uid, $photographs_props)">
+            <!-- would be better to eliminate xsl:if and add exclude to XPath above -->
+            <xsl:if test="not(matches(migprop:uid, $exclude))">
                 <br/>
                 <table class="prop_table">
                     <thead>
                         <tr>
                             <th colspan="2"
-                                id="{concat(migprop:uid, '-', $resource-type, '-no-guidance')}"
-                                class="{concat('prop_table_head', ' ', $resource-type, '_color')}">
-                                <div class="large_one">
-                                    <xsl:text>PHOTOGRAPHS &gt; STANDALONE OBJECTS</xsl:text>
-                                </div>
-                                <br/>
+                                id="{concat(migprop:uid, '-', translate($lcgft, ' _()', ''), '-no-guidance')}"
+                                class="{concat('prop_table_head', ' ', translate($lcgft, ' _()', ''), '_color')}">
                                 <div class="large_two">
                                     <xsl:choose>
                                         <xsl:when test="migprop:cdm/migprop:label/text()">
-                                            <xsl:value-of select="migprop:cdm/migprop:label"/>
+                                            {translate($lcgft, '_', ' '), ' : ', migprop:cdm/migprop:label}
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:value-of
@@ -295,11 +294,11 @@
                                 <xsl:choose>
                                     <xsl:when test="
                                             migprop:descriptions/migprop:customization
-                                            [matches(@co, $object-type)]
+                                            [matches(@co, $cdm_object_type_notation)]
                                             [matches(@dd, $alias)]">
                                         <xsl:for-each select="
                                                 migprop:descriptions/migprop:customization
-                                                [matches(@co, $object-type)]
+                                                [matches(@co, $cdm_object_type_notation)]
                                                 [matches(@dd, $alias)]
                                                 /migprop:para">
                                             <li>
@@ -310,7 +309,7 @@
                                     <xsl:otherwise>
                                         <xsl:for-each select="
                                                 migprop:descriptions/migprop:instructions
-                                                [matches(@co, $object-type)]/migprop:para">
+                                                [matches(@co, $cdm_object_type_notation)]/migprop:para">
                                             <li>
                                                 <xsl:value-of select="."/>
                                             </li>
@@ -334,11 +333,11 @@
                                 also matching here does not take into account resource type -->
                                     <xsl:when test="
                                             migprop:examples/migprop:customization
-                                            [matches(@co, $object-type)]
+                                            [matches(@co, $cdm_object_type_notation)]
                                             [matches(@dd, $alias)]">
                                         <xsl:for-each select="
                                                 migprop:examples/migprop:customization
-                                                [matches(@co, $object-type)]
+                                                [matches(@co, $cdm_object_type_notation)]
                                                 [matches(@dd, $alias)]/migprop:para">
                                             <li>
                                                 <xsl:value-of select="."/>
@@ -348,191 +347,7 @@
                                     <xsl:otherwise>
                                         <xsl:for-each select="
                                                 migprop:examples/migprop:example
-                                                [matches(@co, $object-type)]/migprop:para">
-                                            <li>
-                                                <xsl:value-of select="."/>
-                                            </li>
-                                        </xsl:for-each>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </ul>
-                            <br/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="right_align">
-                            <xsl:text>SEE ALSO</xsl:text>
-                        </th>
-                        <td>
-                            <ul class="no_bullets">
-                                <li>
-                                    <a href="{concat('#', migprop:uid, '-config')}">
-                                        <xsl:text>CONTENTdm FIELD SETTINGS for this field</xsl:text>
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="center_align">
-                            <br/>
-                            <xsl:text>RIGHT CLICK TO COPY A </xsl:text>
-                            <a href="{concat(
-                            'https://uwlib-mig.github.io/contentdm_maps/html/', $alias, '.html#',
-                            migprop:uid, '-', $resource-type, '-no-guidance')}">
-                                <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-                <br/>
-                <div class="toc_color">
-                    <xsl:call-template name="cdm_map_backlink"/>
-                    <br/>
-                </div>
-            </xsl:if>
-        </xsl:for-each>
-    </xsl:template>
-    <xsl:template name="documents-prop-guidance-section-start">
-        <xsl:param name="map_props"/>
-        <xsl:param name="resource-type"/>
-        <xsl:param name="object-type"/>
-        <br/>
-        <div class="{concat($resource-type, '_color large_two')}">
-            <br/>
-            <h2 id="{concat($resource-type, '-', $object-type, '-guidance')}">
-                <xsl:text>METADATA CREATION FOR DOCUMENTS (STANDALONE OBJECTS)</xsl:text>
-            </h2>
-            <br/>
-        </div>
-        <xsl:call-template name="documents-prop-guidance-section-tables">
-            <xsl:with-param name="map_props" select="$map_props"/>
-            <xsl:with-param name="resource-type" select="$resource-type"/>
-            <xsl:with-param name="object-type" select="'^no$|^all$'"/>
-        </xsl:call-template>
-    </xsl:template>
-    <xsl:template name="documents-prop-guidance-section-tables">
-        <xsl:param name="map_props"/>
-        <xsl:param name="resource-type"/>
-        <xsl:param name="object-type"/>
-        <xsl:for-each select="$map_props/migprop:property">
-            <xsl:if test="matches(migprop:uid, $documents_props)">
-                <br/>
-                <table class="prop_table">
-                    <thead>
-                        <tr>
-                            <th colspan="2"
-                                id="{concat(migprop:uid, '-', $resource-type, '-no-guidance')}"
-                                class="{concat('prop_table_head', ' ', $resource-type, '_color')}">
-                                <div class="large_one">
-                                    <xsl:text>DOCUMENTS &gt; STANDALONE OBJECTS</xsl:text>
-                                </div>
-                                <br/>
-                                <div class="large_two">
-                                    <xsl:choose>
-                                        <xsl:when test="migprop:cdm/migprop:label/text()">
-                                            <xsl:value-of select="migprop:cdm/migprop:label"/>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:value-of
-                                                select="migprop:labels/migprop:platformIndependent"
-                                            />
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <!-- TO DO: will there be conflicts due to not matching on object type (co, item, no, all, etc.) below???-->
-                    <tr>
-                        <th scope="row" class="right_align">
-                            <xsl:text>PROPERTY DEFINITION</xsl:text>
-                        </th>
-                        <td>
-                            <ul class="no_bullets">
-                                <xsl:for-each
-                                    select="migprop:descriptions/migprop:definition/migprop:para">
-                                    <li>
-                                        <xsl:value-of select="."/>
-                                    </li>
-                                </xsl:for-each>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="right_align">
-                            <xsl:text>INSTRUCTIONS FOR RECORDING VALUES</xsl:text>
-                        </th>
-                        <td>
-                            <br/>
-                            <ul class="no_bullets">
-                                <xsl:if
-                                    test="matches(migprop:cdm/migprop:hidden/text(), '^yes$|^1$|^true$')">
-                                    <li>
-                                        <span class="italic">
-                                            <xsl:text>Values entered for this property are not visible in the public interface.</xsl:text>
-                                            <br/>
-                                            <br/>
-                                        </span>
-                                    </li>
-                                </xsl:if>
-                                <xsl:choose>
-                                    <xsl:when test="
-                                            migprop:descriptions/migprop:customization
-                                            [matches(@co, $object-type)]
-                                            [matches(@dd, $alias)]">
-                                        <xsl:for-each select="
-                                                migprop:descriptions/migprop:customization
-                                                [matches(@co, $object-type)]
-                                                [matches(@dd, $alias)]
-                                                /migprop:para">
-                                            <li>
-                                                <xsl:value-of select="."/>
-                                            </li>
-                                        </xsl:for-each>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:for-each select="
-                                                migprop:descriptions/migprop:instructions
-                                                [matches(@co, $object-type)]/migprop:para">
-                                            <li>
-                                                <xsl:value-of select="."/>
-                                            </li>
-                                        </xsl:for-each>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </ul>
-                            <br/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="right_align">
-                            <xsl:text>EXAMPLE(S) OF WELL-FORMED VALUES</xsl:text>
-                        </th>
-                        <td>
-                            <br/>
-                            <ul class="no_bullets">
-                                <xsl:choose>
-                                    <!-- NOTE that there are other possible permutations for matching
-                                customization element may match on object type but have no collection value
-                                also matching here does not take into account resource type -->
-                                    <xsl:when test="
-                                            migprop:examples/migprop:customization
-                                            [matches(@co, $object-type)]
-                                            [@dd = $alias]">
-                                        <xsl:for-each select="
-                                                migprop:examples/migprop:customization
-                                                [matches(@co, $object-type)]
-                                                [@dd = $alias]/migprop:para">
-                                            <li>
-                                                <xsl:value-of select="."/>
-                                            </li>
-                                        </xsl:for-each>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:for-each select="
-                                                migprop:examples/migprop:example
-                                                [matches(@co, $object-type)]/migprop:para">
+                                                [matches(@co, $cdm_object_type_notation)]/migprop:para">
                                             <li>
                                                 <xsl:value-of select="."/>
                                             </li>
@@ -563,7 +378,7 @@
                             <xsl:text>RIGHT CLICK TO COPY A </xsl:text>
                             <a href="{concat(
                                 'https://uwlib-mig.github.io/contentdm_maps/html/', $alias, '.html#',
-                                migprop:uid, '-', $resource-type, '-no-guidance')}">
+                                migprop:uid, '-', translate($lcgft, ' _()', ''), '-no-guidance')}">
                                 <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
                             </a>
                         </td>
@@ -576,6 +391,25 @@
                 </div>
             </xsl:if>
         </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="cdm_map_backlink">
+        <div class="italic right_align bold">
+            <a href="#top">
+                <xsl:text>MAP info</xsl:text>
+            </a>
+            <xsl:text> | </xsl:text>
+            <a href="#toc">
+                <xsl:text>TOC</xsl:text>
+            </a>
+            <xsl:text> | </xsl:text>
+            <a href="#all-list">
+                <xsl:text>PROPERTY LIST</xsl:text>
+            </a>
+            <br/>
+            <xsl:call-template name="index-backlink">
+                <xsl:with-param name="site" select="'contentdm_maps'"/>
+            </xsl:call-template>
+        </div>
     </xsl:template>
     <xsl:template name="prop-config">
         <xsl:param name="map_props"/>
@@ -601,10 +435,8 @@
             <div class="settings_color">
                 <br/>
                 <h3 id="{concat(migprop:uid, '-config')}">
-                    <span class="large_one">
-                        <xsl:text>CONTENTdm SETTINGS > </xsl:text>
-                    </span>
                     <span class="large_two">
+                        <xsl:text>CONTENTdm field settings : </xsl:text>
                         <xsl:choose>
                             <xsl:when test="migprop:cdm/migprop:label/text()">
                                 <xsl:value-of select="migprop:cdm/migprop:label"/>
@@ -692,25 +524,6 @@
                 but I don't think this will work with the template as it is now -->
             <xsl:call-template name="cdm_map_backlink"/>
         </xsl:for-each>
-    </xsl:template>
-    <xsl:template name="cdm_map_backlink">
-        <div class="italic right_align bold">
-            <a href="#top">
-                <xsl:text>MAP info</xsl:text>
-            </a>
-            <xsl:text> | </xsl:text>
-            <a href="#toc">
-                <xsl:text>TOC</xsl:text>
-            </a>
-            <xsl:text> | </xsl:text>
-            <a href="#all-list">
-                <xsl:text>PROPERTY LIST</xsl:text>
-            </a>
-            <br/>
-            <xsl:call-template name="index-backlink">
-                <xsl:with-param name="site" select="'contentdm_maps'"/>
-            </xsl:call-template>
-        </div>
     </xsl:template>
 
 </xsl:stylesheet>
