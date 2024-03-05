@@ -14,7 +14,7 @@
         <xsl:output-character character="&gt;" string="&gt;"/>
     </xsl:character-map>
 
-    <!-- INCLUDE from webviews -->
+    <!-- INCLUDE : uwlib-cams/webviews -->
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/CC0-footer.xsl"/>
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/index-backlink.xsl"/>
 
@@ -23,16 +23,18 @@
             (: !! CAUTION local filepath to MAP file !!  :)
             document('../../schemasProject/dataDictionaries/xml/becker.xml')"/>
     <xsl:variable name="alias" select="$map/migdd:migDataDictionary/migdd:cdmCode"/>
+    
     <xsl:variable name="guidance_sections">
+        <!-- move this to xml MAP, validate with lcgft.xsd?? -->
         <section>
             <lcgft>Photographs</lcgft>
             <!-- TO DO: CHECK 'no' vs '^no$|^all$' -->
             <cdm_object_type>no</cdm_object_type>
             <cdm_object_type_label>standalone items</cdm_object_type_label>
-            <exclude>^p0$</exclude>
+            <exclude>^p6$|^p19$|^p99$|^p50$</exclude>
         </section>
         <section>
-            <lcgft>Records (Documents)</lcgft>
+            <lcgft>Records_(Documents)</lcgft>
             <cdm_object_type>no</cdm_object_type>
             <cdm_object_type_label>standalone items</cdm_object_type_label>
             <exclude>^p65$|^p53$</exclude>
@@ -45,7 +47,7 @@
         </section>
     </xsl:variable>
 
-    <!-- TEMPLATE -->
+    <!-- BASE TEMPLATE -->
     <xsl:template match="/">
         <xsl:result-document href="{concat('../html/', $alias, '.html')}">
             <html>
