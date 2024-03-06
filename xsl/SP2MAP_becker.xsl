@@ -7,14 +7,13 @@
     exclude-result-prefixes="xs math" expand-text="yes" version="3.0">
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
-    <!-- still needed?? -->
     <xsl:output method="html" html-version="5.0" indent="yes" use-character-maps="angleBrackets"/>
     <xsl:character-map name="angleBrackets">
         <xsl:output-character character="&lt;" string="&lt;"/>
         <xsl:output-character character="&gt;" string="&gt;"/>
     </xsl:character-map>
 
-    <!-- INCLUDE : uwlib-cams/webviews -->
+    <!-- INCLUDE uwlib-cams/webviews -->
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/CC0-footer.xsl"/>
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/index-backlink.xsl"/>
 
