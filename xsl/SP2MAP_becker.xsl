@@ -296,11 +296,13 @@
                                     <xsl:when test="
                                             migprop:descriptions/migprop:customization
                                             [matches(@co, $cdm_object_type_notation)]
-                                            [matches(@dd, $alias)]">
+                                            [matches(@dd, $alias) or matches(@dd, '\*')]
+                                            [matches(@objectType, $lcgft)]">
                                         <xsl:for-each select="
                                                 migprop:descriptions/migprop:customization
                                                 [matches(@co, $cdm_object_type_notation)]
-                                                [matches(@dd, $alias)]
+                                                [matches(@dd, $alias) or matches(@dd, '\*')]
+                                                [matches(@objectType, $lcgft)]
                                                 /migprop:para">
                                             <li>
                                                 <xsl:value-of select="."/>
