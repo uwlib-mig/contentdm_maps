@@ -11,7 +11,7 @@
       <div class="large_one">
          <ul>
             <li>Original creation date: 2024-01-25</li>
-            <li>Most recent revision: 2024-03-05</li>
+            <li>Most recent revision: 2024-03-08</li>
             <li>Metadata liaison(s): 
                <ul>
                   <li>Benjamin Riesenberg - <a href="mailto:ries07@uw.edu">ries07@uw.edu</a></li>
@@ -327,7 +327,27 @@
          </tr>
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
-            <td><br><ul class="no_bullets"></ul><br></td>
+            <td><br><ul class="no_bullets">
+                  <li>A brief descriptive phrase that includes these elements, generally in this order:
+                     who, what, where, when.</li>
+                  <li>The Title is a concise sentence which will be used to label the thumbnails in
+                     CONTENTdm; it will also be the first line of the descriptive information. The Title
+                     may
+                     be the caption assigned by the photographer or the collector, or it may be created
+                     by
+                     Special Collections staff from the given caption and from additional sources. In the
+                     absence of any caption, the Title will be provided by Special Collections staff.</li>
+                  <li>If the caption provided by the photographer is adequate, place it in the Title field.
+                     Then, the Notes field should include this phrase: Title taken from photograph.</li>
+                  <li>If the caption provided by the photographer is inadequate, a created title should
+                     be
+                     placed in the Title field; the Notes field should then read: Caption on image: "Image
+                     title."</li>
+                  <li>If there is a series caption, it should be added, in the Notes field, in sequence
+                     after the title on the image: Caption on image: "Image title"; "Series title." There
+                     should also be a separate notation in the Notes field in the form: Part of Hegg series
+                     entitled: "Series title."</li>
+               </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
@@ -522,7 +542,6 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li><span class="italic">Values entered for this property are not visible in the public interface.<br><br></span></li>
-                  <li>Date of creation of the original resource.</li>
                   <li>Reflects the date in the "Date" field.</li>
                   <li>Express all dates, including date ranges, using Library of Congress' Extended Date
                      Time Format.</li>
@@ -587,27 +606,22 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li><span class="italic">Values entered for this property are not visible in the public interface.<br><br></span></li>
-                  <li>Date of creation of the original resource.</li>
-                  <li>The Dates value should agree with values for the Date-EDTF and Date fields. This field
-                     is indexed and enables date searching in CONTENTdm.</li>
-                  <li>Enter a year or years only. Do not use commas or other punctuation to separate years.</li>
-                  <li><br/>If the value of Date is "YYYY", enter: YYYY</li>
-                  <li>If the value of Date is "[month], YYYY", enter the year only in the following format:
-                     YYYY</li>
-                  <li>If the value of Date value is “[month] DD, YYYY”, enter the year only in the following
-                     format: YYYY</li>
-                  <li>If the value of Date is “between YYYY and YYYY”, enter all years in the date range
-                     in the following format: YYYY YYYY YYYY YYYY</li>
-                  <li><br/>For a Date value which is an uncertain year (for example, “YYYY?”):</li>
-                  <li><br/>If research or available information about the resource can be used to produce a probable year or range of years, enter this.</li>
-                  <li>If no additional information is available, enter an eleven-year range by adding five
-                     years on either side of the uncertain year.</li>
-                  <li><br/>For a Date value which is an uncertain range of years (for example, “between YYYY and YYYY?”):</li>
-                  <li>If research or available information about the resource can be used to produce a probable
-                     range of years, enter this.</li>
-                  <li>If no additional information is available, enter all years in the uncertain date range,
-                     plus the five years before the range and the five years after the range.</li>
-                  <li>UW Libraries staff: For additional information see <a href="https://staff.lib.uw.edu/groups/mig/initiatives-work/date-dates-date-edtf-explained">Date/Dates/Date-EDTF Explained<a/>.</li>
+                  <li>Reflects the date in the "Date" field.</li>
+                  <li>Enter the year or years only.</li>
+                  <li>When the value of Date is YYYY, enter YYYY.</li>
+                  <li>When the value of Date is YYYY?, enter an eleven year date range, five years on either
+                     side of the uncertain date.</li>
+                  <li>When the value of Date is [month] DD, YYYY, enter the year only in the following format:
+                     YYYY.</li>
+                  <li>When the value of Date is [month], YYYY, enter the year only in the following format:
+                     YYYY.</li>
+                  <li>When the value of Date is between YYYY and YYYY, enter all years in the date range
+                     in the following format: YYYY YYYY YYYY etc.</li>
+                  <li>When the value of Date is between YYYY and YYYY?, enter all years in the date range
+                     plus five years before the earliest date and five years after the latest date, in
+                     the following format: YYYY YYYY YYYY etc.</li>
+                  <li>This field is indexed and enables date searching in CONTENTdm.</li>
+                  <li>The Dates value should agree with date values entered in Date-Edtf and Date fields.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -653,10 +667,10 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Terms in this field are taken from the LC Subject Headings list (LCSH). LCSH and the
-                     National Authority File (LCNAF) will also be used for persons, objects, and places
-                     with proper names.</li>
-                  <li>Separate multiple values using a semicolon and space ("; ").</li>
+                  <li>Values for this property are taken from the LC Subject Headings list (LCSH) at http://authorities.loc.gov
+                     or http://id.loc.gov.</li>
+                  <li>For images, use LCSH only when TGM has no appropriate term to describe the resource.</li>
+                  <li>Separate multiple headings with a semicolon.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -702,7 +716,10 @@
          </tr>
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
-            <td><br><ul class="no_bullets"></ul><br></td>
+            <td><br><ul class="no_bullets">
+                  <li>Use the following value taken from Library of Congress Genre/Form Terms:</li>
+                  <li><br/>Photographs</li>
+               </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
@@ -1673,7 +1690,27 @@
          </tr>
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
-            <td><br><ul class="no_bullets"></ul><br></td>
+            <td><br><ul class="no_bullets">
+                  <li>A brief descriptive phrase that includes these elements, generally in this order:
+                     who, what, where, when.</li>
+                  <li>The Title is a concise sentence which will be used to label the thumbnails in
+                     CONTENTdm; it will also be the first line of the descriptive information. The Title
+                     may
+                     be the caption assigned by the photographer or the collector, or it may be created
+                     by
+                     Special Collections staff from the given caption and from additional sources. In the
+                     absence of any caption, the Title will be provided by Special Collections staff.</li>
+                  <li>If the caption provided by the photographer is adequate, place it in the Title field.
+                     Then, the Notes field should include this phrase: Title taken from photograph.</li>
+                  <li>If the caption provided by the photographer is inadequate, a created title should
+                     be
+                     placed in the Title field; the Notes field should then read: Caption on image: "Image
+                     title."</li>
+                  <li>If there is a series caption, it should be added, in the Notes field, in sequence
+                     after the title on the image: Caption on image: "Image title"; "Series title." There
+                     should also be a separate notation in the Notes field in the form: Part of Hegg series
+                     entitled: "Series title."</li>
+               </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
@@ -1912,7 +1949,6 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li><span class="italic">Values entered for this property are not visible in the public interface.<br><br></span></li>
-                  <li>Date of creation of the original resource.</li>
                   <li>Reflects the date in the "Date" field.</li>
                   <li>Express all dates, including date ranges, using Library of Congress' Extended Date
                      Time Format.</li>
@@ -1977,27 +2013,22 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li><span class="italic">Values entered for this property are not visible in the public interface.<br><br></span></li>
-                  <li>Date of creation of the original resource.</li>
-                  <li>The Dates value should agree with values for the Date-EDTF and Date fields. This field
-                     is indexed and enables date searching in CONTENTdm.</li>
-                  <li>Enter a year or years only. Do not use commas or other punctuation to separate years.</li>
-                  <li><br/>If the value of Date is "YYYY", enter: YYYY</li>
-                  <li>If the value of Date is "[month], YYYY", enter the year only in the following format:
-                     YYYY</li>
-                  <li>If the value of Date value is “[month] DD, YYYY”, enter the year only in the following
-                     format: YYYY</li>
-                  <li>If the value of Date is “between YYYY and YYYY”, enter all years in the date range
-                     in the following format: YYYY YYYY YYYY YYYY</li>
-                  <li><br/>For a Date value which is an uncertain year (for example, “YYYY?”):</li>
-                  <li><br/>If research or available information about the resource can be used to produce a probable year or range of years, enter this.</li>
-                  <li>If no additional information is available, enter an eleven-year range by adding five
-                     years on either side of the uncertain year.</li>
-                  <li><br/>For a Date value which is an uncertain range of years (for example, “between YYYY and YYYY?”):</li>
-                  <li>If research or available information about the resource can be used to produce a probable
-                     range of years, enter this.</li>
-                  <li>If no additional information is available, enter all years in the uncertain date range,
-                     plus the five years before the range and the five years after the range.</li>
-                  <li>UW Libraries staff: For additional information see <a href="https://staff.lib.uw.edu/groups/mig/initiatives-work/date-dates-date-edtf-explained">Date/Dates/Date-EDTF Explained<a/>.</li>
+                  <li>Reflects the date in the "Date" field.</li>
+                  <li>Enter the year or years only.</li>
+                  <li>When the value of Date is YYYY, enter YYYY.</li>
+                  <li>When the value of Date is YYYY?, enter an eleven year date range, five years on either
+                     side of the uncertain date.</li>
+                  <li>When the value of Date is [month] DD, YYYY, enter the year only in the following format:
+                     YYYY.</li>
+                  <li>When the value of Date is [month], YYYY, enter the year only in the following format:
+                     YYYY.</li>
+                  <li>When the value of Date is between YYYY and YYYY, enter all years in the date range
+                     in the following format: YYYY YYYY YYYY etc.</li>
+                  <li>When the value of Date is between YYYY and YYYY?, enter all years in the date range
+                     plus five years before the earliest date and five years after the latest date, in
+                     the following format: YYYY YYYY YYYY etc.</li>
+                  <li>This field is indexed and enables date searching in CONTENTdm.</li>
+                  <li>The Dates value should agree with date values entered in Date-Edtf and Date fields.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -2043,10 +2074,10 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Terms in this field are taken from the LC Subject Headings list (LCSH). LCSH and the
-                     National Authority File (LCNAF) will also be used for persons, objects, and places
-                     with proper names.</li>
-                  <li>Separate multiple values using a semicolon and space ("; ").</li>
+                  <li>Values for this property are taken from the LC Subject Headings list (LCSH) at http://authorities.loc.gov
+                     or http://id.loc.gov.</li>
+                  <li>For images, use LCSH only when TGM has no appropriate term to describe the resource.</li>
+                  <li>Separate multiple headings with a semicolon.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -3114,7 +3145,27 @@
          </tr>
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
-            <td><br><ul class="no_bullets"></ul><br></td>
+            <td><br><ul class="no_bullets">
+                  <li>A brief descriptive phrase that includes these elements, generally in this order:
+                     who, what, where, when.</li>
+                  <li>The Title is a concise sentence which will be used to label the thumbnails in
+                     CONTENTdm; it will also be the first line of the descriptive information. The Title
+                     may
+                     be the caption assigned by the photographer or the collector, or it may be created
+                     by
+                     Special Collections staff from the given caption and from additional sources. In the
+                     absence of any caption, the Title will be provided by Special Collections staff.</li>
+                  <li>If the caption provided by the photographer is adequate, place it in the Title field.
+                     Then, the Notes field should include this phrase: Title taken from photograph.</li>
+                  <li>If the caption provided by the photographer is inadequate, a created title should
+                     be
+                     placed in the Title field; the Notes field should then read: Caption on image: "Image
+                     title."</li>
+                  <li>If there is a series caption, it should be added, in the Notes field, in sequence
+                     after the title on the image: Caption on image: "Image title"; "Series title." There
+                     should also be a separate notation in the Notes field in the form: Part of Hegg series
+                     entitled: "Series title."</li>
+               </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
@@ -3353,7 +3404,6 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li><span class="italic">Values entered for this property are not visible in the public interface.<br><br></span></li>
-                  <li>Date of creation of the original resource.</li>
                   <li>Reflects the date in the "Date" field.</li>
                   <li>Express all dates, including date ranges, using Library of Congress' Extended Date
                      Time Format.</li>
@@ -3418,27 +3468,22 @@
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
                   <li><span class="italic">Values entered for this property are not visible in the public interface.<br><br></span></li>
-                  <li>Date of creation of the original resource.</li>
-                  <li>The Dates value should agree with values for the Date-EDTF and Date fields. This field
-                     is indexed and enables date searching in CONTENTdm.</li>
-                  <li>Enter a year or years only. Do not use commas or other punctuation to separate years.</li>
-                  <li><br/>If the value of Date is "YYYY", enter: YYYY</li>
-                  <li>If the value of Date is "[month], YYYY", enter the year only in the following format:
-                     YYYY</li>
-                  <li>If the value of Date value is “[month] DD, YYYY”, enter the year only in the following
-                     format: YYYY</li>
-                  <li>If the value of Date is “between YYYY and YYYY”, enter all years in the date range
-                     in the following format: YYYY YYYY YYYY YYYY</li>
-                  <li><br/>For a Date value which is an uncertain year (for example, “YYYY?”):</li>
-                  <li><br/>If research or available information about the resource can be used to produce a probable year or range of years, enter this.</li>
-                  <li>If no additional information is available, enter an eleven-year range by adding five
-                     years on either side of the uncertain year.</li>
-                  <li><br/>For a Date value which is an uncertain range of years (for example, “between YYYY and YYYY?”):</li>
-                  <li>If research or available information about the resource can be used to produce a probable
-                     range of years, enter this.</li>
-                  <li>If no additional information is available, enter all years in the uncertain date range,
-                     plus the five years before the range and the five years after the range.</li>
-                  <li>UW Libraries staff: For additional information see <a href="https://staff.lib.uw.edu/groups/mig/initiatives-work/date-dates-date-edtf-explained">Date/Dates/Date-EDTF Explained<a/>.</li>
+                  <li>Reflects the date in the "Date" field.</li>
+                  <li>Enter the year or years only.</li>
+                  <li>When the value of Date is YYYY, enter YYYY.</li>
+                  <li>When the value of Date is YYYY?, enter an eleven year date range, five years on either
+                     side of the uncertain date.</li>
+                  <li>When the value of Date is [month] DD, YYYY, enter the year only in the following format:
+                     YYYY.</li>
+                  <li>When the value of Date is [month], YYYY, enter the year only in the following format:
+                     YYYY.</li>
+                  <li>When the value of Date is between YYYY and YYYY, enter all years in the date range
+                     in the following format: YYYY YYYY YYYY etc.</li>
+                  <li>When the value of Date is between YYYY and YYYY?, enter all years in the date range
+                     plus five years before the earliest date and five years after the latest date, in
+                     the following format: YYYY YYYY YYYY etc.</li>
+                  <li>This field is indexed and enables date searching in CONTENTdm.</li>
+                  <li>The Dates value should agree with date values entered in Date-Edtf and Date fields.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -3484,10 +3529,10 @@
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
             <td><br><ul class="no_bullets">
-                  <li>Terms in this field are taken from the LC Subject Headings list (LCSH). LCSH and the
-                     National Authority File (LCNAF) will also be used for persons, objects, and places
-                     with proper names.</li>
-                  <li>Separate multiple values using a semicolon and space ("; ").</li>
+                  <li>Values for this property are taken from the LC Subject Headings list (LCSH) at http://authorities.loc.gov
+                     or http://id.loc.gov.</li>
+                  <li>For images, use LCSH only when TGM has no appropriate term to describe the resource.</li>
+                  <li>Separate multiple headings with a semicolon.</li>
                </ul><br></td>
          </tr>
          <tr>
@@ -3533,7 +3578,10 @@
          </tr>
          <tr>
             <th scope="row" class="right_align">INSTRUCTIONS FOR RECORDING VALUES</th>
-            <td><br><ul class="no_bullets"></ul><br></td>
+            <td><br><ul class="no_bullets">
+                  <li>Use the following value taken from Library of Congress Genre/Form Terms:</li>
+                  <li><br/>Newsletters</li>
+               </ul><br></td>
          </tr>
          <tr>
             <th scope="row" class="right_align">EXAMPLE(S) OF WELL-FORMED VALUES</th>
