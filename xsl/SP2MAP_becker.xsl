@@ -33,7 +33,7 @@
             <exclude>^p6$|^p19$|^p99$|^p50$</exclude>
         </section>
         <section>
-            <lcgft>Records_(Documents)</lcgft>
+            <lcgft>Records_\(Documents\)</lcgft>
             <cdm_object_type>no</cdm_object_type>
             <cdm_object_type_label>standalone items</cdm_object_type_label>
             <exclude>^p65$|^p53$</exclude>
@@ -161,7 +161,7 @@
                     <th scope="col">{'Field label'}</th>
                     <th scope="col">{'Field order'}</th>
                     <xsl:for-each select="$guidance_sections/section">
-                        <th scope="col">{translate(lcgft, '_', ' ')}</th>
+                        <th scope="col">{translate(lcgft, '_\', ' ')}</th>
                     </xsl:for-each>
                     <th scope="col">{'Field configuration'}</th>
                 </tr>
@@ -186,7 +186,7 @@
                             <td class="all_list_table_td">
                                 <xsl:choose>
                                     <xsl:when test="not(matches($uid, exclude))">
-                                        <a href="{concat('#', $uid, '-', translate(lcgft, ' _()', ''), '-no-guidance')}">{'Record values'}</a>
+                                        <a href="{concat('#', $uid, '-', translate(lcgft, ' _()\', ''), '-no-guidance')}">{'Record values'}</a>
                                     </xsl:when>
                                     <xsl:otherwise>{'n/a'}</xsl:otherwise>
                                 </xsl:choose>
@@ -242,12 +242,12 @@
                     <thead>
                         <tr>
                             <th colspan="2"
-                                id="{concat(migprop:uid, '-', translate($lcgft, ' _()', ''), '-no-guidance')}"
-                                class="{concat('prop_table_head', ' ', translate($lcgft, ' _()', ''), '_color')}">
+                                id="{concat(migprop:uid, '-', translate($lcgft, ' \_()', ''), '-no-guidance')}"
+                                class="{concat('prop_table_head', ' ', translate($lcgft, ' \_()', ''), '_color')}">
                                 <div class="large_two">
                                     <xsl:choose>
                                         <xsl:when test="migprop:cdm/migprop:label/text()">
-                                            {translate($lcgft, '_', ' '), ' : ', migprop:cdm/migprop:label}
+                                            {translate($lcgft, '_\', ' '), ' : ', migprop:cdm/migprop:label}
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:value-of
