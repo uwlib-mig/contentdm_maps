@@ -143,8 +143,8 @@
             <xsl:for-each select="$guidance_sections/section">
                 <li class="toc_li">
                     <xsl:text>Metadata-creation guidance: </xsl:text>
-                    <a href="{concat('#', translate(lcgft, ' _()', ''), '-no-guidance')}">
-                        {translate(lcgft, '_', ' ')}
+                    <a href="{concat('#', translate(lcgft, ' _\()', ''), '-no-guidance')}">
+                        {translate(lcgft, '_\', ' ')}
                     </a>
                 </li>
             </xsl:for-each>
