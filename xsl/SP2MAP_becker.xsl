@@ -211,10 +211,10 @@
         <xsl:param name="cdm_object_type_label"/>
         <xsl:param name="exclude"/>
         <br/>
-        <div class="{concat(translate($lcgft, ' _()', ''), '_color large_two')}">
+        <div class="{concat(translate($lcgft, ' _\()', ''), '_color large_two')}">
             <br/>
             <h2
-                id="{concat(translate($lcgft, ' _()', ''), '-', $cdm_object_type_notation, '-guidance')}"
+                id="{concat(translate($lcgft, ' _\()', ''), '-', $cdm_object_type_notation, '-guidance')}"
                 >
                 {'METADATA CREATION FOR ', translate(upper-case($lcgft), '_\', ' '), ' : ', upper-case($cdm_object_type_label)}
             </h2>
@@ -381,7 +381,7 @@
                             <xsl:text>RIGHT CLICK TO COPY A </xsl:text>
                             <a href="{concat(
                                 'https://uwlib-mig.github.io/contentdm_maps/html/', $alias, '.html#',
-                                migprop:uid, '-', translate($lcgft, ' _()', ''), '-no-guidance')}">
+                                migprop:uid, '-', translate($lcgft, ' _\()', ''), '-no-guidance')}">
                                 <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
                             </a>
                         </td>
