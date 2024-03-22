@@ -216,7 +216,7 @@
             <h2
                 id="{concat(translate($lcgft, ' _()', ''), '-', $cdm_object_type_notation, '-guidance')}"
                 >
-                {'METADATA CREATION FOR ', upper-case($lcgft), ' : ', upper-case($cdm_object_type_label)}
+                {'METADATA CREATION FOR ', translate(upper-case($lcgft), '_\', ' '), ' : ', upper-case($cdm_object_type_label)}
             </h2>
             <br/>
         </div>
