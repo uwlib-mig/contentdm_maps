@@ -297,12 +297,12 @@
                                             migprop:descriptions/migprop:customization
                                             [matches(@co, $cdm_object_type_notation)]
                                             [matches(@dd, $alias) or matches(@dd, '\*')]
-                                            [matches(@objectType, $lcgft)]">
+                                            [matches(@objectType, $lcgft) or matches(@objectType, '/*')]">
                                         <xsl:for-each select="
                                                 migprop:descriptions/migprop:customization
                                                 [matches(@co, $cdm_object_type_notation)]
                                                 [matches(@dd, $alias) or matches(@dd, '\*')]
-                                                [matches(@objectType, $lcgft)]
+                                                [matches(@objectType, $lcgft) or matches(@objectType, '/*')]
                                                 /migprop:para">
                                             <li>
                                                 <xsl:value-of select="."/>
@@ -337,11 +337,13 @@
                                     <xsl:when test="
                                             migprop:examples/migprop:customization
                                             [matches(@co, $cdm_object_type_notation)]
-                                            [matches(@dd, $alias)]">
+                                            [matches(@dd, $alias) or matches(@dd, '\*')]
+                                            [matches(@objectType, $lcgft) or matches(@objectType, '/*')]">
                                         <xsl:for-each select="
                                                 migprop:examples/migprop:customization
                                                 [matches(@co, $cdm_object_type_notation)]
-                                                [matches(@dd, $alias)]/migprop:para">
+                                                [matches(@dd, $alias) or matches(@dd, '\*')]
+                                                [matches(@objectType, $lcgft) or matches(@objectType, '/*')]/migprop:para">
                                             <li>
                                                 <xsl:value-of select="."/>
                                             </li>
