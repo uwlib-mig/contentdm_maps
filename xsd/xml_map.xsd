@@ -8,7 +8,7 @@
     <!-- update xs:import @schemaLocation to online version once stable, use
     https://uwlib-mig.github.io/schemasProject/xsd/properties-files.xsd -->
     <xs:import namespace="https://uwlib-mig.github.io/schemasProject/xsd/"
-        schemaLocation="../../schemasProject/xsd/properties-files.xsd"/>
+        schemaLocation="../../schemasProject/xsd/properties_files.xsd"/>
 
     <xs:element name="xml_map" type="xml_map_type"/>
 
