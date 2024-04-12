@@ -20,7 +20,7 @@
     <!-- GLOBAL VARS -->
     <xsl:variable name="map" select="
             (: !! CAUTION local filepath to MAP file !!  :)
-            document('../../schemasProject/dataDictionaries/xml/becker.xml')"/>
+            document('../xml/becker.xml')"/>
     <xsl:variable name="alias" select="$map/migdd:migDataDictionary/migdd:cdmCode"/>
     
     <xsl:variable name="guidance_sections">
