@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<migDataDictionary xmlns="http://www.lib.washington.edu/msd/mig/schemas/dataDictionaries"
-    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:props="http://faculty.washington.edu/tgis/schemasProject/xsd4md"
-    id="0011">
+<xml_map xmlns="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ 
+    https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map.xsd">
     <ddName>KRAB FM Lesbian-Feminist Radio Program Recordings</ddName>
     <ddPartOfProject/>
     <originalCreationDate>2019-04-20</originalCreationDate>
@@ -15,39 +16,39 @@
     <standalone>yes</standalone>
     <cdmCode>krab</cdmCode> 
     <properties>
-        <xi:include href="../../properties-files/title.xml"/>
-        <xi:include href="../../properties-files/alternativeTitle.xml"/>
-        <xi:include href="../../properties-files/featuredContributor.xml"/>
-        <xi:include href="../../properties-files/engineer.xml"/>
-        <xi:include href="../../properties-files/producer.xml"/><!-- 5 -->
-        <xi:include href="../../properties-files/dateEdtf.xml"/>
-        <xi:include href="../../properties-files/dateBroadcast.xml"/>
-        <xi:include href="../../properties-files/dates.xml"/>
-        <xi:include href="../../properties-files/notes.xml"/>
-        <xi:include href="../../properties-files/contentNotes.xml"/><!-- 10 -->
-        <xi:include href="../../properties-files/subjectsLcsh.xml"/>
-        <xi:include href="../../properties-files/subjectsLctgm.xml"/>
-        <xi:include href="../../properties-files/geographicCoverage.xml"/>
-        <xi:include href="../../properties-files/timePeriodDiscussed.xml"/>
-        <xi:include href="../../properties-files/language.xml"/><!-- 15 -->
-        <xi:include href="../../properties-files/languageCode.xml"/>
-        <xi:include href="../../properties-files/digitalCollection.xml"/>
-        <xi:include href="../../properties-files/digitalIdNumber.xml"/>
-        <xi:include href="../../properties-files/orderingInformation.xml"/>
-        <xi:include href="../../properties-files/rightsUri.xml"/><!-- 20 -->
-        <xi:include href="../../properties-files/restrictions.xml"/>
-        <xi:include href="../../properties-files/repository.xml"/>
-        <xi:include href="../../properties-files/repositoryCollection.xml"/>
-        <xi:include href="../../properties-files/repositoryCollectionGuide.xml"/>
-        <xi:include href="../../properties-files/type.xml"/><!-- 25 -->
-        <xi:include href="../../properties-files/extent.xml"/>
-        <xi:include href="../../properties-files/digitalFormat.xml"/>
-        <xi:include href="../../properties-files/originalFormat.xml"/>
-        <xi:include href="../../properties-files/physicalDescription.xml"/>
-        <xi:include href="../../properties-files/fileName.xml"/><!-- 30 -->
-        <xi:include href="../../properties-files/digitalReproductionInformation.xml"/>
-        <xi:include href="../../properties-files/institution.xml"/>
-        <xi:include href="../../properties-files/cataloging.xml"/>
-        <xi:include href="../../properties-files/transcript.xml"/> <!-- 34 -->
+        <xi:include href="../../schemasProject/properties-files/title.xml"/>
+        <xi:include href="../../schemasProject/properties-files/alternativeTitle.xml"/>
+        <xi:include href="../../schemasProject/properties-files/featuredContributor.xml"/>
+        <xi:include href="../../schemasProject/properties-files/engineer.xml"/>
+        <xi:include href="../../schemasProject/properties-files/producer.xml"/><!-- 5 -->
+        <xi:include href="../../schemasProject/properties-files/dateEdtf.xml"/>
+        <xi:include href="../../schemasProject/properties-files/dateBroadcast.xml"/>
+        <xi:include href="../../schemasProject/properties-files/dates.xml"/>
+        <xi:include href="../../schemasProject/properties-files/notes.xml"/>
+        <xi:include href="../../schemasProject/properties-files/contentNotes.xml"/><!-- 10 -->
+        <xi:include href="../../schemasProject/properties-files/subjectsLcsh.xml"/>
+        <xi:include href="../../schemasProject/properties-files/subjectsLctgm.xml"/>
+        <xi:include href="../../schemasProject/properties-files/geographicCoverage.xml"/>
+        <xi:include href="../../schemasProject/properties-files/timePeriodDiscussed.xml"/>
+        <xi:include href="../../schemasProject/properties-files/language.xml"/><!-- 15 -->
+        <xi:include href="../../schemasProject/properties-files/languageCode.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalCollection.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalIdNumber.xml"/>
+        <xi:include href="../../schemasProject/properties-files/orderingInformation.xml"/>
+        <xi:include href="../../schemasProject/properties-files/rightsUri.xml"/><!-- 20 -->
+        <xi:include href="../../schemasProject/properties-files/restrictions.xml"/>
+        <xi:include href="../../schemasProject/properties-files/repository.xml"/>
+        <xi:include href="../../schemasProject/properties-files/repositoryCollection.xml"/>
+        <xi:include href="../../schemasProject/properties-files/repositoryCollectionGuide.xml"/>
+        <xi:include href="../../schemasProject/properties-files/type.xml"/><!-- 25 -->
+        <xi:include href="../../schemasProject/properties-files/extent.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalFormat.xml"/>
+        <xi:include href="../../schemasProject/properties-files/originalFormat.xml"/>
+        <xi:include href="../../schemasProject/properties-files/physicalDescription.xml"/>
+        <xi:include href="../../schemasProject/properties-files/fileName.xml"/><!-- 30 -->
+        <xi:include href="../../schemasProject/properties-files/digitalReproductionInformation.xml"/>
+        <xi:include href="../../schemasProject/properties-files/institution.xml"/>
+        <xi:include href="../../schemasProject/properties-files/cataloging.xml"/>
+        <xi:include href="../../schemasProject/properties-files/transcript.xml"/> <!-- 34 -->
     </properties>
-</migDataDictionary>
+</xml_map>

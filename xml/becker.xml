@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<migDataDictionary xmlns="http://www.lib.washington.edu/msd/mig/schemas/dataDictionaries"
-    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    id="0015"
-    xsi:schemaLocation="https://www.lib.washington.edu/cams/mig/datadicts 
-    ../../xsd4md/schema-4-dds.xsd">
-    <!-- BMR: I don't know what the function of ^^^ migDataDictionary/@id is -->
+<xml_map xmlns="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ 
+    https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map.xsd">
     <ddName>Collection Name TBD</ddName>
     <!-- element should be 'collectionName' -->
     <ddPartOfProject/>
@@ -51,5 +50,5 @@
         <xi:include href="../../schemasProject/properties-files/fileName.xml"/>
         <xi:include href="../../schemasProject/properties-files/cataloging.xml"/>
     </properties>
-</migDataDictionary>
+</xml_map>
     
