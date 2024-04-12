@@ -2,8 +2,8 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
-    xmlns:migdd="http://www.lib.washington.edu/msd/mig/schemas/dataDictionaries"
-    xmlns:migprop="http://faculty.washington.edu/tgis/schemasProject/xsd4md"
+    xmlns:migdd="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xmlns:migprop="https://uwlib-mig.github.io/schemasProject/xsd/"
     exclude-result-prefixes="xs math" expand-text="yes" version="3.0">
 
     <!-- OUTPUT METHOD, CHARACTER-MAP -->
@@ -21,7 +21,7 @@
     <xsl:variable name="map" select="
             (: !! CAUTION local filepath to MAP file !!  :)
             document('../xml/becker.xml')"/>
-    <xsl:variable name="alias" select="$map/migdd:migDataDictionary/migdd:cdmCode"/>
+    <xsl:variable name="alias" select="$map/migdd:xml_map/migdd:cdmCode"/>
     
     <xsl:variable name="guidance_sections">
         <!-- move this to xml MAP, validate with lcgft.xsd?? -->
@@ -61,12 +61,12 @@
                     <xsl:call-template name="toc"/>
                     <xsl:call-template name="all-list-start">
                         <xsl:with-param name="map_props"
-                            select="$map/migdd:migDataDictionary/migdd:properties"/>
+                            select="$map/migdd:xml_map/migdd:properties"/>
                     </xsl:call-template>
                     <xsl:for-each select="$guidance_sections/section">
                         <xsl:call-template name="guidance_section_start">
                             <xsl:with-param name="map_props"
-                                select="$map/migdd:migDataDictionary/migdd:properties"/>
+                                select="$map/migdd:xml_map/migdd:properties"/>
                             <xsl:with-param name="lcgft" select="lcgft"/>
                             <xsl:with-param name="cdm_object_type_notation" select="cdm_object_type"/>
                             <xsl:with-param name="cdm_object_type_label"
@@ -76,7 +76,7 @@
                     </xsl:for-each>
                     <xsl:call-template name="prop-config">
                         <xsl:with-param name="map_props"
-                            select="$map/migdd:migDataDictionary/migdd:properties"/>
+                            select="$map/migdd:xml_map/migdd:properties"/>
                         <!-- object-type param different than for above template;
                         due to different data structure for admin notes; 
                         if all resources are standalone objects should this be no|false|0? -->
@@ -85,7 +85,7 @@
                     <xsl:call-template name="CC0-footer">
                         <xsl:with-param name="resource_title">
                             <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
-                            <xsl:value-of select="$map/migdd:migDataDictionary/migdd:ddName"/>
+                            <xsl:value-of select="$map/migdd:xml_map/migdd:ddName"/>
                             <xsl:text> - </xsl:text>
                             <xsl:value-of select="$alias"/>
                         </xsl:with-param>
@@ -101,7 +101,7 @@
             <xsl:text>UWL MIG CONTENTdm Metadata Application Profile</xsl:text>
             <br/>
             <xsl:text>Collection title: </xsl:text>
-            <xsl:value-of select="$map/migdd:migDataDictionary/migdd:ddName"/>
+            <xsl:value-of select="$map/migdd:xml_map/migdd:ddName"/>
             <br/>
             <xsl:text>CONTENTdm collection alias: </xsl:text>
             <xsl:value-of select="$alias"/>
@@ -110,7 +110,7 @@
             <ul>
                 <li>
                     <xsl:text>Original creation date: </xsl:text>
-                    <xsl:value-of select="$map/migdd:migDataDictionary/migdd:originalCreationDate"/>
+                    <xsl:value-of select="$map/migdd:xml_map/migdd:originalCreationDate"/>
                 </li>
                 <li>
                     <xsl:text>Most recent revision: </xsl:text>
@@ -120,7 +120,7 @@
                     <xsl:text>Metadata liaison(s): </xsl:text>
                     <ul>
                         <xsl:for-each
-                            select="$map/migdd:migDataDictionary/migdd:metadataLiaisons/migdd:metadataLiaison">
+                            select="$map/migdd:xml_map/migdd:metadataLiaisons/migdd:metadataLiaison">
                             <li>
                                 <xsl:value-of select="."/>
                             </li>
