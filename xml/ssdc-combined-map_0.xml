@@ -3,7 +3,7 @@
     xmlns:xi="http://www.w3.org/2001/XInclude" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ 
-    https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map.xsd">
+    https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map_0.xsd">
     <ddName>Sephardic Studies Digital Collection at the University of Washington</ddName>
     <ddPartOfProject/>
     <originalCreationDate>2020-12-02</originalCreationDate>
