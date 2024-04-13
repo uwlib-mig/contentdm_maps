@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:props="https://uwlib-mig.github.io/schemasProject/xsd/"
+    targetNamespace="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xmlns="https://uwlib-mig.github.io/contentdm_maps/xsd/">
+    
+    <!-- update xs:import @schemaLocation to online version once stable, use
+    https://uwlib-mig.github.io/schemasProject/xsd/properties-files.xsd -->
+    <xs:import namespace="https://uwlib-mig.github.io/schemasProject/xsd/"
+        schemaLocation="../../schemasProject/xsd/properties_files.xsd"/>
+
+    <xs:element name="xml_map" type="xml_map_type"/>
+
+    <xs:complexType name="xml_map_type">
+        <xs:sequence>
+            <xs:element name="ddName" type="xs:string"/>
+            <xs:element name="ddPartOfProject" type="xs:string"/>
+            <xs:element name="originalCreationDate" type="xs:date"/>
+            <xs:element name="latestUpdate" type="xs:date"/>
+            <xs:element name="metadataLiaisons">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="metadataLiaison" type="xs:string" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="docTopContent" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Added to schema by BMR 2023-12-05. For the purpose of including some textual content for output at the top of an HTML metadata application profile document.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="cdmCo" type="props:yesNo">
+                <xs:annotation>
+                    <xs:documentation>Element for recording whether or not CONTENTdm compound objects are permitted.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="standalone" type="props:yesNo">
+                <xs:annotation>
+                    <xs:documentation>Element for recording whether or not CONTENTdm compound objects are permitted. Needed to state whether standalone can co-exist with compound objects.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="suppressItemProp" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Element to suppress property in xi:include from the Item Description of the HTML data dictionary.The value at /property/labels/platformIndependant should be used as the value of the suppressItemProp element.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="suppressObjectProp" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Element to suppress property in xi:include from the Object Description of the HTML data dictionary.The value at /property/labels/platformIndependant should be used as the value of the suppressItemProp element.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="cdmCode" type="xs:string"/>
+            <xs:element name="properties"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
