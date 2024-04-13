@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml_map xmlns="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ 
+    https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map_0.xsd"
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ddName>Collection Name TBD</ddName>
+    <!-- element should be 'collectionName' -->
+    <ddPartOfProject/>
+    <originalCreationDate>2024-01-25</originalCreationDate>
+    <latestUpdate>2024-01-25</latestUpdate>
+    <!-- not needed ^^^ if commit history exists??  -->
+    <metadataLiaisons>
+        <metadataLiaison>Benjamin Riesenberg - &lt;a href="mailto:ries07@uw.edu"&gt;ries07@uw.edu&lt;/a&gt;</metadataLiaison>
+    </metadataLiaisons>
+    <cdmCo>no</cdmCo>
+    <standalone>yes</standalone>
+    <cdmCode>becker</cdmCode>
+    <properties>
+        <!-- CAUTION local filepath to properties-files -->
+        <xi:include href="../../schemasProject/properties-files/title.xml"/>
+        <xi:include href="../../schemasProject/properties-files/titleNonLatin.xml"/>
+        <xi:include href="../../schemasProject/properties-files/author.xml"/>
+        <xi:include href="../../schemasProject/properties-files/contributor.xml"/>
+        <xi:include href="../../schemasProject/properties-files/photographer.xml"/>
+        <xi:include href="../../schemasProject/properties-files/date.xml"/>
+        <xi:include href="../../schemasProject/properties-files/dateEdtf.xml"/>
+        <xi:include href="../../schemasProject/properties-files/dates.xml"/>
+        <xi:include href="../../schemasProject/properties-files/subjectsLcsh.xml"/>
+        <xi:include href="../../schemasProject/properties-files/genreFormLcgft.xml"/>
+        <xi:include href="../../schemasProject/properties-files/description.xml"/>
+        <xi:include href="../../schemasProject/properties-files/notes.xml"/>
+        <xi:include href="../../schemasProject/properties-files/eventsDepicted.xml"/>
+        <xi:include href="../../schemasProject/properties-files/organizationsDiscussed.xml"/>
+        <xi:include href="../../schemasProject/properties-files/locationDepicted.xml"/>
+        <xi:include href="../../schemasProject/properties-files/contentNotes.xml"/>
+        <xi:include href="../../schemasProject/properties-files/language.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalCollection.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalIdNumber.xml"/>
+        <xi:include href="../../schemasProject/properties-files/orderingInformation.xml"/>
+        <xi:include href="../../schemasProject/properties-files/repository.xml"/>
+        <xi:include href="../../schemasProject/properties-files/repositoryCollection.xml"/>
+        <xi:include href="../../schemasProject/properties-files/repositoryCollectionGuide.xml"/>
+        <xi:include href="../../schemasProject/properties-files/physicalDescription.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalReproductionInformation.xml"/>
+        <xi:include href="../../schemasProject/properties-files/rightsUri.xml"/>
+        <xi:include href="../../schemasProject/properties-files/restrictions.xml"/>
+        <xi:include href="../../schemasProject/properties-files/type.xml"/>
+        <xi:include href="../../schemasProject/properties-files/institution.xml"/>
+        <xi:include href="../../schemasProject/properties-files/fileName.xml"/>
+        <xi:include href="../../schemasProject/properties-files/cataloging.xml"/>
+    </properties>
+</xml_map>
+    
