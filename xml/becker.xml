@@ -4,20 +4,36 @@
     https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map.xsd"
     xmlns:xi="http://www.w3.org/2001/XInclude" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ddName>Collection Name TBD</ddName>
-    <!-- element should be 'collectionName' -->
+    <coll_alias>becker</coll_alias>
     <ddPartOfProject/>
     <originalCreationDate>2024-01-25</originalCreationDate>
-    <latestUpdate>2024-01-25</latestUpdate>
     <!-- not needed ^^^ if commit history exists??  -->
-    <metadataLiaisons>
-        <metadataLiaison>Benjamin Riesenberg - &lt;a href="mailto:ries07@uw.edu"&gt;ries07@uw.edu&lt;/a&gt;</metadataLiaison>
-    </metadataLiaisons>
-    <cdmCo>no</cdmCo>
-    <standalone>yes</standalone>
-    <cdmCode>becker</cdmCode>
+    <related_staff>
+        <metadata>Benjamin Riesenberg - &lt;a href="mailto:ries07@uw.edu"&gt;ries07@uw.edu&lt;/a&gt;</metadata>
+    </related_staff>
+    <map_structure>
+        <section>
+            <genre_form>Photographs</genre_form>
+            <!-- TO DO: CHECK 'no' vs '^no$|^all$' -->
+            <cdm_object_type>no</cdm_object_type>
+            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <exclude_for_genre_form>^p6$|^p19$|^p99$|^p50$</exclude_for_genre_form>
+        </section>
+        <section>
+            <genre_form>Records_\(Documents\)</genre_form>
+            <cdm_object_type>no</cdm_object_type>
+            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <exclude_for_genre_form>^p65$|^p53$</exclude_for_genre_form>
+        </section>
+        <section>
+            <genre_form>Newsletters</genre_form>
+            <cdm_object_type>no</cdm_object_type>
+            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <exclude_for_genre_form>^p65$|^p53$</exclude_for_genre_form>
+        </section>
+    </map_structure>
     <properties>
-        <!-- CAUTION local filepath to properties-files -->
+        <!-- CAUTION local filepaths to properties-files -->
         <xi:include href="../../schemasProject/properties-files/title.xml"/>
         <xi:include href="../../schemasProject/properties-files/titleNonLatin.xml"/>
         <xi:include href="../../schemasProject/properties-files/author.xml"/>

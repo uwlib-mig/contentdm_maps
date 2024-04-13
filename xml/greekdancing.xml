@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml_map xmlns="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ 
+    https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map.xsd"
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <coll_alias>greekdancing</coll_alias>
+    <ddPartOfProject/>
+    <originalCreationDate>2020-05-11</originalCreationDate>
+    <related_staff>
+        <metadata>Benjamin Riesenberg - &lt;a href="mailto:ries07@uw.edu"&gt;ries07@uw.edu&lt;/a&gt;</metadata>
+    </related_staff>
+    <map_structure>
+        <section>
+            <genre_form>default</genre_form>
+            <cdm_object_type>object</cdm_object_type>
+            <cdm_object_type_label>compound objects</cdm_object_type_label>
+            <include_for_co_items>^p88$|^p55$|^p28$|^p30$|^p90$|^p37$|^p29$|^p62$|^p31$|^p79$|^p134$</include_for_co_items>
+        </section>
+    </map_structure>
+    <properties>
+        <xi:include href="../../schemasProject/properties-files/title.xml"/>
+        <xi:include href="../../schemasProject/properties-files/source.xml"/>
+        <xi:include href="../../schemasProject/properties-files/filmmaker.xml"/>
+        <xi:include href="../../schemasProject/properties-files/participants.xml"/>
+        <xi:include href="../../schemasProject/properties-files/dateEdtf.xml"/>
+        <xi:include href="../../schemasProject/properties-files/date.xml"/>
+        <xi:include href="../../schemasProject/properties-files/dates.xml"/>
+        <xi:include href="../../schemasProject/properties-files/dancesDepicted.xml"/>
+        <xi:include href="../../schemasProject/properties-files/instrumentsDepicted.xml"/>
+        <xi:include href="../../schemasProject/properties-files/eventsDepicted.xml"/>
+        <xi:include href="../../schemasProject/properties-files/notes.xml"/> 
+        <xi:include href="../../schemasProject/properties-files/regionalAffiliationGroup.xml"/>
+        <xi:include href="../../schemasProject/properties-files/regionalAffiliationGroupLcnaf.xml"/>
+        <xi:include href="../../schemasProject/properties-files/videoLocations.xml"/>
+        <xi:include href="../../schemasProject/properties-files/videoLocationsLcnaf.xml"/>
+        <xi:include href="../../schemasProject/properties-files/genreFormLcgft.xml"/>
+        <xi:include href="../../schemasProject/properties-files/objectType.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalCollection.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalIdNumber.xml"/>
+        <xi:include href="../../schemasProject/properties-files/orderingInformation.xml"/>
+        <xi:include href="../../schemasProject/properties-files/rightsUri.xml"/>
+        <xi:include href="../../schemasProject/properties-files/restrictions.xml"/>
+        <xi:include href="../../schemasProject/properties-files/repository.xml"/>
+        <xi:include href="../../schemasProject/properties-files/type.xml"/>
+        <xi:include href="../../schemasProject/properties-files/extent.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalFormat.xml"/>
+        <xi:include href="../../schemasProject/properties-files/originalFormat.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalReproductionInformation.xml"/>
+        <xi:include href="../../schemasProject/properties-files/staffNotes.xml"/>
+        <xi:include href="../../schemasProject/properties-files/digitalFileName.xml"/>
+        <xi:include href="../../schemasProject/properties-files/discNumber.xml"/>
+        <xi:include href="../../schemasProject/properties-files/institution.xml"/>
+    </properties>
+</xml_map>
