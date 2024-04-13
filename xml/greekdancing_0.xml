@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml_map xmlns="https://uwlib-mig.github.io/contentdm_maps/xsd/"
-    xmlns:xi="http://www.w3.org/2001/XInclude" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ 
-    https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map.xsd">
+    https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map_0.xsd"
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ddName>Hunt (Yvonne) Greek Folk Dance Collection</ddName>
     <ddPartOfProject/>
     <originalCreationDate>2020-05-11</originalCreationDate>

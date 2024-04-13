@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:mig="http://www.lib.washington.edu/msd/mig/schemas/dataDictionaries"
-    xmlns:mig2="http://faculty.washington.edu/tgis/schemasProject/xsd4md"
-    exclude-result-prefixes="xs mig mig2" version="3.0">
+    xmlns:cdmm="https://uwlib-mig.github.io/contentdm_maps/xsd/"
+    xmlns:schemas="https://uwlib-mig.github.io/schemasProject/xsd/"
+    exclude-result-prefixes="#all" version="3.0">
+
+    <!-- !!!
+        2024-04-12 this stylesheet does not work, likely related to 
+        https://github.com/uwlib-mig/schemasProject/issues/33 -->
 
     <!-- INCLUDE cc-by-zero stylesheet > CC0 template; index-backlink stylesheet > index-backlink template from webviews -->
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/CC0-footer.xsl"/>
@@ -21,7 +25,7 @@
     <!-- to do add collection alias once Greek Dances collection is created in CONTENTdm -->
     <xsl:variable name="collection" select="'greekdancing'"/>
     <xsl:variable name="greekDances-dd"
-        select="document('../../schemasProject/dataDictionaries/xml/greekDances-dd.xml')"/>
+        select="document('../xml/greekdancing_0.xml')"/>
     <!-- use uid-list regexes in vars with fn:matches() to control prop lists per resource and object type -->
     <xsl:variable name="default-co-prop"
         select="'^p88$|^p101$|^p102$|^p103$|^p23$|^p21$|^p26$|^p104$|^p105$|^p106$|^p55$|^p111$|^p144$|^p108$|^p145$|^p128$|^p57$|^p28$|^p30$|^p90$|^p59$|^p77$|^p75$|^p71$|^p79$|^p109$|^p44$'"/>
@@ -47,23 +51,23 @@
                     <xsl:call-template name="toc"/>
                     <xsl:call-template name="all-list-start">
                         <xsl:with-param name="greekDances-dd"
-                            select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
+                            select="$greekDances-dd/cdmm:migDataDictionary/cdmm:properties"/>
                     </xsl:call-template>
                     <xsl:call-template name="prop-guidance-section-start">
                         <xsl:with-param name="greekDances-dd"
-                            select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
+                            select="$greekDances-dd/cdmm:migDataDictionary/cdmm:properties"/>
                         <xsl:with-param name="resource-type" select="'default'"/>
                         <xsl:with-param name="co-prop" select="$default-co-prop"/>
                         <xsl:with-param name="coitem-prop" select="$default-coitem-prop"/>
                     </xsl:call-template>
                     <xsl:call-template name="prop-settings">
                         <xsl:with-param name="greekDances-dd"
-                            select="$greekDances-dd/mig:migDataDictionary/mig:properties"/>
+                            select="$greekDances-dd/cdmm:migDataDictionary/cdmm:properties"/>
                     </xsl:call-template>
                     <xsl:call-template name="CC0-footer">
                         <xsl:with-param name="resource_title">
                             <xsl:text>UWL MIG CONTENTdm Metadata Application Profile: </xsl:text>
-                            <xsl:value-of select="$greekDances-dd/mig:migDataDictionary/mig:ddName"/>
+                            <xsl:value-of select="$greekDances-dd/cdmm:migDataDictionary/cdmm:ddName"/>
                             <xsl:text> - </xsl:text>
                             <xsl:value-of select="$collection"/>
                         </xsl:with-param>
@@ -79,7 +83,7 @@
         <h1 class="title_color" id="top">
             <xsl:text>UWL MIG CONTENTdm Metadata Application Profile:</xsl:text>
             <br/>
-            <xsl:value-of select="$greekDances-dd/mig:migDataDictionary/mig:ddName"/>
+            <xsl:value-of select="$greekDances-dd/cdmm:migDataDictionary/cdmm:ddName"/>
             <br/>
             <!-- TO DO / NEED CDM ALIAS / -->
             <xsl:text>CONTENTdm collection alias: </xsl:text>
@@ -90,7 +94,7 @@
                 <li>
                     <xsl:text>Original creation date: </xsl:text>
                     <xsl:value-of
-                        select="$greekDances-dd/mig:migDataDictionary/mig:originalCreationDate"/>
+                        select="$greekDances-dd/cdmm:migDataDictionary/cdmm:originalCreationDate"/>
                 </li>
                 <li>
                     <xsl:text>Most recent revision: </xsl:text>
@@ -107,7 +111,7 @@
                     <xsl:text>Metadata liaison(s): </xsl:text>
                     <ul>
                         <xsl:for-each
-                            select="$greekDances-dd/mig:migDataDictionary/mig:metadataLiaisons/mig:metadataLiaison">
+                            select="$greekDances-dd/cdmm:migDataDictionary/cdmm:metadataLiaisons/cdmm:metadataLiaison">
                             <li>
                                 <xsl:value-of select="."/>
                             </li>
@@ -153,16 +157,16 @@
             <br/>
         </div>
         <ol>
-            <xsl:for-each select="$greekDances-dd/mig2:property">
+            <xsl:for-each select="$greekDances-dd/schemas:property">
                 <!-- to do [?] add "link to this TOC entry", etc.? -->
                 <li>
                     <span class="bold large_one">
                         <xsl:choose>
-                            <xsl:when test="mig2:cdm/mig2:label/text()">
-                                <xsl:value-of select="mig2:cdm/mig2:label"/>
+                            <xsl:when test="schemas:cdm/schemas:label/text()">
+                                <xsl:value-of select="schemas:cdm/schemas:label"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="mig2:labels/mig2:platformIndependent"/>
+                                <xsl:value-of select="schemas:labels/schemas:platformIndependent"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </span>
@@ -180,19 +184,19 @@
     </xsl:template>
     <xsl:template name="all-list-details">
         <xsl:param name="property"/>
-        <xsl:if test="matches($property/mig2:uid, $default-co-prop)">
+        <xsl:if test="matches($property/schemas:uid, $default-co-prop)">
             <li>
                 <xsl:text> [</xsl:text>
-                <a href="{concat('#', $property/mig2:uid, '-default-co')}">
+                <a href="{concat('#', $property/schemas:uid, '-default-co')}">
                     <xsl:text>COMPOUND OBJECTS</xsl:text>
                 </a>
                 <xsl:text>] </xsl:text>
             </li>
         </xsl:if>
-        <xsl:if test="matches($property/mig2:uid, $default-coitem-prop)">
+        <xsl:if test="matches($property/schemas:uid, $default-coitem-prop)">
             <li>
                 <xsl:text> [</xsl:text>
-                <a href="{concat('#', $property/mig2:uid, '-default-coitem')}">
+                <a href="{concat('#', $property/schemas:uid, '-default-coitem')}">
                     <xsl:text>COMPOUND-OBJECT ITEMS</xsl:text>
                 </a>
                 <xsl:text>] </xsl:text>
@@ -200,7 +204,7 @@
         </xsl:if>
         <li>
             <xsl:text> [</xsl:text>
-            <a href="{concat('#', $property/mig2:uid, '-settings')}">
+            <a href="{concat('#', $property/schemas:uid, '-settings')}">
                 <xsl:text>CONTENTdm SETTINGS</xsl:text>
             </a>
             <xsl:text>] </xsl:text>
@@ -263,16 +267,16 @@
                     <td width="50%">
                         <ul class="no_bullets large_one">
                             <xsl:for-each
-                                select="$greekDances-dd/mig2:property[matches(mig2:uid, $default-co-prop)]">
+                                select="$greekDances-dd/schemas:property[matches(schemas:uid, $default-co-prop)]">
                                 <li>
-                                    <a href="{concat('#', mig2:uid, '-default-co')}">
+                                    <a href="{concat('#', schemas:uid, '-default-co')}">
                                         <xsl:choose>
-                                            <xsl:when test="mig2:cdm/mig2:label/text()">
-                                                <xsl:value-of select="mig2:cdm/mig2:label"/>
+                                            <xsl:when test="schemas:cdm/schemas:label/text()">
+                                                <xsl:value-of select="schemas:cdm/schemas:label"/>
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <xsl:value-of
-                                                  select="mig2:labels/mig2:platformIndependent"/>
+                                                  select="schemas:labels/schemas:platformIndependent"/>
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </a>
@@ -283,16 +287,16 @@
                     <td width="50%">
                         <ul class="no_bullets large_one">
                             <xsl:for-each
-                                select="$greekDances-dd/mig2:property[matches(mig2:uid, $default-coitem-prop)]">
+                                select="$greekDances-dd/schemas:property[matches(schemas:uid, $default-coitem-prop)]">
                                 <li>
-                                    <a href="{concat('#', mig2:uid, '-default-coitem')}">
+                                    <a href="{concat('#', schemas:uid, '-default-coitem')}">
                                         <xsl:choose>
-                                            <xsl:when test="mig2:cdm/mig2:label/text()">
-                                                <xsl:value-of select="mig2:cdm/mig2:label"/>
+                                            <xsl:when test="schemas:cdm/schemas:label/text()">
+                                                <xsl:value-of select="schemas:cdm/schemas:label"/>
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <xsl:value-of
-                                                  select="mig2:labels/mig2:platformIndependent"/>
+                                                  select="schemas:labels/schemas:platformIndependent"/>
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </a>
@@ -350,13 +354,13 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:for-each
-            select="$greekDances-dd/mig2:property[matches(mig2:uid, $list-per-resource-and-object-type)]">
+            select="$greekDances-dd/schemas:property[matches(schemas:uid, $list-per-resource-and-object-type)]">
             <br/>
             <table class="prop_table">
                 <thead>
                     <tr>
                         <th colspan="2"
-                            id="{concat(mig2:uid, '-', $resource-type, '-', $object-type)}"
+                            id="{concat(schemas:uid, '-', $resource-type, '-', $object-type)}"
                             class="{concat('prop_table_head', ' ', $resource-type, '_color')}">
                             <div class="large_one">
                                 <xsl:text>AUDIOVISUAL RESOURCES > </xsl:text>
@@ -373,11 +377,11 @@
                             <br/>
                             <div class="large_two">
                                 <xsl:choose>
-                                    <xsl:when test="mig2:cdm/mig2:label/text()">
-                                        <xsl:value-of select="mig2:cdm/mig2:label"/>
+                                    <xsl:when test="schemas:cdm/schemas:label/text()">
+                                        <xsl:value-of select="schemas:cdm/schemas:label"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:value-of select="mig2:labels/mig2:platformIndependent"
+                                        <xsl:value-of select="schemas:labels/schemas:platformIndependent"
                                         />
                                     </xsl:otherwise>
                                 </xsl:choose>
@@ -392,7 +396,7 @@
                     </th>
                     <td>
                         <ul class="no_bullets">
-                            <xsl:for-each select="mig2:descriptions/mig2:definition/mig2:para">
+                            <xsl:for-each select="schemas:descriptions/schemas:definition/schemas:para">
                                 <li>
                                     <xsl:value-of select="."/>
                                 </li>
@@ -408,7 +412,7 @@
                         <br/>
                         <ul class="no_bullets">
                             <!-- NEW HERE indicate whether property is hidden in guidance section -->
-                            <xsl:if test="mig2:cdm/mig2:hidden/text() = 'yes'">
+                            <xsl:if test="schemas:cdm/schemas:hidden/text() = 'yes'">
                                 <li>
                                     <span class="italic">
                                         <xsl:text>Values entered for this property are not visible in the public interface.</xsl:text>
@@ -419,13 +423,13 @@
                             </xsl:if>
                             <xsl:choose>
                                 <xsl:when test="
-                                        mig2:descriptions/mig2:customization
+                                        schemas:descriptions/schemas:customization
                                         [@co = $obj-type-in-prop-file]
                                         [@dd = $collection]">
                                     <xsl:for-each select="
-                                            mig2:descriptions/mig2:customization
+                                            schemas:descriptions/schemas:customization
                                             [@co = $obj-type-in-prop-file]
-                                            [@dd = $collection]/mig2:para">
+                                            [@dd = $collection]/schemas:para">
                                         <li>
                                             <xsl:value-of select="."/>
                                         </li>
@@ -433,8 +437,8 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:for-each select="
-                                            mig2:descriptions/mig2:instructions
-                                            [@co = $obj-type-in-prop-file]/mig2:para">
+                                            schemas:descriptions/schemas:instructions
+                                            [@co = $obj-type-in-prop-file]/schemas:para">
                                         <li>
                                             <xsl:value-of select="."/>
                                         </li>
@@ -454,13 +458,13 @@
                         <ul class="no_bullets">
                             <xsl:choose>
                                 <xsl:when test="
-                                        mig2:examples/mig2:customization
+                                        schemas:examples/schemas:customization
                                         [@co = $obj-type-in-prop-file]
                                         [@dd = $collection]">
                                     <xsl:for-each select="
-                                            mig2:examples/mig2:customization
+                                            schemas:examples/schemas:customization
                                             [@co = $obj-type-in-prop-file]
-                                            [@dd = $collection]/mig2:para">
+                                            [@dd = $collection]/schemas:para">
                                         <li>
                                             <xsl:value-of select="."/>
                                         </li>
@@ -468,8 +472,8 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:for-each select="
-                                            mig2:examples/mig2:example
-                                            [@co = $obj-type-in-prop-file]/mig2:para">
+                                            schemas:examples/schemas:example
+                                            [@co = $obj-type-in-prop-file]/schemas:para">
                                         <li>
                                             <xsl:value-of select="."/>
                                         </li>
@@ -487,7 +491,7 @@
                             'https://uwlib-mig.github.io/contentdm_maps/html/', 
                             $collection, 
                             '.html#',
-                            mig2:uid, 
+                            schemas:uid, 
                             '-', $resource-type,
                             '-', $object-type)}">
                             <xsl:text>LINK TO THESE INSTRUCTIONS</xsl:text>
@@ -514,44 +518,44 @@
             <br/>
             <xsl:choose>
                 <xsl:when test="$object-type = 'co'">
-                    <xsl:if test="matches($property/mig2:uid, $default-coitem-prop)">
+                    <xsl:if test="matches($property/schemas:uid, $default-coitem-prop)">
                         <xsl:text>See also guidance for using </xsl:text>
                         <span class="bold large_one">
                             <xsl:choose>
-                                <xsl:when test="$property/mig2:cdm/mig2:label/text()">
-                                    <xsl:value-of select="$property/mig2:cdm/mig2:label"/>
+                                <xsl:when test="$property/schemas:cdm/schemas:label/text()">
+                                    <xsl:value-of select="$property/schemas:cdm/schemas:label"/>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:value-of
-                                        select="$property/mig2:labels/mig2:platformIndependent"/>
+                                        select="$property/schemas:labels/schemas:platformIndependent"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </span>
                         <xsl:text> with</xsl:text>
                         <xsl:text> [</xsl:text>
-                        <a href="{concat('#', $property/mig2:uid, '-default-coitem')}">
+                        <a href="{concat('#', $property/schemas:uid, '-default-coitem')}">
                             <xsl:text>AUDIOVISUAL RESOURCES > COMPOUND-OBJECT ITEMS</xsl:text>
                         </a>
                         <xsl:text>] </xsl:text>
                     </xsl:if>
                 </xsl:when>
                 <xsl:when test="$object-type = 'coitem'">
-                    <xsl:if test="matches($property/mig2:uid, $default-co-prop)">
+                    <xsl:if test="matches($property/schemas:uid, $default-co-prop)">
                         <xsl:text>See also guidance for using </xsl:text>
                         <span class="bold large_one">
                             <xsl:choose>
-                                <xsl:when test="$property/mig2:cdm/mig2:label/text()">
-                                    <xsl:value-of select="$property/mig2:cdm/mig2:label"/>
+                                <xsl:when test="$property/schemas:cdm/schemas:label/text()">
+                                    <xsl:value-of select="$property/schemas:cdm/schemas:label"/>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:value-of
-                                        select="$property/mig2:labels/mig2:platformIndependent"/>
+                                        select="$property/schemas:labels/schemas:platformIndependent"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </span>
                         <xsl:text> with</xsl:text>
                         <xsl:text> [</xsl:text>
-                        <a href="{concat('#', $property/mig2:uid, '-default-co')}">
+                        <a href="{concat('#', $property/schemas:uid, '-default-co')}">
                             <xsl:text>AUDIOVISUAL RESOURCES > COMPOUND OBJECTS</xsl:text>
                         </a>
                         <xsl:text>] </xsl:text>
@@ -578,21 +582,21 @@
             </p>
             <br/>
         </div>
-        <xsl:for-each select="$greekDances-dd/mig2:property">
+        <xsl:for-each select="$greekDances-dd/schemas:property">
             <br/>
             <div class="settings_color">
                 <br/>
-                <h3 id="{concat(mig2:uid, '-settings')}">
+                <h3 id="{concat(schemas:uid, '-settings')}">
                     <span class="large_one">
                         <xsl:text>CONTENTdm SETTINGS > </xsl:text>
                     </span>
                     <span class="large_two">
                         <xsl:choose>
-                            <xsl:when test="mig2:cdm/mig2:label/text()">
-                                <xsl:value-of select="mig2:cdm/mig2:label"/>
+                            <xsl:when test="schemas:cdm/schemas:label/text()">
+                                <xsl:value-of select="schemas:cdm/schemas:label"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="mig2:labels/mig2:platformIndependent"/>
+                                <xsl:value-of select="schemas:labels/schemas:platformIndependent"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </span>
@@ -607,7 +611,7 @@
                         <xsl:text>FIELD NAME: </xsl:text>
                     </span>
                     <span class="italic">
-                        <xsl:value-of select="mig2:cdm/mig2:label"/>
+                        <xsl:value-of select="schemas:cdm/schemas:label"/>
                     </span>
                 </li>
                 <li>
@@ -615,7 +619,7 @@
                         <xsl:text>DC MAP SETTING: </xsl:text>
                     </span>
                     <span class="italic">
-                        <xsl:value-of select="mig2:labels/mig2:dc"/>
+                        <xsl:value-of select="schemas:labels/schemas:dc"/>
                     </span>
                 </li>
                 <li>
@@ -623,7 +627,7 @@
                         <xsl:text>SHOW LARGE FIELD? </xsl:text>
                     </span>
                     <span class="italic">
-                        <xsl:value-of select="mig2:cdm/mig2:cdmLarge"/>
+                        <xsl:value-of select="schemas:cdm/schemas:cdmLarge"/>
                     </span>
                 </li>
                 <li>
@@ -631,7 +635,7 @@
                         <xsl:text>SEARCHABLE? </xsl:text>
                     </span>
                     <span class="italic">
-                        <xsl:value-of select="mig2:cdm/mig2:searchable"/>
+                        <xsl:value-of select="schemas:cdm/schemas:searchable"/>
                     </span>
                 </li>
                 <li>
@@ -639,7 +643,7 @@
                         <xsl:text>HIDDEN? </xsl:text>
                     </span>
                     <span class="italic">
-                        <xsl:value-of select="mig2:cdm/mig2:hidden"/>
+                        <xsl:value-of select="schemas:cdm/schemas:hidden"/>
                     </span>
                 </li>
                 <!-- not sure how to handle required, how required works in CONTENTdm admin interface -->
@@ -648,11 +652,11 @@
                         <xsl:text>'CONTROLLED-VOCABULARY' FEATURE? </xsl:text>
                     </span>
                     <span class="italic">
-                        <xsl:value-of select="mig2:cdm/mig2:cdmControlledVocab"/>
+                        <xsl:value-of select="schemas:cdm/schemas:cdmControlledVocab"/>
                     </span>
                 </li>
                 <xsl:if
-                    test="mig2:additionalInfo/mig2:admin[@co = 'all'][@dd4para = $collection]/node()">
+                    test="schemas:additionalInfo/schemas:admin[@co = 'all'][@dd4para = $collection]/node()">
                     <li>
                         <span class="bold">
                             <xsl:text>ADDITIONAL ADMINISTRATIVE NOTES</xsl:text>
@@ -660,7 +664,7 @@
                     </li>
                     <ul>
                         <xsl:for-each
-                            select="mig2:additionalInfo/mig2:admin[@co = 'all'][@dd4para = $collection]/mig2:para">
+                            select="schemas:additionalInfo/schemas:admin[@co = 'all'][@dd4para = $collection]/schemas:para">
                             <li>
                                 <xsl:value-of select="."/>
                             </li>
