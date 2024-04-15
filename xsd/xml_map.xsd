@@ -44,7 +44,7 @@
         <xs:sequence>
             <xs:element name="genre_form" type="schemas:genre_form_type"/>
             <!-- ! insufficiently-specified element cdm_object_type - allows more options than can be used! -->
-            <xs:element name="cdm_object_type" type="schemas:co_attribute_type"/>
+            <xs:element name="cdm_object_type" type="schemas:cdm_object_type_type"/>
             <!-- ! minimally-specified element cdm_object_type_label -->
             <xs:element name="cdm_object_type_label" type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:choice>
