@@ -15,20 +15,17 @@
         <section>
             <genre_form>Photographs</genre_form>
             <!-- TO DO: CHECK 'no' vs '^no$|^all$' -->
-            <cdm_object_type>no</cdm_object_type>
-            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <cdm_object_type>standalone_item</cdm_object_type>
             <exclude_for_genre_form>^p6$|^p19$|^p99$|^p50$</exclude_for_genre_form>
         </section>
         <section>
             <genre_form>Records_\(Documents\)</genre_form>
-            <cdm_object_type>no</cdm_object_type>
-            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <cdm_object_type>standalone_item</cdm_object_type>
             <exclude_for_genre_form>^p65$|^p53$</exclude_for_genre_form>
         </section>
         <section>
             <genre_form>Newsletters</genre_form>
-            <cdm_object_type>no</cdm_object_type>
-            <cdm_object_type_label>standalone items</cdm_object_type_label>
+            <cdm_object_type>standalone_item</cdm_object_type>
             <exclude_for_genre_form>^p65$|^p53$</exclude_for_genre_form>
         </section>
     </map_structure>

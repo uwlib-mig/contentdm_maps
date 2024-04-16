@@ -13,29 +13,25 @@
     <map_structure>
         <section>
             <genre_form>text</genre_form>
-            <cdm_object_type>object</cdm_object_type>
-            <cdm_object_type_label>compound objects</cdm_object_type_label>
+            <cdm_object_type>compound_object</cdm_object_type>
             <exclude_for_co>^p130$|^p45$|^p131$|^p132$|^p138$|^p139$|^p47$|^p140$|^p46$|^p141$|^p136$|^p137$|^p53$|^p98$|^p135$|^p142$</exclude_for_co>
             <include_for_co_items>^p88$|^p28$|^p71$|^p90$|^p29$|^p67$|^p134$</include_for_co_items>
         </section>
         <section>
             <genre_form>song</genre_form>
-            <cdm_object_type>object</cdm_object_type>
-            <cdm_object_type_label>compound objects</cdm_object_type_label>
+            <cdm_object_type>compound_object</cdm_object_type>
             <exclude_for_co>^p116$|^p117$|^p118$|^p45$|^p131$|^p47$|^p140$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p46$|^p85$|^p124$|^p136$|^p137$|^p53$|^p98$|^p135$|^p31$</exclude_for_co>
             <include_for_co_items>^p88$|^p28$|^p71$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p134$</include_for_co_items>
         </section>
         <section>
             <genre_form>oh</genre_form>
-            <cdm_object_type>object</cdm_object_type>
-            <cdm_object_type_label>compound objects</cdm_object_type_label>
+            <cdm_object_type>compound_object</cdm_object_type>
             <exclude_for_co>^p130$|^p116$|^p117$|^p118$|^p132$|^p138$|^p139$|^p6$|^p114$|^p119$|^p120$|^p121$|^p122$|^p115$|^p124$|^p141$|^p133$|^p31$</exclude_for_co>
             <include_for_co_items>^p88$|^p28$|^p71$|^p90$|^p37$|^p29$|^p62$|^p67$|^p143$|^p31$|^p134$</include_for_co_items>
         </section>
         <section>
             <genre_form>default</genre_form>
-            <cdm_object_type>no</cdm_object_type>
-            <cdm_object_type_label>standalone object</cdm_object_type_label>
+            <cdm_object_type>standalone_item</cdm_object_type>
         </section>
     </map_structure>
     <properties>

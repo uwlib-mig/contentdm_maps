@@ -26,9 +26,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <!-- ! unspecified element top_of_page -->
-            <!-- top_of_page might allow to record rich formatting with strong, a, etc. -->
-            <xs:element name="top_of_page" minOccurs="0" maxOccurs="1"/>
+            <!-- consider element(s) for recording top-of-page content (intro text, links, etc.) -->
             <xs:element name="map_structure" type="map_structure_type" minOccurs="1" maxOccurs="1"/>
             <xs:element name="properties"/>
         </xs:sequence>
@@ -43,10 +41,7 @@
     <xs:complexType name="map_section_type">
         <xs:sequence>
             <xs:element name="genre_form" type="schemas:genre_form_type"/>
-            <!-- ! insufficiently-specified element cdm_object_type - allows more options than can be used! -->
-            <xs:element name="cdm_object_type" type="schemas:cdm_object_type_type"/>
-            <!-- ! minimally-specified element cdm_object_type_label -->
-            <xs:element name="cdm_object_type_label" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="cdm_object_type" type="map_structure_cdm_object_type_type"/>
             <xs:choice>
                 <xs:sequence>
                     <xs:element name="exclude_for_genre_form" type="p_num_regex" minOccurs="0" maxOccurs="1"/>
@@ -58,6 +53,17 @@
             </xs:choice>            
         </xs:sequence>
     </xs:complexType>
+    
+    <xs:simpleType name="map_structure_cdm_object_type_type">
+        <xs:annotation>
+            <xs:documentation>Note difference between cdm_object_type_type, defined in properties_files.xsd.</xs:documentation>
+            <xs:documentation>Only 'compound_object' or 'standalone_object' may be defined as the cdm_object_type for each MAP section.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="compound_object"/>
+            <xs:enumeration value="standalone_item"/>
+        </xs:restriction>
+    </xs:simpleType>
     
     <xs:simpleType name="p_num_regex">
         <xs:restriction base="xs:string">

@@ -13,7 +13,7 @@
     <map_structure>
         <section>
             <genre_form>default</genre_form>
-            <cdm_object_type>object</cdm_object_type>
+            <cdm_object_type>compound_object</cdm_object_type>
             <cdm_object_type_label>compound objects</cdm_object_type_label>
             <include_for_co_items>^p88$|^p55$|^p28$|^p30$|^p90$|^p37$|^p29$|^p62$|^p31$|^p79$|^p134$</include_for_co_items>
         </section>
