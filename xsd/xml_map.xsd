@@ -48,7 +48,7 @@
                 </xs:sequence>
                 <xs:sequence>
                     <xs:element name="exclude_for_co" type="p_num_regex" minOccurs="0" maxOccurs="1"/>
-                    <xs:element name="include_for_co_items" type="p_num_regex" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="include_for_co_items" type="p_num_regex" minOccurs="1" maxOccurs="1"/>
                 </xs:sequence>
             </xs:choice>            
         </xs:sequence>
