@@ -14,9 +14,8 @@
     <map_structure>
         <section>
             <genre_form>Photographs</genre_form>
-            <!-- TO DO: CHECK 'no' vs '^no$|^all$' -->
             <cdm_object_type>standalone_item</cdm_object_type>
-            <exclude_for_genre_form>^p6$|^p19$|^p99$|^p50$</exclude_for_genre_form>
+            <exclude_for_genre_form>^p6$|^p19$|^p137$|^p99$|^p50$</exclude_for_genre_form>
         </section>
         <section>
             <genre_form>Records_\(Documents\)</genre_form>
