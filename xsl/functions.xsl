@@ -7,12 +7,10 @@
     xmlns:fn="http://www.w3.org/2005/xpath-functions" exclude-result-prefixes="#all"
     expand-text="yes" version="3.0">
 
-
     <!-- coll_name -->
     <xsl:variable name="collection_list" select="
             unparsed-text('https://uwlib-mig.github.io/schemasProject/json/collection_list.json')
             => fn:json-to-xml()"/>
-
     <xsl:function name="cdmm:coll_name">
         <xsl:param name="coll_alias" as="xs:string"/>
         <xsl:choose>
@@ -43,7 +41,7 @@
         </xsl:choose>
     </xsl:function>
 
-    <!-- render_dc_map_options -->
+    <!-- get_dcmap_config -->
     <xsl:variable name="dc_map_config_to_dc_term">
         <options>
             <dc_map_config label="Title">

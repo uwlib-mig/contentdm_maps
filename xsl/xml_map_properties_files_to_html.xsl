@@ -627,7 +627,7 @@
             </ul>
             <div class="center_align">
                 <p>
-                    <xsl:text>Source data for field '</xsl:text>
+                    <xsl:text>Source data: '</xsl:text>
                     <a href="{concat('https://github.com/uwlib-mig/schemasProject/blob/main/properties-files/',
                         schemas:labels/schemas:platformIndependent, '.xml')}">{schemas:labels/schemas:platformIndependent}</a>
                     <xsl:text>' | </xsl:text>
