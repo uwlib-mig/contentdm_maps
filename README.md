@@ -1,2 +1,4 @@
 # contentdm_maps
-Metadata application profiles (MAPs) to explain and constrain metadata in UW's CONTENTdm digital collections platform
+*Metadata-creation guidance UW's CONTENTdm digital collections platform*  
+*See also [schemasProject](https://github.com/uwlib-mig/contentdm_maps)*
+
