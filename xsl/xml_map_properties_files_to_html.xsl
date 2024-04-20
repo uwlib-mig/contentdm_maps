@@ -138,6 +138,7 @@
                     >Record values - CO</span>: Metadata-greation guidance for compound objects</li>
                 <li><span class="bold"
                     >Record values - CO-item</span>: Metadata-greation guidance for compound-object items</li>
+                <li>For collections including only one category of resource, 'default' may be used in place of a genre/form term.</li>
             </ul>
             <p>For further information about compound objects and compound-object items, refer to &lt;a href="https://help.oclc.org/Metadata_Services/CONTENTdm/Compound_objects"&gt;Compound objects&lt;/a&gt;.</p>
             <table class="all_list_table center_align">
