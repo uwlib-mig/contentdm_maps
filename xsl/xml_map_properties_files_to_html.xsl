@@ -114,7 +114,7 @@
                     <xsl:text>Metadata-creation guidance: </xsl:text>
                     <!-- for compound objects, add additional link to co-item guidance within section? -->
                     <a
-                        href="{concat('#', translate(cdmm:genre_form, '\', ''), '-', cdmm:cdm_object_type, '-guidance')}"
+                        href="{concat('#', cdmm:genre_form, '-', cdmm:cdm_object_type, '-guidance')}"
                         >
                         {cdmm:render_genre_form(cdmm:genre_form)}
                     </a>
@@ -171,14 +171,14 @@
                                             test="cdmm:cdm_object_type = 'compound_object' and cdmm:exclude_for_co">
                                             <xsl:if test="not(matches($uid, cdmm:exclude_for_co))">
                                                 <a
-                                                  href="{concat('#', $uid, '-', translate(cdmm:genre_form, '\', ''),
+                                                  href="{concat('#', $uid, '-', cdmm:genre_form,
                                                         '-', cdmm:cdm_object_type, '-guidance')}"
                                                   >{'Record values - CO'}</a>
                                                 <br/>
                                             </xsl:if>
                                             <xsl:if test="matches($uid, cdmm:include_for_co_items)">
                                                 <a
-                                                  href="{concat('#', $uid, '-', translate(cdmm:genre_form, '\', ''), '-co_item-guidance')}"
+                                                  href="{concat('#', $uid, '-', cdmm:genre_form, '-co_item-guidance')}"
                                                   >{'Record values - CO-item'}</a>
                                             </xsl:if>
                                             <xsl:if
@@ -188,12 +188,12 @@
                                         <xsl:when
                                             test="cdmm:cdm_object_type = 'compound_object' and not(cdmm:exclude_for_co)">
                                             <a
-                                                href="{concat('#', $uid, '-', translate(cdmm:genre_form, '\', ''), '-', cdmm:cdm_object_type, '-guidance')}"
+                                                href="{concat('#', $uid, '-', cdmm:genre_form, '-', cdmm:cdm_object_type, '-guidance')}"
                                                 >{'Record values - CO'}</a>
                                             <br/>
                                             <xsl:if test="matches($uid, cdmm:include_for_co_items)">
                                                 <a
-                                                  href="{concat('#', $uid, '-', translate(cdmm:genre_form, '\', ''), '-co_item-guidance')}"
+                                                  href="{concat('#', $uid, '-', cdmm:genre_form, '-co_item-guidance')}"
                                                   >{'Record values - CO-item'}</a>
                                             </xsl:if>
                                         </xsl:when>
@@ -202,7 +202,7 @@
                                             <xsl:if
                                                 test="not(matches($uid, cdmm:exclude_for_genre_form))">
                                                 <a
-                                                  href="{concat('#', $uid, '-',translate(cdmm:genre_form, '\', ''), '-', cdmm:cdm_object_type, '-guidance')}"
+                                                  href="{concat('#', $uid, '-',cdmm:genre_form, '-', cdmm:cdm_object_type, '-guidance')}"
                                                   >{'Record values'}</a>
                                                 <br/>
                                             </xsl:if>
@@ -213,7 +213,7 @@
                                         <xsl:when
                                             test="cdmm:cdm_object_type = 'standalone_item' and not(cdmm:exclude_for_genre_form)">
                                             <a
-                                                href="{concat('#', $uid, '-', translate(cdmm:genre_form, '\', ''), '-', cdmm:cdm_object_type, '-guidance')}"
+                                                href="{concat('#', $uid, '-', cdmm:genre_form, '-', cdmm:cdm_object_type, '-guidance')}"
                                                 >{'Record values'}</a>
                                             <br/>
                                         </xsl:when>
