@@ -37,7 +37,7 @@
     <xsl:function name="cdmm:convert_object_type_notation">
         <xsl:param name="cdm_object_type"/>
         <xsl:choose>
-            <xsl:when test="$cdm_object_type = 'compound_object'">co</xsl:when>
+            <xsl:when test="$cdm_object_type = 'compound_object'">object</xsl:when>
             <xsl:when test="$cdm_object_type = 'co_item'">item</xsl:when>
             <xsl:when test="$cdm_object_type = 'standalone_item'">no</xsl:when>
         </xsl:choose>

@@ -17,12 +17,12 @@
          ! include file type extension -->
     <xsl:param name="xml_map_filename"/>
 
-    <!-- GLOBAL VARS -->
+    <!-- global vars -->
     <xsl:variable name="xml_map"
         select="document(concat('../xml/', $xml_map_filename))/cdmm:xml_map"/>
     <xsl:variable name="alias" select="$xml_map/cdmm:coll_alias"/>
 
-    <!-- INCLUDE functions, uwlib-cams/webviews -->
+    <!-- include  -->
     <xsl:include href="functions.xsl"/>
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/CC0-footer.xsl"/>
     <xsl:include href="https://uwlib-cams.github.io/webviews/xsl/index-backlink.xsl"/>
@@ -389,31 +389,57 @@
                                     </li>
                                 </xsl:if>
                                 <xsl:choose>
+                                    <!-- match custom guidance on all three @co, @dd, @genre_form -->
                                     <xsl:when test="
                                             schemas:descriptions/schemas:customization
-                                            [matches(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
-                                            matches(@co, 'all')]
-                                            [matches(@dd, $alias) or matches(@dd, '\*')]
+                                            [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                            contains(@co, 'all')]
+                                            [contains(@dd, $alias) or contains(@dd, '*')]
                                             [contains(@genre_form, $section/cdmm:section/cdmm:genre_form) or
-                                            matches(@genre_form, '\*')]">
+                                            contains(@genre_form, '*')]">
                                         <xsl:for-each select="
                                                 schemas:descriptions/schemas:customization
-                                                [matches(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
-                                                matches(@co, 'all')]
-                                                [matches(@dd, $alias) or matches(@dd, '\*')]
+                                                [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                contains(@co, 'all')]
+                                                [contains(@dd, $alias) or contains(@dd, '*')]
                                                 [contains(@genre_form, $section/cdmm:section/cdmm:genre_form) or
-                                                matches(@genre_form, '\*')]
+                                                contains(@genre_form, '*')]
                                                 /schemas:para">
                                             <li>{.}</li>
                                         </xsl:for-each>
                                     </xsl:when>
                                     <xsl:otherwise>
+                                        <!-- match default guidance on @co -->
                                         <xsl:for-each select="
                                                 schemas:descriptions/schemas:instructions
-                                                [matches(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
-                                                matches(@co, 'all')]
-                                                (: !? what about default guidance per genre_form!? :)">
-                                            <li>{.}</li>
+                                                [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                contains(@co, 'all')]">
+                                            <xsl:choose>
+                                                <!-- if a match for @co *and* @genre_form exists, use that default guidance -->
+                                                <xsl:when test=".
+                                                    [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                    contains(@co, 'all')]
+                                                    [contains(@genre_form, $section/cdmm:section/cdmm:genre_form) or
+                                                    contains(@genre_form, '*')]">
+                                                    <xsl:for-each select=".
+                                                        [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                        contains(@co, 'all')]
+                                                        [contains(@genre_form, $section/cdmm:section/cdmm:genre_form) or
+                                                        contains(@genre_form, '*')]
+                                                        /schemas:para">
+                                                        <li>{.}</li>
+                                                    </xsl:for-each>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <!-- else, match default guidance on @co only -->
+                                                    <xsl:for-each select=".
+                                                        [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                        contains(@co, 'all')]
+                                                        /schemas:para">
+                                                        <li>{.}</li>
+                                                    </xsl:for-each>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
                                         </xsl:for-each>
                                     </xsl:otherwise>
                                 </xsl:choose>
@@ -425,30 +451,56 @@
                         <td>
                             <ul class="no_bullets">
                                 <xsl:choose>
+                                    <!-- match custom examples on all three @co, @dd, @genre_form -->
                                     <xsl:when test="
                                             schemas:examples/schemas:customization
-                                            [matches(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
-                                            matches(@co, 'all')]
-                                            [matches(@dd, $alias) or matches(@dd, '\*')]
+                                            [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                            contains(@co, 'all')]
+                                            [contains(@dd, $alias) or contains(@dd, '*')]
                                             [contains(@genre_form, $section/cdmm:section/cdmm:genre_form) or
-                                            matches(@genre_form, '\*')]">
+                                            contains(@genre_form, '*')]">
                                         <xsl:for-each select="
                                                 schemas:examples/schemas:customization
-                                                [matches(@co, cdmm:convert_object_type_notation($cdm_object_type))]
-                                                [matches(@dd, $alias) or matches(@dd, '\*')]
+                                                [contains(@co, cdmm:convert_object_type_notation($cdm_object_type))]
+                                                [contains(@dd, $alias) or contains(@dd, '*')]
                                                 [contains(@genre_form, $section/cdmm:section/cdmm:genre_form) or
-                                                matches(@genre_form, '\*')]
+                                                contains(@genre_form, '*')]
                                                 /schemas:para">
                                             <li>{.}</li>
                                         </xsl:for-each>
                                     </xsl:when>
                                     <xsl:otherwise>
+                                        <!-- match default examples on @co -->
                                         <xsl:for-each select="
                                                 schemas:examples/schemas:example
-                                                [matches(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
-                                                matches(@co, 'all')]
-                                                (: !? what about default examples per genre_form!? :)">
-                                            <li>{.}</li>
+                                                [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                contains(@co, 'all')]">
+                                            <xsl:choose>
+                                                <!-- if a match for @co *and* @genre_form exists, use those default examples -->
+                                                <xsl:when test=".
+                                                    [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                    contains(@co, 'all')]
+                                                    [contains(@genre_form, $section/cdmm:section/cdmm:genre_form) or
+                                                    contains(@genre_form, '*')]">
+                                                    <xsl:for-each select=".
+                                                        [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                        contains(@co, 'all')]
+                                                        [contains(@genre_form, $section/cdmm:section/cdmm:genre_form) or
+                                                        contains(@genre_form, '*')]
+                                                        /schemas:para">
+                                                        <li>{.}</li>
+                                                    </xsl:for-each>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <!-- else, match default examples on @co only -->
+                                                    <xsl:for-each select=".
+                                                        [contains(@co, cdmm:convert_object_type_notation($cdm_object_type)) or
+                                                        contains(@co, 'all')]
+                                                        /schemas:para">
+                                                        <li>{.}</li>
+                                                    </xsl:for-each>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
                                         </xsl:for-each>
                                     </xsl:otherwise>
                                 </xsl:choose>
