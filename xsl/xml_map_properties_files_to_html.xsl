@@ -623,6 +623,15 @@
                     </span>
                 </li>
             </ul>
+            <div class="center_align">
+                <p>
+                    <xsl:text>Source data for field '</xsl:text>
+                    <a href="{concat('https://github.com/uwlib-mig/schemasProject/blob/main/properties-files/',
+                        schemas:labels/schemas:platformIndependent, '.xml')}">{schemas:labels/schemas:platformIndependent}</a>
+                    <xsl:text>' | </xsl:text>
+                    <xsl:value-of select="schemas:uid"/>
+                </p>
+            </div>
             <xsl:call-template name="cdm_map_backlink"/>
         </xsl:for-each>
     </xsl:template>
