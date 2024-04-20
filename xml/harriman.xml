@@ -4,18 +4,18 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ 
     https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map.xsd">
-    <ddName>Harriman Alaska Expedition of 1899</ddName>
+    <coll_alias>harriman</coll_alias>
     <ddPartOfProject></ddPartOfProject>
     <originalCreationDate>2023-12-05</originalCreationDate>
-    <latestUpdate>2023-12-05</latestUpdate>
-    <metadataLiaisons>
-        <metadataLiaison>Benjamin Riesenberg - &lt;a href="mailto:ries07@uw.edu"&gt;ries07@uw.edu&lt;/a&gt;</metadataLiaison>
-    </metadataLiaisons>
-    <!-- docTopContent element may be used here if desired -->
-    <cdmCo>no</cdmCo>
-    <standalone>yes</standalone>
-    <cdmCode>harriman</cdmCode>
-    <!-- is this ^^^ the CONTENTdm alias? -->
+    <related_staff>
+        <metadata>Benjamin Riesenberg - &lt;a href="mailto:ries07@uw.edu"&gt;ries07@uw.edu&lt;/a&gt;</metadata>
+    </related_staff>
+    <map_structure>
+        <section>
+            <genre_form>Photographs</genre_form>
+            <cdm_object_type>standalone_item</cdm_object_type>
+        </section>
+    </map_structure>
     <properties>
         <xi:include href="../../schemasProject/properties-files/title.xml"/>
         <xi:include href="../../schemasProject/properties-files/photographer.xml"/>
@@ -49,6 +49,5 @@
         <xi:include href="../../schemasProject/properties-files/institution.xml"/>
         <xi:include href="../../schemasProject/properties-files/cataloging.xml"/>
         <xi:include href="../../schemasProject/properties-files/deprecatedValues.xml"/>
-        <!--<xi:include href="../../schemasProject/properties-files/"/>-->
     </properties>
 </xml_map>
