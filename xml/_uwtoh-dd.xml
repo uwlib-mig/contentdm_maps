@@ -23,8 +23,8 @@
         <xi:include href="../../schemasProject/properties-files/interviewer.xml"/>
         <xi:include href="../../schemasProject/properties-files/dateEdtf.xml"/>
         <xi:include href="../../schemasProject/properties-files/date.xml"/>
-        <xi:include href="../../schemasProject/properties-files/dates.xml"/>
-        <xi:include href="../../schemasProject/properties-files/affiliaitonRole.xml"/>
+        <xi:include href="../../schemasProject/properties-files/datesAll.xml"/>
+        <xi:include href="../../schemasProject/properties-files/affiliationRole.xml"/>
         <xi:include href="../../schemasProject/properties-files/affiliationDepartment.xml"/>
         <xi:include href="../../schemasProject/properties-files/description.xml"/>
         <xi:include href="../../schemasProject/properties-files/biography.xml"/>

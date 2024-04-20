@@ -22,8 +22,8 @@
         <xi:include href="../../schemasProject/properties-files/engineer.xml"/>
         <xi:include href="../../schemasProject/properties-files/producer.xml"/><!-- 5 -->
         <xi:include href="../../schemasProject/properties-files/dateEdtf.xml"/>
-        <xi:include href="../../schemasProject/properties-files/dateBroadcast.xml"/>
-        <xi:include href="../../schemasProject/properties-files/dates.xml"/>
+        <xi:include href="../../schemasProject/properties-files/dateOfBroadcast.xml"/>
+        <xi:include href="../../schemasProject/properties-files/datesAll.xml"/>
         <xi:include href="../../schemasProject/properties-files/notes.xml"/>
         <xi:include href="../../schemasProject/properties-files/contentNotes.xml"/><!-- 10 -->
         <xi:include href="../../schemasProject/properties-files/subjectsLcsh.xml"/>

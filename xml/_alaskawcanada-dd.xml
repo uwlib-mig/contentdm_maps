@@ -19,7 +19,7 @@
         <xi:include href="../../schemasProject/properties-files/photographer.xml"/>
         <xi:include href="../../schemasProject/properties-files/dateEdtf.xml"/>
         <xi:include href="../../schemasProject/properties-files/date.xml"/>
-        <xi:include href="../../schemasProject/properties-files/dates.xml"/>
+        <xi:include href="../../schemasProject/properties-files/datesAll.xml"/>
         <xi:include href="../../schemasProject/properties-files/notes.xml"/>
         <xi:include href="../../schemasProject/properties-files/historicalNotes.xml"/>
         <xi:include href="../../schemasProject/properties-files/subjectsLctgm.xml"/>
