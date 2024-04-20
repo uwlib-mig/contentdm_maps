@@ -4,16 +4,20 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://uwlib-mig.github.io/contentdm_maps/xsd/ 
     https://uwlib-mig.github.io/contentdm_maps/xsd/xml_map.xsd">
-    <ddName>Tacoma Japanese Language School Project</ddName>
+    <coll_alias>temp_alias_001</coll_alias>
     <ddPartOfProject/>
     <originalCreationDate>2022-07-21</originalCreationDate>
-    <latestUpdate>2022-07-21</latestUpdate>
-    <metadataLiaisons>
-        <metadataLiaison>Benjamin Riesenberg - &lt;a href="mailto:ries07@uw.edu"&gt;ries07@uw.edu&lt;/a&gt;</metadataLiaison>
-    </metadataLiaisons>
-    <cdmCo>yes</cdmCo>
-    <standalone>no</standalone>
-    <cdmCode>temp_alias_001</cdmCode>
+    <related_staff>
+        <metadata>Benjamin Riesenberg - &lt;a href="mailto:ries07@uw.edu"&gt;ries07@uw.edu&lt;/a&gt;</metadata>
+    </related_staff>
+   <map_structure>
+       <section>
+           <genre_form>Oral_histories</genre_form>
+           <cdm_object_type>compound_object</cdm_object_type>
+           <exclude_for_co>^p37$|^p29$|^p62$</exclude_for_co>
+           <include_for_co_items>^p88$|^p28$|^p30$|^p71$|^p90$|^p37$|^p62$</include_for_co_items>
+       </section>
+   </map_structure>
     <properties>
         <xi:include href="../../schemasProject/properties-files/title.xml"/>
         <xi:include href="../../schemasProject/properties-files/interviewee.xml"/>
