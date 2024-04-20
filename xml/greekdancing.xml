@@ -14,7 +14,7 @@
         <section>
             <genre_form>default</genre_form>
             <cdm_object_type>compound_object</cdm_object_type>
-            <exclude_for_co>^p37$|^p29$|^p62$|^p31$</exclude_for_co>
+            <exclude_for_co>^p37$|^p29$|^p62$|^p31$|^p134$</exclude_for_co>
             <include_for_co_items>^p88$|^p55$|^p28$|^p30$|^p90$|^p37$|^p29$|^p62$|^p31$|^p79$|^p134$</include_for_co_items>
         </section>
     </map_structure>

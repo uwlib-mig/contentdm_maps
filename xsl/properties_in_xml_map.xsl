@@ -8,7 +8,7 @@
     <xsl:output method="xml" indent="yes"/>
 
     <!-- specify XML MAP filename in param -->
-    <xsl:param name="xml_map_filename">p16786coll3.xml</xsl:param>
+    <xsl:param name="xml_map_filename">greekdancing.xml</xsl:param>
 
     <xsl:variable name="ssdc_map" select="
             document(concat('../xml/', $xml_map_filename))/cdmm:xml_map"/>
