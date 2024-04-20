@@ -581,8 +581,10 @@
                 <li>
                     <span class="bold">{'CONTENTdm setting ''DC map'''}</span>
                     <xsl:text> : </xsl:text>
-                    <!-- to do: replace with language shown in admin config interface -->
-                    <span class="italic">{schemas:labels/schemas:dc}</span>
+                    <span class="italic">
+                        <xsl:value-of select="
+                            translate(cdmm:get_dcmap_config(schemas:labels/schemas:dc), '_', ' ')"/>
+                    </span>
                 </li>
                 <li>
                     <span class="bold">{'CONTENTdm setting ''Show large field'''}</span>
