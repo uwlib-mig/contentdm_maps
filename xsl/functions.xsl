@@ -28,7 +28,8 @@
     <!-- render_genre_form -->
     <xsl:function name="cdmm:render_genre_form">
         <xsl:param name="genre_form" as="xs:string"/>
-        <xsl:value-of select="translate($genre_form, '_', ' ')"/>
+        <xsl:variable name="with_spaces" select="translate($genre_form, '_', ' ')" as="xs:string"/>
+        <xsl:value-of select="concat(upper-case(substring($with_spaces, 1, 1)), substring($with_spaces, 2))"/>
     </xsl:function>
 
     <!-- convert_object_type_notation -->
