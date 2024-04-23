@@ -57,6 +57,7 @@
         <xi:include href="../../schemasProject/properties-files/digitalReproductionInformation.xml"/>
         <xi:include href="../../schemasProject/properties-files/rightsUri.xml"/>
         <xi:include href="../../schemasProject/properties-files/restrictions.xml"/>
+        <xi:include href="../../schemasProject/properties-files/orderingInformation.xml"/>
         <xi:include href="../../schemasProject/properties-files/type.xml"/>
         <xi:include href="../../schemasProject/properties-files/institution.xml"/>
         <xi:include href="../../schemasProject/properties-files/fileName.xml"/>
